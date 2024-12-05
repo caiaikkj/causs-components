@@ -67,7 +67,7 @@
           display: block; /* Garante que o bot\xE3o seja tratado como bloco */
           width: 100%;    /* Ocupa toda a largura do container */
         }
-      `,t.appendChild(o)}connectedCallback(){let t=this.shadowRoot.querySelector(".btn"),e=this.getAttribute("variant");e&&t.classList.add(e),this.hasAttribute("disabled")&&t.setAttribute("disabled","true"),this.hasAttribute("full-width")&&t.classList.add("full-width")}};customElements.define("causs-button",d);var c=class extends HTMLElement{constructor(){super();let t=this.attachShadow({mode:"open"}),e=`
+      `,t.appendChild(o)}connectedCallback(){let t=this.shadowRoot.querySelector(".btn"),e=this.getAttribute("variant");e&&t.classList.add(e),this.hasAttribute("disabled")&&t.setAttribute("disabled","true"),this.hasAttribute("full-width")&&t.classList.add("full-width")}};customElements.define("causs-button",d);var l=class extends HTMLElement{constructor(){super();let t=this.attachShadow({mode:"open"}),e=`
         <div class="card">
           <div class="card-header">
             <slot name="header"></slot>
@@ -108,7 +108,7 @@
         .card-footer {
             text-align: right;
         }
-      `,t.appendChild(o)}};customElements.define("causs-card",c);var l=class extends HTMLElement{constructor(){super();let t=this.attachShadow({mode:"open"}),e=`
+      `,t.appendChild(o)}};customElements.define("causs-card",l);var c=class extends HTMLElement{constructor(){super();let t=this.attachShadow({mode:"open"}),e=`
         <div class="avatar">
           <img class="avatar-img" src="" alt="Avatar" />
         </div>
@@ -134,81 +134,81 @@
         .avatar.square .avatar-img {
           border-radius: 8px; /* Avatar quadrado com bordas levemente arredondadas */
         }
-      `,t.appendChild(o)}connectedCallback(){let t=this.shadowRoot.querySelector(".avatar"),e=this.shadowRoot.querySelector(".avatar-img"),o=this.getAttribute("src");o&&e.setAttribute("src",o);let n=this.getAttribute("variant")||"round";t.classList.add(n);let s=this.getAttribute("size");s&&t.style.setProperty("--avatar-size",`${s}px`)}};customElements.define("causs-avatar",l);var p=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
-        <style>
-          :host {
-            font-family: var(--font-family);
-            display: block;
-            width: 100%;
-          }
-        </style>
+      `,t.appendChild(o)}connectedCallback(){let t=this.shadowRoot.querySelector(".avatar"),e=this.shadowRoot.querySelector(".avatar-img"),o=this.getAttribute("src");o&&e.setAttribute("src",o);let n=this.getAttribute("variant")||"round";t.classList.add(n);let s=this.getAttribute("size");s&&t.style.setProperty("--avatar-size",`${s}px`)}};customElements.define("causs-avatar",c);var p=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
+      <style>
+        :host {
+          font-family: var(--font-family, Arial, sans-serif);
+          display: block;
+          width: 100%;
+        }
+      </style>
+      <slot></slot>
+    `;this.shadowRoot.innerHTML=t}},h=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
+      <style>
+        .breadcrumb-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          gap: 8px;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+      </style>
+      <ul class="breadcrumb-list">
         <slot></slot>
-      `;this.shadowRoot.innerHTML=t}},h=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
-        <style>
-          .breadcrumb-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            flex-wrap: wrap;
-          }
-        </style>
-        <ul class="breadcrumb-list">
-          <slot></slot>
-        </ul>
-      `;this.shadowRoot.innerHTML=t}},u=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
-        <style>
-          .breadcrumb-item {
-            font-family: var(--font-family);
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-          }
-        </style>
-        <li class="breadcrumb-item">
-          <slot></slot>
-        </li>
-      `;this.shadowRoot.innerHTML=t}},m=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
-        <style>
-          .breadcrumb-link {
-            font-family: var(--font-family);
-            font-weight: 500;
-            text-decoration: none;
-            color: #ccc;
-            transition: 300ms ease all;
-          }
-          .breadcrumb-link:hover {
-            color: var(--primary);
-          }
-        </style>
-        <a class="breadcrumb-link" href="${this.getAttribute("href")}">
-          <slot></slot>
-        </a>
-      `;this.shadowRoot.innerHTML=t}},b=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
-        <style>
-          .breadcrumb-separator {
-            user-select: none;
-            font-size: 1rem;
-            font-family: var(--font-family-variant);
-            margin: 0 8px;
-            color: #ccc;
-          }
-        </style>
-        <span class="breadcrumb-separator">></span>
-      `;this.shadowRoot.innerHTML=t}},v=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
-        <style>
-          .breadcrumb-page {
-            font-family: var(--font-family);
-            font-weight: 500;
-            color: var(--primary);
-          }
-        </style>
-        <span class="breadcrumb-page">
-          <slot></slot>
-        </span>
-      `;this.shadowRoot.innerHTML=t}};customElements.define("causs-breadcrumb",p);customElements.define("causs-breadcrumb-list",h);customElements.define("causs-breadcrumb-item",u);customElements.define("causs-breadcrumb-link",m);customElements.define("causs-breadcrumb-separator",b);customElements.define("causs-breadcrumb-page",v);var g=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render()}render(){let t=this.getAttribute("variant")||"default",e=this.getAttribute("label"),o=this.hasAttribute("disabled"),n=t==="file",s=this.getAttribute("type")||"text",i=this.getAttribute("placeholder")||"",r=`
+      </ul>
+    `;this.shadowRoot.innerHTML=t}},u=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
+      <style>
+        .breadcrumb-item {
+          font-family: var(--font-family, Arial, sans-serif);
+          font-size: 1rem;
+          display: flex;
+          align-items: center;
+        }
+      </style>
+      <li class="breadcrumb-item">
+        <slot></slot>
+      </li>
+    `;this.shadowRoot.innerHTML=t}},m=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
+      <style>
+        .breadcrumb-link {
+          font-family: var(--font-family, Arial, sans-serif);
+          font-weight: 500;
+          text-decoration: none;
+          color: #ccc;
+          transition: 300ms ease all;
+        }
+        .breadcrumb-link:hover {
+          color: var(--primary, #007bff);
+        }
+      </style>
+      <a class="breadcrumb-link" href="${this.getAttribute("href")}">
+        <slot></slot>
+      </a>
+    `;this.shadowRoot.innerHTML=t}},b=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
+      <style>
+        .breadcrumb-separator {
+          user-select: none;
+          font-size: 1rem;
+          font-family: var(--font-family-variant, Arial, sans-serif);
+          margin: 0 8px;
+          color: #ccc;
+        }
+      </style>
+      <span class="breadcrumb-separator">></span>
+    `;this.shadowRoot.innerHTML=t}},v=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
+      <style>
+        .breadcrumb-page {
+          font-family: var(--font-family, Arial, sans-serif);
+          font-weight: 500;
+          color: var(--primary, #007bff);
+        }
+      </style>
+      <span class="breadcrumb-page">
+        <slot></slot>
+      </span>
+    `;this.shadowRoot.innerHTML=t}};customElements.define("causs-breadcrumb",p);customElements.define("causs-breadcrumb-list",h);customElements.define("causs-breadcrumb-item",u);customElements.define("causs-breadcrumb-link",m);customElements.define("causs-breadcrumb-separator",b);customElements.define("causs-breadcrumb-page",v);var f=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render()}render(){let t=this.getAttribute("variant")||"default",e=this.getAttribute("label"),o=this.hasAttribute("disabled"),n=t==="file",s=this.getAttribute("type")||"text",i=this.getAttribute("placeholder")||"",r=`
         <style>
           .input-wrapper {
             display: flex;
@@ -254,7 +254,7 @@
             placeholder="${i}"
           />
         </div>
-      `;this.shadowRoot.innerHTML=r}};customElements.define("causs-input",g);var f=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render()}render(){let t=this.getAttribute("variant")||"primary",e=this.textContent.trim()||"Badge",o=`
+      `;this.shadowRoot.innerHTML=r}};customElements.define("causs-input",f);var g=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render()}render(){let t=this.getAttribute("variant")||"primary",e=this.textContent.trim()||"Badge",o=`
         <style>
           .badge {
             padding: 6px 12px;
@@ -290,7 +290,7 @@
         <span class="badge ${t}">
           ${e}
         </span>
-      `;this.shadowRoot.innerHTML=o}};customElements.define("causs-badge",f);var y=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.date=new Date}connectedCallback(){this.render()}render(){let t=this.date.getMonth(),e=this.date.getFullYear(),o=new Date(e,t+1,0).getDate(),n=new Date(e,t,1).getDay(),s="";for(let r=0;r<n;r++)s+='<div class="day empty"></div>';for(let r=1;r<=o;r++)s+=`<div class="day" data-day="${r}">${r}</div>`;let i=`
+      `;this.shadowRoot.innerHTML=o}};customElements.define("causs-badge",g);var y=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.date=new Date}connectedCallback(){this.render()}render(){let t=this.date.getMonth(),e=this.date.getFullYear(),o=new Date(e,t+1,0).getDate(),n=new Date(e,t,1).getDay(),s="";for(let r=0;r<n;r++)s+='<div class="day empty"></div>';for(let r=1;r<=o;r++)s+=`<div class="day" data-day="${r}">${r}</div>`;let i=`
         <style>
   :host {
     display: block;
