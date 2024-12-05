@@ -7,6 +7,11 @@ import './components/badge/badge.js'   // Badge Card
 import './components/calendar/calendar.js'   // Calendar Card
 import './components/alert/alert.js'   // Alert Card
 import './components/popover/popover.js'   // Popover Card
+import './components/accordion/accordion.js'   // Accordion Card
+import './components/input-otp/input-otp.js'   // Accordion Card
+import './components/progress/progress.js'   // Progress Card
+
+
 
 
 

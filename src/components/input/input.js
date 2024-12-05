@@ -32,6 +32,11 @@ class Input extends HTMLElement {
               box-sizing: border-box; /* Garante que o padding não afete o tamanho total */
             }
 
+            .input:focus {
+              border-color: var(--primary);
+              outline: none;
+            }
+
             .input:disabled {
               border: none;
               background-color: #f1f1f1;

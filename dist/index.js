@@ -1,4 +1,4 @@
-(()=>{var d=class extends HTMLElement{constructor(){super();let t=this.attachShadow({mode:"open"}),e=`
+(()=>{var c=class extends HTMLElement{constructor(){super();let t=this.attachShadow({mode:"open"}),e=`
         <button class="btn">
           <slot></slot>
         </button>
@@ -67,7 +67,7 @@
           display: block; /* Garante que o bot\xE3o seja tratado como bloco */
           width: 100%;    /* Ocupa toda a largura do container */
         }
-      `,t.appendChild(o)}connectedCallback(){let t=this.shadowRoot.querySelector(".btn"),e=this.getAttribute("variant");e&&t.classList.add(e),this.hasAttribute("disabled")&&t.setAttribute("disabled","true"),this.hasAttribute("full-width")&&t.classList.add("full-width")}};customElements.define("causs-button",d);var l=class extends HTMLElement{constructor(){super();let t=this.attachShadow({mode:"open"}),e=`
+      `,t.appendChild(o)}connectedCallback(){let t=this.shadowRoot.querySelector(".btn"),e=this.getAttribute("variant");e&&t.classList.add(e),this.hasAttribute("disabled")&&t.setAttribute("disabled","true"),this.hasAttribute("full-width")&&t.classList.add("full-width")}};customElements.define("causs-button",c);var d=class extends HTMLElement{constructor(){super();let t=this.attachShadow({mode:"open"}),e=`
         <div class="card">
           <div class="card-header">
             <slot name="header"></slot>
@@ -108,7 +108,7 @@
         .card-footer {
             text-align: right;
         }
-      `,t.appendChild(o)}};customElements.define("causs-card",l);var c=class extends HTMLElement{constructor(){super();let t=this.attachShadow({mode:"open"}),e=`
+      `,t.appendChild(o)}};customElements.define("causs-card",d);var l=class extends HTMLElement{constructor(){super();let t=this.attachShadow({mode:"open"}),e=`
         <div class="avatar">
           <img class="avatar-img" src="" alt="Avatar" />
         </div>
@@ -134,7 +134,7 @@
         .avatar.square .avatar-img {
           border-radius: 8px; /* Avatar quadrado com bordas levemente arredondadas */
         }
-      `,t.appendChild(o)}connectedCallback(){let t=this.shadowRoot.querySelector(".avatar"),e=this.shadowRoot.querySelector(".avatar-img"),o=this.getAttribute("src");o&&e.setAttribute("src",o);let n=this.getAttribute("variant")||"round";t.classList.add(n);let s=this.getAttribute("size");s&&t.style.setProperty("--avatar-size",`${s}px`)}};customElements.define("causs-avatar",c);var p=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
+      `,t.appendChild(o)}connectedCallback(){let t=this.shadowRoot.querySelector(".avatar"),e=this.shadowRoot.querySelector(".avatar-img"),o=this.getAttribute("src");o&&e.setAttribute("src",o);let r=this.getAttribute("variant")||"round";t.classList.add(r);let n=this.getAttribute("size");n&&t.style.setProperty("--avatar-size",`${n}px`)}};customElements.define("causs-avatar",l);var p=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
       <style>
         :host {
           font-family: var(--font-family, Arial, sans-serif);
@@ -208,7 +208,7 @@
       <span class="breadcrumb-page">
         <slot></slot>
       </span>
-    `;this.shadowRoot.innerHTML=t}};customElements.define("causs-breadcrumb",p);customElements.define("causs-breadcrumb-list",h);customElements.define("causs-breadcrumb-item",u);customElements.define("causs-breadcrumb-link",m);customElements.define("causs-breadcrumb-separator",b);customElements.define("causs-breadcrumb-page",v);var f=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render()}render(){let t=this.getAttribute("variant")||"default",e=this.getAttribute("label"),o=this.hasAttribute("disabled"),n=t==="file",s=this.getAttribute("type")||"text",i=this.getAttribute("placeholder")||"",r=`
+    `;this.shadowRoot.innerHTML=t}};customElements.define("causs-breadcrumb",p);customElements.define("causs-breadcrumb-list",h);customElements.define("causs-breadcrumb-item",u);customElements.define("causs-breadcrumb-link",m);customElements.define("causs-breadcrumb-separator",b);customElements.define("causs-breadcrumb-page",v);var g=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render()}render(){let t=this.getAttribute("variant")||"default",e=this.getAttribute("label"),o=this.hasAttribute("disabled"),r=t==="file",n=this.getAttribute("type")||"text",i=this.getAttribute("placeholder")||"",s=`
         <style>
           .input-wrapper {
             display: flex;
@@ -222,6 +222,11 @@
               font-size: 1rem;
               width: 100%; /* Garante que os inputs ocuparam o mesmo espa\xE7o */
               box-sizing: border-box; /* Garante que o padding n\xE3o afete o tamanho total */
+            }
+
+            .input:focus {
+              border-color: var(--primary);
+              outline: none;
             }
 
             .input:disabled {
@@ -248,13 +253,13 @@
         <div class="input-wrapper">
           ${e?`<label class="label">${e}</label>`:""}
           <input
-            type="${s}"
+            type="${n}"
             class="input ${t}"
             ${o?"disabled":""}
             placeholder="${i}"
           />
         </div>
-      `;this.shadowRoot.innerHTML=r}};customElements.define("causs-input",f);var g=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render()}render(){let t=this.getAttribute("variant")||"primary",e=this.textContent.trim()||"Badge",o=`
+      `;this.shadowRoot.innerHTML=s}};customElements.define("causs-input",g);var f=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render()}render(){let t=this.getAttribute("variant")||"primary",e=this.textContent.trim()||"Badge",o=`
         <style>
           .badge {
             padding: 6px 12px;
@@ -290,7 +295,7 @@
         <span class="badge ${t}">
           ${e}
         </span>
-      `;this.shadowRoot.innerHTML=o}};customElements.define("causs-badge",g);var y=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.date=new Date}connectedCallback(){this.render()}render(){let t=this.date.getMonth(),e=this.date.getFullYear(),o=new Date(e,t+1,0).getDate(),n=new Date(e,t,1).getDay(),s="";for(let r=0;r<n;r++)s+='<div class="day empty"></div>';for(let r=1;r<=o;r++)s+=`<div class="day" data-day="${r}">${r}</div>`;let i=`
+      `;this.shadowRoot.innerHTML=o}};customElements.define("causs-badge",f);var y=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.date=new Date}connectedCallback(){this.render()}render(){let t=this.date.getMonth(),e=this.date.getFullYear(),o=new Date(e,t+1,0).getDate(),r=new Date(e,t,1).getDay(),n="";for(let s=0;s<r;s++)n+='<div class="day empty"></div>';for(let s=1;s<=o;s++)n+=`<div class="day" data-day="${s}">${s}</div>`;let i=`
         <style>
   :host {
     display: block;
@@ -396,10 +401,10 @@
             <div>Sa</div>
           </div>
           <div class="calendar-grid">
-            ${s}
+            ${n}
           </div>
         </div>
-      `;this.shadowRoot.innerHTML=i,this.shadowRoot.querySelector(".prev-month").addEventListener("click",()=>this.changeMonth(-1)),this.shadowRoot.querySelector(".next-month").addEventListener("click",()=>this.changeMonth(1)),this.shadowRoot.querySelectorAll(".day").forEach(r=>{r.addEventListener("click",k=>this.onDayClick(k))})}changeMonth(t){this.date.setMonth(this.date.getMonth()+t),this.render()}getMonthName(t){return["January","February","March","April","May","June","July","August","September","October","November","December"][t]}onDayClick(t){let e=t.target.getAttribute("data-day");this.shadowRoot.querySelectorAll(".day").forEach(n=>n.classList.remove("active")),t.target.classList.add("active");let o=new Date(this.date.getFullYear(),this.date.getMonth(),e);this.dispatchEvent(new CustomEvent("day-selected",{detail:{date:o},bubbles:!0,composed:!0}))}};customElements.define("causs-calendar",y);var x=class extends HTMLElement{constructor(){super();let t=this.attachShadow({mode:"open"}),e=`
+      `;this.shadowRoot.innerHTML=i,this.shadowRoot.querySelector(".prev-month").addEventListener("click",()=>this.changeMonth(-1)),this.shadowRoot.querySelector(".next-month").addEventListener("click",()=>this.changeMonth(1)),this.shadowRoot.querySelectorAll(".day").forEach(s=>{s.addEventListener("click",E=>this.onDayClick(E))})}changeMonth(t){this.date.setMonth(this.date.getMonth()+t),this.render()}getMonthName(t){return["January","February","March","April","May","June","July","August","September","October","November","December"][t]}onDayClick(t){let e=t.target.getAttribute("data-day");this.shadowRoot.querySelectorAll(".day").forEach(r=>r.classList.remove("active")),t.target.classList.add("active");let o=new Date(this.date.getFullYear(),this.date.getMonth(),e);this.dispatchEvent(new CustomEvent("day-selected",{detail:{date:o},bubbles:!0,composed:!0}))}};customElements.define("causs-calendar",y);var x=class extends HTMLElement{constructor(){super();let t=this.attachShadow({mode:"open"}),e=`
         <div class="alert">
           <div class="icon">
             <slot name="icon"></slot>
@@ -452,52 +457,169 @@
           color: var(--red);
         }
       `,t.appendChild(o)}connectedCallback(){let t=this.shadowRoot.querySelector(".alert"),e=this.getAttribute("variant");e&&t.classList.add(e)}};customElements.define("causs-alert",x);var w=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.isOpen=!1;let t=`
-        <style>
-          :host {
-            position: relative;
-            display: inline-block;
-          }
-  
-          .popover-trigger {
-            cursor: pointer;
-          }
-  
-          .popover-content {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            min-width: 200px;
-            background: var(--popover-bg, white);
-            color: var(--popover-color, black);
-            border: 1px solid var(--popover-border, #ccc);
-            border-radius: 8px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 1rem;
-            z-index: 10;
-            display: none;
-          }
-  
-          .popover-content.open {
-            display: block;
-          }
-  
-          .arrow {
-            position: absolute;
-            top: -6px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 12px;
-            height: 12px;
-            background: inherit;
-            clip-path: polygon(50% 0, 100% 100%, 0 100%);
-          }
-        </style>
-        <div class="popover-trigger">
-          <slot name="trigger">Click me</slot>
-        </div>
-        <div class="popover-content">
-          <div class="arrow"></div>
-          <slot name="content">Popover Content</slot>
-        </div>
-      `;this.shadowRoot.innerHTML=t}connectedCallback(){this.trigger=this.shadowRoot.querySelector(".popover-trigger"),this.content=this.shadowRoot.querySelector(".popover-content"),this.trigger.addEventListener("click",this.togglePopover.bind(this)),document.addEventListener("click",this.handleOutsideClick.bind(this))}disconnectedCallback(){this.trigger.removeEventListener("click",this.togglePopover),document.removeEventListener("click",this.handleOutsideClick)}togglePopover(t){t.stopPropagation(),this.isOpen=!this.isOpen,this.content.classList.toggle("open",this.isOpen)}handleOutsideClick(t){this.contains(t.target)||(this.isOpen=!1,this.content.classList.remove("open"))}};customElements.define("causs-popover",w);})();
+      <style>
+        :host {
+          position: relative;
+          display: inline-block;
+        }
+
+        .popover-trigger {
+          cursor: pointer;
+        }
+
+        .popover-content {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%) scaleY(0); /* Come\xE7a escondido e com escala 0 */
+          min-width: 200px;
+          background: var(--popover-bg, white);
+          color: var(--popover-color, black);
+          border: 1px solid var(--popover-border, #ccc);
+          border-radius: 8px;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+          padding: 1rem;
+          z-index: 10;
+          display: block;
+          opacity: 0; /* Come\xE7a invis\xEDvel */
+          pointer-events: none; /* N\xE3o interage enquanto n\xE3o vis\xEDvel */
+          transition: transform 0.3s ease, opacity 0.3s ease; /* Transi\xE7\xF5es suaves */
+        }
+
+        .popover-content.open {
+          transform: translateX(-50%) scaleY(1); /* Quando vis\xEDvel, expande */
+          opacity: 1; /* Fica vis\xEDvel */
+          pointer-events: auto; /* Pode interagir quando vis\xEDvel */
+        }
+
+        .arrow {
+          position: absolute;
+          top: -6px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 12px;
+          height: 12px;
+          background: inherit;
+          clip-path: polygon(50% 0, 100% 100%, 0 100%);
+          transition: transform 0.3s ease; /* Anima\xE7\xE3o suave para a seta */
+        }
+
+        .popover-content.open .arrow {
+          transform: translateX(-50%) rotate(180deg); /* Seta vira quando o popover est\xE1 aberto */
+        }
+      </style>
+      <div class="popover-trigger">
+        <slot name="trigger">Click me</slot>
+      </div>
+      <div class="popover-content">
+        <slot name="content">Popover Content</slot>
+      </div>
+    `;this.shadowRoot.innerHTML=t}connectedCallback(){this.trigger=this.shadowRoot.querySelector(".popover-trigger"),this.content=this.shadowRoot.querySelector(".popover-content"),this.trigger.addEventListener("click",this.togglePopover.bind(this)),document.addEventListener("click",this.handleOutsideClick.bind(this))}disconnectedCallback(){this.trigger.removeEventListener("click",this.togglePopover),document.removeEventListener("click",this.handleOutsideClick)}togglePopover(t){t.stopPropagation(),this.isOpen=!this.isOpen,this.content.classList.toggle("open",this.isOpen)}handleOutsideClick(t){this.contains(t.target)||(this.isOpen=!1,this.content.classList.remove("open"))}};customElements.define("causs-popover",w);var k=class extends HTMLElement{constructor(){super();let t=this.attachShadow({mode:"open"});t.innerHTML=`
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <slot name="header"></slot>
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <slot></slot>
+                </div>
+            </div>
+        `;let e=document.createElement("style");e.textContent=`
+            .accordion-item {
+                border-bottom: 1px solid #e5e7eb;
+                overflow: hidden;
+                width: 100%;
+            }
+            .accordion-header {
+                min-width: 400px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 16px;
+                cursor: pointer;
+                background-color: var(--background);
+                font-weight: 600;
+                transition: background-color 0.3s ease;
+            }
+            .accordion-header:hover {
+                background-color: #f0f0f0;
+            }
+            .accordion-content {
+                height: 0; /* Start with zero height */
+                padding: 0 16px; /* Only horizontal padding initially */
+                background-color: white;
+                overflow: hidden;
+                width: 100%;
+                transition: height 0.3s ease, padding 0.3s ease; /* Animate height and padding */
+            }
+            .accordion-content.open {
+                height: auto; /* Auto height when open */
+                padding: 16px; /* Apply padding when open */
+            }
+            .accordion-icon {
+                transition: transform 0.3s ease;
+                font-size: 18px;
+            }
+            .accordion-icon.open {
+                transform: rotate(45deg);
+            }
+        `,t.appendChild(e)}connectedCallback(){this.isOpen=!1,this.header=this.shadowRoot.querySelector(".accordion-header"),this.content=this.shadowRoot.querySelector(".accordion-content"),this.icon=this.shadowRoot.querySelector(".accordion-icon"),this.header.addEventListener("click",()=>{this.toggle()})}toggle(){this.isOpen=!this.isOpen,this.isOpen?(this.content.classList.add("open"),this.icon.classList.add("open")):(this.content.classList.remove("open"),this.icon.classList.remove("open")),this.dispatchEvent(new CustomEvent("toggle",{bubbles:!0}))}close(){this.isOpen=!1,this.content.classList.remove("open"),this.icon.classList.remove("open")}};customElements.define("causs-accordion-item",k);var L=class extends HTMLElement{constructor(){super();let t=this.attachShadow({mode:"open"}),e=`
+            <div class="otp-container">
+                <input type="text" class="otp-input" maxlength="1" />
+                <input type="text" class="otp-input" maxlength="1" />
+                <input type="text" class="otp-input" maxlength="1" />
+                <input type="text" class="otp-input" maxlength="1" />
+                <input type="text" class="otp-input" maxlength="1" />
+                <input type="text" class="otp-input" maxlength="1" />
+            </div>
+        `;t.innerHTML=e;let o=document.createElement("style");o.textContent=`
+            .otp-container {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+            }
+
+            .otp-input {
+                width: 40px;
+                height: 40px;
+                text-align: center;
+                font-size: 1.5rem;
+                border: 1px solid #ccc;
+                transition: border-color 0.3s ease;
+            }
+
+            .otp-input:first-child {
+                border-radius: 12px 0 0 12px;
+            }
+
+            .otp-input:last-child {
+                border-radius: 0 12px 12px 0;
+            }
+
+            .otp-input:focus {
+                border-color: var(--primary);
+                outline: none;
+            }
+        `,t.appendChild(o),this.autoFocus()}connectedCallback(){let t=this.shadowRoot.querySelectorAll(".otp-input");t.forEach((e,o)=>{e.addEventListener("input",r=>{r.target.value.length===1&&o<t.length-1&&t[o+1].focus(),r.target.value.length===0&&o>0&&t[o-1].focus(),this.emitOTPValue()})})}emitOTPValue(){let t=Array.from(this.shadowRoot.querySelectorAll(".otp-input")).map(o=>o.value).join(""),e=new CustomEvent("otp-change",{detail:t,bubbles:!0,composed:!0});this.dispatchEvent(e)}autoFocus(){this.shadowRoot.querySelectorAll(".otp-input")[0].focus()}};customElements.define("causs-otp",L);var M=class extends HTMLElement{constructor(){super();let t=this.attachShadow({mode:"open"}),e=`
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+        `;t.innerHTML=e;let o=document.createElement("style");o.textContent=`
+            .progress-container {
+                width: 100%;
+                min-width: 400px;
+                height: 10px;
+                background-color: #e0e0e0;
+                border-radius: 10px;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .progress-bar {
+                width: 0%;
+                height: 100%;
+                border-radius: 10px;
+                background-color: var(--primary);
+                transition: width 0.5s ease;
+            }
+        `,t.appendChild(o)}set progress(t){let e=this.shadowRoot.querySelector(".progress-bar"),o=Math.min(Math.max(t,0),100);e.style.width=`${o}%`}get progress(){let t=this.shadowRoot.querySelector(".progress-bar");return parseFloat(t.style.width)}connectedCallback(){let t=this.getAttribute("value")||0;this.progress=t}};customElements.define("causs-progress",M);})();

@@ -120,6 +120,10 @@
             <!-- With Label -->
             <causs-input label="Name" placeholder="Your name"></causs-input>
         </div>
+        <div class="input">
+            <!-- OTP -->
+            <causs-otp id="otp-input"></causs-otp>
+        </div>
     </div>
     <div class="badges">
         <causs-badge>Primary</causs-badge>
@@ -146,6 +150,7 @@
             </div>
         </causs-alert>
     </div>
+    <causs-progress id="progress" value="10"></causs-progress>
     <div class="popover">
         <causs-popover>
             <causs-button slot="trigger">Popover</causs-button>
@@ -159,21 +164,32 @@
             </div>
           </causs-popover>
     </div>
-    <div class="date-picker">
-        <causs-popover>
-          <causs-popover-trigger slot="trigger">
-            <causs-button variant="outline" class="popover-trigger">
-              <span class="calendar-icon">📅</span>
-              <span class="date-text">Pick a date</span>
-            </causs-button>
-          </causs-popover-trigger>
-          <div slot="content" class="popover-content">
-            <causs-calendar></causs-calendar>
-          </div>
-        </causs-popover>
-      </div>
-      
-
+    <div class="accordion">
+        <causs-accordion>
+                <causs-accordion-item>
+                    <div slot="header">This is an accordion</div>
+                    <div>That's the accordion first item content.</div>
+                </causs-accordion-item>
+                <causs-accordion-item>
+                    <div slot="header">Here is a second item</div>
+                    <div>And that's the content from the second accordion item.</div>
+                </causs-accordion-item>
+            </causs-accordion>
+    </div>
     <script src="./dist/index.js"></script>  <!-- JavaScript compilado -->
+    <script>
+        const progressBar = document.getElementById('progress');
+        let value = 10;
+    
+        const interval = setInterval(() => {
+            if (value >= 100) {
+                value = 0;  // Reinicia o valor para 0 quando chega a 100
+            } else {
+                value += 10;  // Incrementa o valor a cada 500ms
+            }
+    
+            progressBar.progress = value;  // Atualiza a barra de progresso
+        }, 1000);  // Atualiza a cada 500ms
+    </script>
 </body>
 </html>
