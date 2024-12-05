@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Biblioteca de Componentes</title>
+    <link rel="stylesheet" href="./dist/index.css">  <!-- CSS global -->
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-family);
+        }
+
+        body div {
+            margin-top: .5rem;
+            margin-bottom: .5rem;
+        }
+
+        .inputs causs-input {
+            margin-top: 1rem;
+        }
+    </style>
+    <!-- <style>
+        .card {
+            font-family: var(--font-family);
+            width: fit-content;
+            max-width: 400px;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card-header {
+          font-size: 1.25rem;
+          font-weight: bold;
+          color: var(--card-header-color, #111827);
+        }
+  
+        .card-content {
+          font-size: 1rem;
+          color: var(--card-content-color, #4b5563);
+        }
+  
+        .card-footer {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+    </style> -->
+</head>
+<body>
+    <div class="botao">
+        <causs-button>Primary</causs-button>
+        <causs-button variant="secondary">Secondary</causs-button>
+        <causs-button variant="destructive">Destructive</causs-button>
+        <causs-button variant="ghost">Ghost</causs-button>
+        <causs-button variant="outline">Outline</causs-button>
+        <causs-button disabled>Disabled</causs-button>
+        <causs-button full-width>Full-Width</causs-button>
+    </div>
+    <div class="card">
+        <causs-card>
+            <div slot="header">
+                <h3>Card Title</h3>
+            </div>
+            <div slot="content">
+                <p>Here is the card content. You can add any HTML content here!</p>
+            </div>
+            <div slot="footer">
+                <causs-button variant="outline">Cancel</causs-button>
+                <causs-button>Save</causs-button>
+            </div>
+        </causs-card>
+    </div>
+    <div class="avatar">
+        <causs-avatar src="https://avatars.githubusercontent.com/u/72986577?v=4"></causs-avatar>
+        <causs-avatar size="64" src="https://avatars.githubusercontent.com/u/72986577?v=4" variant="square"></causs-avatar>
+    </div>
+    <div class="breadcrumbs">
+        <causs-breadcrumb>
+            <causs-breadcrumb-list>
+              <causs-breadcrumb-item>
+                <causs-breadcrumb-link href="/">Home</causs-breadcrumb-link>
+              </causs-breadcrumb-item>
+              <causs-breadcrumb-separator></causs-breadcrumb-separator>
+              <causs-breadcrumb-item>
+                <causs-breadcrumb-link href="/components">Components</causs-breadcrumb-link>
+              </causs-breadcrumb-item>
+              <causs-breadcrumb-separator></causs-breadcrumb-separator>
+              <causs-breadcrumb-item>
+                <causs-breadcrumb-page>Breadcrumb</causs-breadcrumb-page>
+              </causs-breadcrumb-item>
+            </causs-breadcrumb-list>
+          </causs-breadcrumb>
+    </div>
+    <div class="inputs">
+        <div class="input">
+            <!-- Default -->
+            <causs-input placeholder="Email"></causs-input>
+        </div>
+        <div class="input">
+            <!-- File -->
+            <causs-input label="Arquivo" type="file"></causs-input>
+        </div>
+        <div class="input">
+            <!-- Disabled -->
+            <causs-input placeholder="Email" disabled></causs-input>
+        </div>
+        <div class="input">
+            <!-- With Label -->
+            <causs-input label="Name" placeholder="Your name"></causs-input>
+        </div>
+    </div>
+    <div class="badges">
+        <causs-badge>Primary</causs-badge>
+        <causs-badge variant="secondary">Secondary</causs-badge>
+        <causs-badge variant="destructive">Destructive</causs-badge>
+        <causs-badge variant="outline">Outline</causs-badge>
+    </div>
+    <div class="calendar">
+        <causs-calendar></causs-calendar>
+    </div>
+    <div class="alert">
+        <causs-alert>
+            <div slot="title">Heads up!</div>
+            <div slot="description">
+                This is an example of a custom alert component. You can customize it as needed.
+            </div>
+        </causs-alert>
+    </div>
+    <div class="alert">
+        <causs-alert variant="destructive">
+            <div slot="title">Heads up!</div>
+            <div slot="description">
+                This is an example of a custom alert component. You can customize it as needed.
+            </div>
+        </causs-alert>
+    </div>
+    <div class="popover">
+        <causs-popover>
+            <causs-button slot="trigger">Popover</causs-button>
+            <div slot="content">
+                <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;" class="popover-inside">
+                    <h3>Popover Example</h3>
+                    <p>This is a Popover component example.</p>
+                    <causs-input placeholder="Name"></causs-input>
+                </div>
+                <causs-button variant="outline" full-width>Fechar</causs-button>
+            </div>
+          </causs-popover>
+    </div>
+    <div class="date-picker">
+        <causs-popover>
+          <causs-popover-trigger slot="trigger">
+            <causs-button variant="outline" class="popover-trigger">
+              <span class="calendar-icon">📅</span>
+              <span class="date-text">Pick a date</span>
+            </causs-button>
+          </causs-popover-trigger>
+          <div slot="content" class="popover-content">
+            <causs-calendar></causs-calendar>
+          </div>
+        </causs-popover>
+      </div>
+      
+
+    <script src="./dist/index.js"></script>  <!-- JavaScript compilado -->
+</body>
+</html>

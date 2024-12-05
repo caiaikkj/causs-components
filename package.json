@@ -1,0 +1,6 @@
+{
+        "scripts": {
+        "build": "esbuild src/index.js --bundle --outdir=dist --minify",
+        "dev": "live-server dist"
+    }
+}
