@@ -8,6 +8,7 @@ class Breadcrumb extends HTMLElement {
       const breadcrumbHTML = `
         <style>
           :host {
+            font-family: var(--font-family);
             display: block;
             width: 100%;
           }

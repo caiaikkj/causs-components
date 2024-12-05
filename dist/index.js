@@ -137,6 +137,7 @@
       `,t.appendChild(o)}connectedCallback(){let t=this.shadowRoot.querySelector(".avatar"),e=this.shadowRoot.querySelector(".avatar-img"),o=this.getAttribute("src");o&&e.setAttribute("src",o);let n=this.getAttribute("variant")||"round";t.classList.add(n);let s=this.getAttribute("size");s&&t.style.setProperty("--avatar-size",`${s}px`)}};customElements.define("causs-avatar",l);var p=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
         <style>
           :host {
+            font-family: var(--font-family);
             display: block;
             width: 100%;
           }
