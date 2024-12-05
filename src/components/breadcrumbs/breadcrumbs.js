@@ -79,6 +79,7 @@ class Breadcrumb extends HTMLElement {
       const linkHTML = `
         <style>
           .breadcrumb-link {
+            font-family: var(--font-family);
             font-weight: 500;
             text-decoration: none;
             color: #ccc;
@@ -129,6 +130,7 @@ class Breadcrumb extends HTMLElement {
       const pageHTML = `
         <style>
           .breadcrumb-page {
+            font-family: var(--font-family);
             font-weight: 500;
             color: var(--primary);
           }

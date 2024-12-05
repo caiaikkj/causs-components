@@ -172,6 +172,7 @@
       `;this.shadowRoot.innerHTML=t}},m=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
         <style>
           .breadcrumb-link {
+            font-family: var(--font-family);
             font-weight: 500;
             text-decoration: none;
             color: #ccc;
@@ -198,6 +199,7 @@
       `;this.shadowRoot.innerHTML=t}},v=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
         <style>
           .breadcrumb-page {
+            font-family: var(--font-family);
             font-weight: 500;
             color: var(--primary);
           }
