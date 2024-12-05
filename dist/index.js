@@ -160,6 +160,7 @@
       `;this.shadowRoot.innerHTML=t}},u=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let t=`
         <style>
           .breadcrumb-item {
+            font-family: var(--font-family);
             font-size: 1rem;
             display: flex;
             align-items: center;

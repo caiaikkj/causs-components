@@ -55,6 +55,7 @@ class Breadcrumb extends HTMLElement {
       const itemHTML = `
         <style>
           .breadcrumb-item {
+            font-family: var(--font-family);
             font-size: 1rem;
             display: flex;
             align-items: center;
