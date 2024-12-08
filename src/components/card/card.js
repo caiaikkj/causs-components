@@ -30,10 +30,10 @@ class Card extends HTMLElement {
             font-family: var(--font-family);
             width: fit-content;
             max-width: 400px;
-            background: #fff;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+            background: var(--foreground);
+            border: 1px solid var(--components-border);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 0 var(--shadow-color);
             padding: 16px;
             display: flex;
             flex-direction: column;
@@ -43,12 +43,12 @@ class Card extends HTMLElement {
         .card-header {
           font-size: 1.25rem;
           font-weight: bold;
-          color: var(--card-header-color, #111827);
+          color: var(--text-black);
         }
   
         .card-content {
           font-size: 1rem;
-          color: var(--card-content-color, #4b5563);
+          color: var(--subtext-black);
         }
   
         .card-footer {

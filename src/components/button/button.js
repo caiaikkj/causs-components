@@ -21,58 +21,58 @@ class Button extends HTMLElement {
           cursor: pointer;
           transition: all 0.3s ease;
           font-family: var(--font-family);
-          color: white;
+          color: var(--text-white);
           padding: 10px 1rem;
           border: none;
-          border-radius: var(--button-border-radius);
+          border-radius: var(--border-radius);
           font-size: var(--font-size);
         }
   
         .btn:hover {
-          background-color: #2F2F31;
+          background-color: var(--primary-hover);
         }
   
         /* Variantes */
         .btn.secondary {
           background-color: var(--secondary);
-          color: var(--primary);
+          color: var(--text-black);
         }
   
         .btn.secondary:hover {
-          background-color: #F6F6F7;
+          background-color: var(--secondary-hover);
         }
   
         .btn.destructive {
           background-color: var(--red);
-          color: white;
+          color: var(--text-white);
         }
   
         .btn.destructive:hover {
-          background-color: #DF3B3B;
+          background-color: var(--danger-hover);
         }
   
         .btn.outline {
           background-color: transparent;
-          border: 1px solid #ccc;
-          color: var(--primary);
+          border: 1px solid var(--components-border);
+          color: var(--text-black);
         }
   
         .btn.outline:hover {
-          background-color: #F6F6F7;
+          background-color: var(--background-hover);
         }
   
         .btn.ghost {
           background-color: transparent;
-          color: var(--primary);
+          color: var(--text-black);
         }
   
         .btn.ghost:hover {
-          background-color: #F4F4F5;
+          background-color: var(--background-hover);
         }
   
         .btn:disabled {
-          background-color: #ccc;
-          color: #333;
+          background-color: var(--components-disabled);
+          color: var(--text-black);
           cursor: not-allowed;
         }
         

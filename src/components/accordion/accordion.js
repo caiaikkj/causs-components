@@ -8,7 +8,9 @@ class AccordionItem extends HTMLElement {
             <div class="accordion-item">
                 <div class="accordion-header">
                     <slot name="header"></slot>
-                    <span class="accordion-icon">+</span>
+                    <span class="accordion-icon">
+                    <svg width="14px" height="14px" viewBox="0 0 24 24" id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:var(--subtext-black);}</style></defs><title>chevron-down</title><g id="chevron-down-Filled"><path id="chevron-down-Filled-2" data-name="chevron-down-Filled" class="cls-1" d="M21.707,8.707l-9,9a1,1,0,0,1-1.414,0l-9-9A1,1,0,1,1,3.707,7.293L12,15.586l8.293-8.293a1,1,0,1,1,1.414,1.414Z"/></g></svg>
+                    </span>
                 </div>
                 <div class="accordion-content">
                     <slot></slot>
@@ -20,7 +22,7 @@ class AccordionItem extends HTMLElement {
         const style = document.createElement('style');
         style.textContent = `
             .accordion-item {
-                border-bottom: 1px solid #e5e7eb;
+                border-bottom: 1px solid var(--components-border);
                 overflow: hidden;
                 width: 100%;
             }
@@ -36,12 +38,12 @@ class AccordionItem extends HTMLElement {
                 transition: background-color 0.3s ease;
             }
             .accordion-header:hover {
-                background-color: #f0f0f0;
+                background-color: var(--background-hover);
             }
             .accordion-content {
                 height: 0; /* Start with zero height */
                 padding: 0 16px; /* Only horizontal padding initially */
-                background-color: white;
+                background-color: var(--background);
                 overflow: hidden;
                 width: 100%;
                 transition: height 0.3s ease, padding 0.3s ease; /* Animate height and padding */
@@ -55,7 +57,7 @@ class AccordionItem extends HTMLElement {
                 font-size: 18px;
             }
             .accordion-icon.open {
-                transform: rotate(45deg);
+                transform: rotate(180deg);
             }
         `;
         shadow.appendChild(style);

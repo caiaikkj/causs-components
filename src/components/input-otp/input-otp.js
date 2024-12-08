@@ -31,9 +31,11 @@ class InputOTP extends HTMLElement {
                 width: 40px;
                 height: 40px;
                 text-align: center;
+                background: transparent;
                 font-size: 1.5rem;
-                border: 1px solid #ccc;
+                border: 1px solid var(--components-border);
                 transition: border-color 0.3s ease;
+                color: var(--black);
             }
 
             .otp-input:first-child {

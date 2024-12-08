@@ -1,195 +1,904 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html class="dark" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Biblioteca de Componentes</title>
-    <link rel="stylesheet" href="./dist/index.css">  <!-- CSS global -->
-
+    <title>Causs UI Components</title>
+    <link rel="stylesheet" href="./dist/index.css">
+    <link href="https://cdn.jsdelivr.net/gh/prismjs/prism-themes@HEAD/themes/prism-ghcolors.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        :root {
+            --bg-primary: #f4f4f5;
+            --text-primary: #18181b;
+            --sidebar-width: 250px;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: var(--font-family);
         }
 
-        body div {
-            margin-top: .5rem;
-            margin-bottom: .5rem;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            display: flex;
+            background-color: var(--background);
+            color: var(--text-black);
         }
 
-        .inputs causs-input {
-            margin-top: 1rem;
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--white);
+            border-right: 1px solid var(--components-border);
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
         }
-    </style>
-    <!-- <style>
-        .card {
-            font-family: var(--font-family);
-            width: fit-content;
-            max-width: 400px;
-            background: #fff;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-            padding: 16px;
+
+        .sidebar h1 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar-nav {
             display: flex;
             flex-direction: column;
-            gap: 12px;
         }
 
-        .card-header {
-          font-size: 1.25rem;
-          font-weight: bold;
-          color: var(--card-header-color, #111827);
+        .sidebar-nav h4 {
+            text-decoration: none;
+            color: var(--text-black);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
         }
-  
-        .card-content {
-          font-size: 1rem;
-          color: var(--card-content-color, #4b5563);
+
+        .sidebar-nav a {
+            text-decoration: none;
+            color: var(--text-black);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
         }
-  
-        .card-footer {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
+
+        .sidebar-nav a.active {
+            text-decoration: underline;
         }
-    </style> -->
+
+        .sidebar-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 20px;
+            width: calc(100% - var(--sidebar-width));
+        }
+
+        .component-section {
+            display: none;
+            background-color: var(--foreground);
+            border: 1px solid var(--components-border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .component-section.active {
+            display: block;
+        }
+
+        .component-header {
+            margin-bottom: 20px;
+        }
+
+        .component-example {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+
+        pre {
+            background-color: #f4f4f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            max-width: 100%;
+        }
+
+        .github-link {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            color: var(--text-black);
+        }
+    </style>
 </head>
 <body>
-    <div class="botao">
-        <causs-button>Primary</causs-button>
-        <causs-button variant="secondary">Secondary</causs-button>
-        <causs-button variant="destructive">Destructive</causs-button>
-        <causs-button variant="ghost">Ghost</causs-button>
-        <causs-button variant="outline">Outline</causs-button>
-        <causs-button disabled>Disabled</causs-button>
-        <causs-button full-width>Full-Width</causs-button>
-    </div>
-    <div class="card">
-        <causs-card>
-            <div slot="header">
-                <h3>Card Title</h3>
+    <aside class="sidebar">
+        <h1>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2 L2 7 L12 12 L22 7 L12 2 Z"></path>
+                <path d="M2 17 L12 22 L22 17"></path>
+                <path d="M2 12 L12 17 L22 12"></path>
+            </svg>
+            Causs UI
+        </h1>
+        <nav class="sidebar-nav">
+            <h4>Components</h4>
+            <a data-section="accordion" class="nav-link">Accordion</a>
+            <a data-section="alert" class="nav-link">Alert</a>
+            <a data-section="avatar" class="nav-link">Avatar</a>
+            <a data-section="badges" class="nav-link">Badges</a>
+            <a data-section="breadcrumb" class="nav-link">Breadcrumb</a>
+            <a data-section="buttons" class="nav-link">Buttons</a>
+            <a data-section="calendar" class="nav-link">Calendar</a>
+            <a data-section="card" class="nav-link">Card</a>
+            <a data-section="checkbox" class="nav-link">Checkbox</a>
+            <a data-section="drawer" class="nav-link">Drawer</a>
+            <a data-section="input" class="nav-link">Input</a>
+            <a data-section="otp" class="nav-link">Input OTP</a>
+            <a data-section="menubar" class="nav-link">Menubar</a>
+            <a data-section="pagination" class="nav-link">Pagination</a>
+            <a data-section="popover" class="nav-link">Popover</a>
+            <a data-section="progress" class="nav-link">Progress</a>
+            <a data-section="rating" class="nav-link">Rating</a>
+            <a data-section="select" class="nav-link">Select</a>
+            <a data-section="separator" class="nav-link">Separator</a>
+            <a data-section="sheet" class="nav-link">Sheet</a>
+            <a data-section="skeleton" class="nav-link">Skeleton</a>
+            <a data-section="slider" class="nav-link">Slider</a>
+            <a data-section="spinner" class="nav-link">Spinner</a>
+            <a data-section="switch" class="nav-link">Switch</a>
+            <a data-section="tabs" class="nav-link">Tabs</a>
+            <a data-section="toast" class="nav-link">Toast</a>
+            <a data-section="tooltip" class="nav-link">Tooltip</a>
+
+        </nav>
+        <a href="https://github.com/caiaikkj" class="github-link" target="_blank">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            GitHub
+        </a>
+    </aside>
+
+    <main class="main-content">
+        <section id="buttons" class="component-section">
+            <div class="component-header">
+                <h2>Buttons</h2>
+                <p>Different button variants available in Causs UI</p>
             </div>
-            <div slot="content">
-                <p>Here is the card content. You can add any HTML content here!</p>
+            <div class="component-variants">
+                <causs-button>Primary</causs-button>
+                <pre><code class="language-html">&lt;causs-button&gt;Primary&lt;/causs-button&gt;</code></pre>
             </div>
-            <div slot="footer">
-                <causs-button variant="outline">Cancel</causs-button>
-                <causs-button>Save</causs-button>
+            <div class="component-variants">
+                <causs-button variant="secondary">Secondary</causs-button>
+                <pre><code class="language-html">&lt;causs-button variant="secondary"&gt;Secondary&lt;/causs-button&gt;</code></pre>
             </div>
-        </causs-card>
-    </div>
-    <div class="avatar">
-        <causs-avatar src="https://avatars.githubusercontent.com/u/72986577?v=4"></causs-avatar>
-        <causs-avatar size="64" src="https://avatars.githubusercontent.com/u/72986577?v=4" variant="square"></causs-avatar>
-    </div>
-    <div class="breadcrumbs">
-        <causs-breadcrumb>
-            <causs-breadcrumb-list>
-              <causs-breadcrumb-item>
-                <causs-breadcrumb-link href="/">Home</causs-breadcrumb-link>
-              </causs-breadcrumb-item>
-              <causs-breadcrumb-separator></causs-breadcrumb-separator>
-              <causs-breadcrumb-item>
-                <causs-breadcrumb-link href="/components">Components</causs-breadcrumb-link>
-              </causs-breadcrumb-item>
-              <causs-breadcrumb-separator></causs-breadcrumb-separator>
-              <causs-breadcrumb-item>
-                <causs-breadcrumb-page>Breadcrumb</causs-breadcrumb-page>
-              </causs-breadcrumb-item>
-            </causs-breadcrumb-list>
-          </causs-breadcrumb>
-    </div>
-    <div class="inputs">
-        <div class="input">
-            <!-- Default -->
-            <causs-input placeholder="Email"></causs-input>
-        </div>
-        <div class="input">
-            <!-- File -->
-            <causs-input label="Arquivo" type="file"></causs-input>
-        </div>
-        <div class="input">
-            <!-- Disabled -->
-            <causs-input placeholder="Email" disabled></causs-input>
-        </div>
-        <div class="input">
-            <!-- With Label -->
-            <causs-input label="Name" placeholder="Your name"></causs-input>
-        </div>
-        <div class="input">
-            <!-- OTP -->
-            <causs-otp id="otp-input"></causs-otp>
-        </div>
-    </div>
-    <div class="badges">
-        <causs-badge>Primary</causs-badge>
-        <causs-badge variant="secondary">Secondary</causs-badge>
-        <causs-badge variant="destructive">Destructive</causs-badge>
-        <causs-badge variant="outline">Outline</causs-badge>
-    </div>
-    <div class="calendar">
-        <causs-calendar></causs-calendar>
-    </div>
-    <div class="alert">
-        <causs-alert>
-            <div slot="title">Heads up!</div>
-            <div slot="description">
-                This is an example of a custom alert component. You can customize it as needed.
+            <div class="component-variants">
+                <causs-button variant="destructive">Destructive</causs-button>
+                <pre><code class="language-html">&lt;causs-button variant="destructive"&gt;Destructive&lt;/causs-button&gt;</code></pre>
             </div>
-        </causs-alert>
-    </div>
-    <div class="alert">
-        <causs-alert variant="destructive">
-            <div slot="title">Heads up!</div>
-            <div slot="description">
-                This is an example of a custom alert component. You can customize it as needed.
+            <div class="component-variants">
+                <causs-button variant="ghost">Ghost</causs-button>
+                <pre><code class="language-html">&lt;causs-button variant="ghost"&gt;Destructive&lt;/causs-button&gt;</code></pre>
             </div>
-        </causs-alert>
-    </div>
-    <causs-progress id="progress" value="10"></causs-progress>
-    <div class="popover">
-        <causs-popover>
-            <causs-button slot="trigger">Popover</causs-button>
-            <div slot="content">
-                <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;" class="popover-inside">
-                    <h3>Popover Example</h3>
-                    <p>This is a Popover component example.</p>
-                    <causs-input placeholder="Name"></causs-input>
+            <div class="component-variants">
+                <causs-button variant="outline">Outline</causs-button>
+                <pre><code class="language-html">&lt;causs-button variant="outline"&gt;Destructive&lt;/causs-button&gt;</code></pre>
+            </div>
+            <div class="component-variants">
+                <causs-button disabled>Disabled</causs-button>
+                <pre><code class="language-html">&lt;causs-button disabled&gt;Destructive&lt;/causs-button&gt;</code></pre>
+            </div>
+        </section>
+
+        <section id="card" class="component-section">
+            <div class="component-header">
+                <h2>Card</h2>
+                <p>Flexible card component with customizable slots</p>
+            </div>
+            <div class="component-example">
+                <causs-card>
+                    <div slot="header">
+                        <h3>Card Title</h3>
+                    </div>
+                    <div slot="content">
+                        <p>Card content goes here. You can add any HTML content.</p>
+                    </div>
+                    <div slot="footer">
+                        <causs-button variant="outline">Cancel</causs-button>
+                        <causs-button>Save</causs-button>
+                    </div>
+                </causs-card>
+            </div>
+            <pre><code class="language-html">&lt;causs-card&gt;
+    &lt;div slot="header"&gt;Card Title&lt;/div&gt;
+    &lt;div slot="content"&gt;Content here&lt;/div&gt;
+    &lt;div slot="footer"&gt;Footer actions&lt;/div&gt;
+&lt;/causs-card&gt;</code></pre>
+        </section>
+
+        <section id="avatar" class="component-section">
+            <div class="component-header">
+                <h2>Avatar</h2>
+                <p>Avatar component with different sizes and variants</p>
+            </div>
+            <div class="component-variants">
+                <causs-avatar src="https://avatars.githubusercontent.com/u/72986577?v=4"></causs-avatar>
+                <causs-avatar size="64" src="https://avatars.githubusercontent.com/u/72986577?v=4" variant="square"></causs-avatar>
+            </div>
+            <pre><code class="language-html">&lt;causs-avatar src="path/to/image"&gt;&lt;/causs-avatar&gt;
+&lt;causs-avatar size="64" variant="square"&gt;&lt;/causs-avatar&gt;</code></pre>
+        </section>
+
+        <section id="breadcrumb" class="component-section">
+            <div class="component-header">
+                <h2>Breadcrumb</h2>
+                <p>Breadcrumb navigation component</p>
+            </div>
+            <div class="component-example">
+                <causs-breadcrumb>
+                    <causs-breadcrumb-list>
+                        <causs-breadcrumb-item>
+                            <causs-breadcrumb-link href="/">Home</causs-breadcrumb-link>
+                        </causs-breadcrumb-item>
+                        <causs-breadcrumb-separator></causs-breadcrumb-separator>
+                        <causs-breadcrumb-item>
+                            <causs-breadcrumb-link href="/components">Components</causs-breadcrumb-link>
+                        </causs-breadcrumb-item>
+                        <causs-breadcrumb-separator></causs-breadcrumb-separator>
+                        <causs-breadcrumb-item>
+                            <causs-breadcrumb-page>Breadcrumb</causs-breadcrumb-page>
+                        </causs-breadcrumb-item>
+                    </causs-breadcrumb-list>
+                </causs-breadcrumb>
+            </div>
+            <pre><code class="language-html">&lt;causs-breadcrumb&gt;
+    &lt;causs-breadcrumb-list&gt;
+        &lt;causs-breadcrumb-item&gt;
+            &lt;causs-breadcrumb-link href="/"&gt;Home&lt;/causs-breadcrumb-link&gt;
+        &lt;/causs-breadcrumb-item&gt;
+        ...
+    &lt;/causs-breadcrumb-list&gt;
+&lt;/causs-breadcrumb&gt;</code></pre>
+        </section>
+
+        <!-- More sections will follow the same pattern -->
+        <section id="input" class="component-section">
+            <div class="component-header">
+                <h2>Input</h2>
+                <p>Input component with various variants</p>
+            </div>
+            <div class="component-variants">
+                <causs-input placeholder="Email"></causs-input>
+                <pre><code class="language-html">&lt;causs-input placeholder="Email"&gt;&lt;/causs-input&gt;</code></pre>
+            </div>
+            <div class="component-variants">
+                <causs-input label="File input" type="file" button-text="Choose your file"></causs-input>
+                <pre><code class="language-html">&lt;causs-input label="Arquivo" type="file" button-text="Choose your file"&gt;&lt;/causs-input&gt;</code></pre>
+            </div>
+            <div class="component-variants">
+                <causs-input placeholder="Email" disabled></causs-input>
+                <pre><code class="language-html">&lt;causs-input placeholder="Email" disabled&gt;&lt;/causs-input&gt;</code></pre>
+            </div>
+            <div class="component-variants">
+                <causs-input label="Name" placeholder="Your name"></causs-input>
+                <pre><code class="language-html">&lt;causs-input label="Name" placeholder="Your name"&gt;&lt;/causs-input&gt;</code></pre>
+            </div>
+            </div>
+
+
+</code></pre>
+        </section>
+
+        <section id="otp" class="component-section">
+            <div class="component-header">
+                <h2>OTP Input</h2>
+                <p>One-Time Password input component</p>
+            </div>
+            <div class="component-example">
+                <causs-otp id="otp-input"></causs-otp>
+            </div>
+            <pre><code class="language-html">&lt;causs-otp id="otp-input"&gt;&lt;/causs-otp&gt;</code></pre>
+        </section>
+
+        <section id="slider" class="component-section">
+            <div class="component-header">
+                <h2>Slider</h2>
+                <p>Slider input component</p>
+            </div>
+            <div class="component-example">
+                <causs-slider min="0" max="100" value="50" step="1"></causs-slider>
+            </div>
+            <pre><code class="language-html">&lt;causs-slider min="0" max="100" value="50" step="1"&gt;&lt;/causs-slider&gt;</code></pre>
+        </section>
+
+        <section id="select" class="component-section">
+            <div class="component-header">
+                <h2>Select</h2>
+                <p>Select dropdown component</p>
+            </div>
+            <div class="component-example">
+                <causs-select items='[
+                    {"label": "Apple", "value": "apple"},
+                    {"label": "Banana", "value": "banana"},
+                    {"label": "Grapes", "value": "grapes"}
+                ]'></causs-select>
+            </div>
+            <pre><code class="language-html">&lt;causs-select items='[
+    {"label": "Apple", "value": "apple"},
+    {"label": "Banana", "value": "banana"},
+    {"label": "Grapes", "value": "grapes"}
+]'&gt;&lt;/causs-select&gt;</code></pre>
+        </section>
+
+        <section id="badges" class="component-section">
+            <div class="component-header">
+                <h2>Badges</h2>
+                <p>Badge component with different variants</p>
+            </div>
+            <div class="component-variants">
+                <causs-badge>Primary</causs-badge>
+                <causs-badge variant="secondary">Secondary</causs-badge>
+                <causs-badge variant="destructive">Destructive</causs-badge>
+                <causs-badge variant="outline">Outline</causs-badge>
+            </div>
+            <pre><code class="language-html">&lt;causs-badge&gt;Primary&lt;/causs-badge&gt;
+&lt;causs-badge variant="secondary"&gt;Secondary&lt;/causs-badge&gt;
+&lt;causs-badge variant="destructive"&gt;Destructive&lt;/causs-badge&gt;
+&lt;causs-badge variant="outline"&gt;Outline&lt;/causs-badge&gt;</code></pre>
+        </section>
+
+        <section id="calendar" class="component-section">
+            <div class="component-header">
+                <h2>Calendar</h2>
+                <p>Calendar component</p>
+            </div>
+            <div class="component-example">
+                <causs-calendar></causs-calendar>
+            </div>
+            <pre><code class="language-html">&lt;causs-calendar&gt;&lt;/causs-calendar&gt;</code></pre>
+        </section>
+
+        <section id="alert" class="component-section">
+            <div class="component-header">
+                <h2>Alert</h2>
+                <p>Alert component with different variants</p>
+            </div>
+            <div class="component-variants">
+                <causs-alert>
+                    <div slot="title">Heads up!</div>
+                    <div slot="description">
+                        This is an example of a custom alert component.
+                    </div>
+                </causs-alert>
+                <pre><code class="language-html">&lt;causs-alert&gt;
+    &lt;div slot="title"&gt;Heads up!&lt;/div&gt;
+    &lt;div slot="description"&gt;Alert description&lt;/div&gt;
+&lt;/causs-alert&gt;</code></pre>
+            </div>
+            <div class="component-variants">
+                <causs-alert variant="destructive">
+                    <div slot="title">Heads up!</div>
+                    <div slot="description">
+                        This is an example of a destructive alert.
+                    </div>
+                </causs-alert>
+<pre><code class="language-html">&lt;causs-alert variant="destructive"&gt;
+    &lt;div slot="title"&gt;Heads up!&lt;/div&gt;
+    &lt;div slot="description"&gt;Alert description&lt;/div&gt;
+&lt;/causs-alert&gt;</code></pre>
+            </div>
+            
+        </section>
+
+        <section id="spinner" class="component-section">
+            <div class="component-header">
+                <h2>Spinner</h2>
+                <p>Loading spinner component</p>
+            </div>
+            <div class="component-example">
+                <causs-spinner></causs-spinner>
+            </div>
+            <pre><code class="language-html">&lt;causs-spinner&gt;&lt;/causs-spinner&gt;</code></pre>
+        </section>
+
+        <section id="progress" class="component-section">
+            <div class="component-header">
+                <h2>Progress</h2>
+                <p>Progress bar component</p>
+            </div>
+            <div class="component-example">
+                <causs-progress id="progress-bar" value="10"></causs-progress>
+            </div>
+            <pre><code class="language-html">&lt;causs-progress id="progress-bar" value="10"&gt;&lt;/causs-progress&gt;</code></pre>
+            <causs-separator thickness="2px"></causs-separator>
+            <h3>Updating progress bar</h3>
+            <pre><code class="language-javascript">
+const progressBar = document.getElementById('progress-bar');
+let value = 10;
+
+const interval = setInterval(() => {
+    if (value >= 100) {
+        value = 0;
+    } else {
+        value += 10;
+    }
+
+    progressBar.progress = value;
+}, 1000);</code></pre>
+        </section>
+
+        <section id="popover" class="component-section">
+            <div class="component-header">
+                <h2>Popover</h2>
+                <p>Popover component</p>
+            </div>
+            <div class="component-example">
+                <causs-popover>
+                    <causs-button slot="trigger">Popover</causs-button>
+                    <div slot="content">
+                        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;" class="popover-inside">
+                            <h3>Popover Example</h3>
+                            <p>This is a Popover component example.</p>
+                            <causs-input placeholder="Name"></causs-input>
+                        </div>
+                        <causs-button variant="outline" full-width>Fechar</causs-button>
+                    </div>
+                </causs-popover>
+            </div>
+            <pre><code class="language-html">&lt;causs-popover&gt;
+    &lt;causs-button slot="trigger"&gt;Popover&lt;/causs-button&gt;
+    &lt;div slot="content"&gt;
+        &lt;!-- Popover content --&gt;
+    &lt;/div&gt;
+&lt;/causs-popover&gt;</code></pre>
+        </section>
+
+        <section id="accordion" class="component-section active">
+            <div class="component-header">
+                <h2>Accordion</h2>
+                <p>Accordion component</p>
+            </div>
+            <causs-theme></causs-theme>
+            <script>
+                window.addEventListener('load', () => {
+  console.log(document.querySelector('causs-theme').shadowRoot.innerHTML);
+});
+
+            </script>
+            <div class="component-example">
+                <causs-accordion>
+                    <causs-accordion-item>
+                        <div slot="header">This is an accordion</div>
+                        <div>That's the accordion first item content.</div>
+                    </causs-accordion-item>
+                    <causs-accordion-item>
+                        <div slot="header">Here is a second item</div>
+                        <div>And that's the content from the second accordion item.</div>
+                    </causs-accordion-item>
+                </causs-accordion>
+            </div>
+            <pre><code class="language-html">&lt;causs-accordion&gt;
+    &lt;causs-accordion-item&gt;
+        &lt;div slot="header"&gt;Accordion Item 1&lt;/div&gt;
+        &lt;div&gt;Content for item 1&lt;/div&gt;
+    &lt;/causs-accordion-item&gt;
+    ...
+&lt;/causs-accordion&gt;</code></pre>
+        </section>
+
+        <section id="drawer" class="component-section">
+            <div class="component-header">
+                <h2>Drawer</h2>
+                <p>Drawer component</p>
+            </div>
+            <div class="component-example">
+                <causs-drawer>
+                    <causs-button slot="trigger">Open Drawer</causs-button>
+                    <div slot="header">
+                        <h2>Drawer Header</h2>
+                    </div>
+                    <div slot="body">
+                        <div>
+                            <causs-label htmlFor="sheet-name">Name</causs-label>
+                            <causs-input id="sheet-name" placeholder="Name"></causs-input>
+                        </div>
+                        <div>
+                            <causs-label htmlFor="sheet-mail">E-mail</causs-label>
+                            <causs-input type="email" id="sheet-mail" placeholder="E-mail"></causs-input>
+                        </div>
+                    </div>
+                    <div slot="footer">
+                            <causs-button full-width>Confirm</causs-button>
+                    </div>
+                </causs-drawer> 
+            </div>
+        </section>
+
+        <section id="menubar" class="component-section">
+            <div class="component-header">
+                <h2>Menubar</h2>
+                <p>Menubar component</p>
+            </div>
+            <div class="component-example">
+                <causs-menubar></causs-menubar>
+            </div>
+        </section>
+
+        <section id="separator" class="component-section">
+            <div class="component-header">
+                <h2>Separator</h2>
+                <p>Separator component to visually divide content</p>
+            </div>
+            <div class="component-example">
+                <causs-separator></causs-separator>
+            </div>
+            <pre><code class="language-html">&lt;causs-separator&gt;&lt;/causs-separator&gt;</code></pre>
+        </section>
+
+        <section id="pagination" class="component-section">
+            <div class="component-header">
+                <h2>Pagination</h2>
+                <p>Pagination component.</p>
+            </div>
+            <div class="component-example">
+                <causs-pagination current="1" total="10"></causs-pagination>
+            </div>
+            <pre><code class="language-html">&lt;causs-pagination current="1" total="10"&gt;&lt;/causs-pagination&gt;</code></pre>
+        </section>
+
+        <section id="switch" class="component-section">
+            <div class="component-header">
+                <h2>Switch</h2>
+                <p>Switch component.</p>
+            </div>
+            <div class="component-variants">
+                    <causs-switch id="my-switch" checked></causs-switch>
+                    <causs-label htmlFor="my-switch">Dark Mode</causs-label>
+                <pre><code class="language-html">&lt;causs-switch id="my-switch" checked&gt;&lt;/causs-switch&gt;
+&lt;causs-label htmlFor="my-switch"&gt;Dark Mode&lt;/causs-label&gt;
+                </code></pre>
+            </div>
+            <div class="component-variants">
+                <causs-switch id="switch-listener"></causs-switch>
+                <pre><code class="language-html">&lt;causs-switch id="switch-listener"&gt;&lt;/causs-switch&gt;</code></pre>
+                <pre><code class="language-javascript">
+document.querySelector('#switch-listener').addEventListener('switch-change', (event) => {
+    console.log('Set to:', event.detail.checked);
+});
+                </code></pre>
+            </div>
+            <div class="components-variants">
+                <causs-switch disabled></causs-switch>
+                <pre><code class="language-html">&lt;causs-switch disabled&gt;&lt;/causs-switch&gt;</code></pre>
+            </div>
+        </section>
+
+        <section id="skeleton" class="component-section">
+            <div class="component-header">
+                <h2>Skeleton</h2>
+                <p>Skeleton component.</p>
+            </div>
+            <div class="component-variants">
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div style="display: flex; flex-direction: row; gap: 3rem;">
+                        <causs-skeleton style="width: 50px; height: 50px;" class="rounded-full" shimmer></causs-skeleton>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <causs-skeleton style="width: 400px;" class="h-4" shimmer></causs-skeleton>
+                            <causs-skeleton style="width: 400px;" class="h-4" shimmer></causs-skeleton>
+                        </div>
+                    </div>
+                    <causs-skeleton style="height: 250px; width: 500px;" shimmer></causs-skeleton>
                 </div>
-                <causs-button variant="outline" full-width>Fechar</causs-button>
+                <pre><code class="language-html">&lt;div style="display: flex; flex-direction: column; gap: 1rem;&gt;
+    &lt;div style="display: flex; flex-direction: row; gap: 3rem;"&gt;
+        &lt;causs-skeleton style="width: 50px; height: 50px;" class="rounded-full" shimmer&gt;&lt;/causs-skeleton&gt;
+        &lt;div style="display: flex; flex-direction: column; gap: 0.5rem;"&gt;
+            &lt;causs-skeleton style="width: 400px;" class="h-4" shimmer&gt;&lt;/causs-skeleton&gt;
+            &lt;causs-skeleton style="width: 400px;" class="h-4" shimmer&gt;&lt;/causs-skeleton&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
             </div>
-          </causs-popover>
-    </div>
-    <div class="accordion">
-        <causs-accordion>
-                <causs-accordion-item>
-                    <div slot="header">This is an accordion</div>
-                    <div>That's the accordion first item content.</div>
-                </causs-accordion-item>
-                <causs-accordion-item>
-                    <div slot="header">Here is a second item</div>
-                    <div>And that's the content from the second accordion item.</div>
-                </causs-accordion-item>
-            </causs-accordion>
-    </div>
-    <script src="./dist/index.js"></script>  <!-- JavaScript compilado -->
+            </div>
+        </section>
+
+        <section id="checkbox" class="component-section">
+            <div class="component-header">
+                <h2>Checkbox</h2>
+                <p>Checkbox component.</p>
+            </div>
+            <div class="component-variants">
+                <causs-checkbox></causs-checkbox>
+                <pre><code class="language-html">&lt;causs-checkbox&gt;&lt;/causs-checkbox&gt;</code></pre>
+            </div>
+            <div class="component-variants">
+                <causs-checkbox checked></causs-checkbox>
+                <pre><code class="language-html">&lt;causs-checkbox checked&gt;&lt;/causs-checkbox&gt;</code></pre>
+            </div>
+            <div class="component-variants">
+                <causs-checkbox checked disabled></causs-checkbox>
+                <pre><code class="language-html">&lt;causs-checkbox checked disabled&gt;&lt;/causs-checkbox&gt;</code></pre>
+            </div>
+        </section>
+
+        <section id="tooltip" class="component-section">
+            <div class="component-header">
+                <h2>Tooltip</h2>
+                <p>Tooltip component.</p>
+            </div>
+            <div class="component-variants">
+                <causs-tooltip data-tooltip="Tooltip content">
+                    Hover
+                </causs-tooltip>
+                <pre><code class="language-html">&lt;causs-tooltip data-tooltip="Tooltip content"&gt;
+    Hover
+&lt;/causs-tooltip&gt;</code></pre>
+            </div>
+        </section>
+
+        <section id="rating" class="component-section">
+            <div class="component-header">
+                <h2>Rating</h2>
+                <p>Rating component.</p>
+            </div>
+            <div class="component-variants">
+                <causs-rating
+                    max-rating="5"
+                    interactive
+                    show-value>
+                </causs-rating>
+                <pre><code class="language-html">
+&lt;causs-rating
+    max-rating="5"
+    interactive
+    show-value&gt;
+&lt;/causs-rating&gt;</code></pre>
+            </div>
+        </section>
+
+        <section id="sheet" class="component-section">
+            <div class="component-header">
+                <h2>Sheet</h2>
+                <p>Sheet component.</p>
+            </div>
+            <div class="component-variants">
+                <causs-sheet>
+                    <!-- Botão para abrir -->
+                    <causs-button variant="outline" slot="trigger" class="sheet-trigger">Open Sheet</causs-button>
+                    <!-- Cabeçalho -->
+                    <div slot="header">
+                        <h2>Edit Profile</h2>
+                        <p>Make changes to your profile and click save.</p>
+                    </div>
+                    <!-- Corpo -->
+                    <div slot="body">
+                        <div>
+                            <causs-label htmlFor="sheet-name">Name</causs-label>
+                            <causs-input id="sheet-name" placeholder="Name"></causs-input>
+                        </div>
+                        <div>
+                            <causs-label htmlFor="sheet-mail">E-mail</causs-label>
+                            <causs-input type="email" id="sheet-mail" placeholder="E-mail"></causs-input>
+                        </div>
+                    </div>
+                    <!-- Rodapé -->
+                    <div slot="footer">
+                        <causs-button type="button">Save Changes</causs-button>
+                    </div>
+                </causs-sheet>
+            </div>
+        </section>
+
+        <section id="toast" class="component-section">
+            <div class="component-header">
+                <h2>Toast</h2>
+                <p>Toast dropdown component</p>
+            </div>
+            <div class="component-variants">
+                <causs-button variant="primary" id="successBtn">Success</causs-button>
+                <causs-separator></causs-separator>
+            </div>
+            <div class="component-variants">
+                <causs-button variant="primary" id="errorBtn">Error</causs-button>
+                <causs-separator></causs-separator>
+            </div>
+            <div class="component-variants">
+                <causs-button variant="primary" id="warningBtn">Warning</causs-button>
+                <causs-separator></causs-separator>
+            </div>
+            <div class="component-variants">
+                <causs-button variant="primary" id="infoBtn">Info</causs-button>
+                <causs-separator></causs-separator>
+            </div>
+            <pre><code class="language-javascript">document.addEventListener('DOMContentLoaded', () => {
+    if (typeof createToast !== 'function') {
+        console.error('createToast function is not defined. Make sure toast-component.js is loaded correctly.');
+        return;
+    }
+
+    const successBtn = document.getElementById('successBtn');
+
+    if (successBtn) {
+        successBtn.addEventListener('click', () => {
+            createToast({
+                title: 'Success',
+                description: 'Operation completed successfully!',
+                variant: 'success' // error, warning, info
+                // Accepts "position" attribute
+            });
+        });
+    } else {
+        console.error('Success button not found');
+    }
+});</code></pre>
+        </section>
+
+        <section id="tabs" class="component-section">
+            <div class="component-header">
+                <h2>Tabs</h2>
+                <p>Tabs component</p>
+            </div>
+            <div class="component-example">
+                <causs-tabs>
+                    <causs-tab label="First Tab">
+                        Content for the first tab
+                    </causs-tab>
+                    <causs-tab label="Second Tab">
+                        Content for the second tab
+                    </causs-tab>
+                    <causs-tab label="Third Tab">
+                        Content for the third tab
+                    </causs-tab>
+                </causs-tabs>
+            </div>
+<pre><code class="language-html">&lt;causs-tabs>
+    &lt;causs-tab label="First Tab"&gt;
+        Content for the first tab
+    &lt;/causs-tab&gt;
+    &lt;causs-tab label="Second Tab"&gt;
+        Content for the second tab
+    &lt;/causs-tab&gt;
+    &lt;causs-tab label="Third Tab"&gt;
+        Content for the third tab
+    &lt;/causs-tab&gt;
+&lt;/causs-tabs&gt;
+</code></pre>                    
+        </section>
+
+        <!--  -->
+    </main>
+
     <script>
-        const progressBar = document.getElementById('progress');
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.component-section');
+            console.log(navLinks[0].textContent); // Deve ser "Accordion"
+
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    // Remove active class from all nav links and sections
+                    navLinks.forEach(n => n.classList.remove('active'));
+                    sections.forEach(s => s.classList.remove('active'));
+
+                    // Add active class to clicked link and corresponding section
+                    link.classList.add('active');
+                    const sectionId = link.getAttribute('data-section');
+                    document.getElementById(sectionId).classList.add('active');
+                });
+            });
+
+            // Set first nav link as active by default
+            navLinks[0].classList.add('active');
+        });
+    </script>
+    <script>
+        const progressBar = document.getElementById('progress-bar');
         let value = 10;
-    
+
         const interval = setInterval(() => {
             if (value >= 100) {
                 value = 0;  // Reinicia o valor para 0 quando chega a 100
             } else {
                 value += 10;  // Incrementa o valor a cada 500ms
             }
-    
+
             progressBar.progress = value;  // Atualiza a barra de progresso
         }, 1000);  // Atualiza a cada 500ms
+
+        document.querySelector('#switch-listener').addEventListener('switch-change', (event) => {
+            console.log('Set to:', event.detail.checked);
+        });
+
+    </script>
+    <script src="./dist/index.js"></script>
+
+    <!-- TOAST SCRIPT -->
+    <script>
+        // Ensure the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if createToast is defined
+            if (typeof createToast !== 'function') {
+                console.error('createToast function is not defined. Make sure toast-component.js is loaded correctly.');
+                return;
+            }
+    
+            // Add event listeners to buttons
+            const successBtn = document.getElementById('successBtn');
+            const errorBtn = document.getElementById('errorBtn');
+            const warningBtn = document.getElementById('warningBtn');
+            const infoBtn = document.getElementById('infoBtn');
+    
+            if (successBtn) {
+                successBtn.addEventListener('click', () => {
+                    createToast({
+                        title: 'Success',
+                        description: 'Operation completed successfully!',
+                        variant: 'success'
+                    });
+                });
+            } else {
+                console.error('Success button not found');
+            }
+    
+            if (errorBtn) {
+                errorBtn.addEventListener('click', () => {
+                    createToast({
+                        title: 'Error',
+                        description: 'Something went wrong. Please try again.',
+                        variant: 'error',
+                        position: 'bottom-left'
+                    });
+                });
+            } else {
+                console.error('Error button not found');
+            }
+    
+            if (warningBtn) {
+                warningBtn.addEventListener('click', () => {
+                    createToast({
+                        title: 'Warning',
+                        description: 'Proceed with caution.',
+                        variant: 'warning',
+                        position: 'bottom-right'
+                    });
+                });
+            } else {
+                console.error('Warning button not found');
+            }
+    
+            if (infoBtn) {
+                infoBtn.addEventListener('click', () => {
+                    createToast({
+                        title: 'Information',
+                        description: 'Here\'s some useful information for you.',
+                        variant: 'info',
+                        position: 'top-left'
+                    });
+                });
+            } else {
+                console.error('Info button not found');
+            }
+        });
     </script>
 </body>
 </html>

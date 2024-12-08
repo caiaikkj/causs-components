@@ -32,7 +32,7 @@ class CaussAlert extends HTMLElement {
           gap: 12px;
           padding: 16px;
           border-radius: 8px;
-          color: var(--primary);
+          color: var(--text-black);
           border: 1px solid #e5e7eb;
           font-family: var(--font-family);
         }
@@ -60,8 +60,8 @@ class CaussAlert extends HTMLElement {
   
         /* Variantes */
         .alert.destructive {
-          border-color: var(--red);
-          color: var(--red);
+          border-color: var(--danger);
+          color: var(--danger);
         }
       `;
       shadow.appendChild(style);

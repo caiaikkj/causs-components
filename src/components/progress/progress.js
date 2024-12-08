@@ -20,8 +20,8 @@ class CaussProgress extends HTMLElement {
                 width: 100%;
                 min-width: 400px;
                 height: 10px;
-                background-color: #e0e0e0;
-                border-radius: 10px;
+                background-color: var(--components-bg);
+                border-radius: var(--border-radius);
                 overflow: hidden;
                 position: relative;
             }
@@ -29,7 +29,7 @@ class CaussProgress extends HTMLElement {
             .progress-bar {
                 width: 0%;
                 height: 100%;
-                border-radius: 10px;
+                border-radius: var(--border-radius);
                 background-color: var(--primary);
                 transition: width 0.5s ease;
             }

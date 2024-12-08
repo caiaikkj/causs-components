@@ -6,23 +6,94 @@
     --purple: #5F5AFA;
     --pink: #FF5CA0;
     --red: #FA423C;
-    --orange: #FF801F;
-    --green: #1DB847;
+    --warning: #FF801F;
+    --success: #1DB847;
 
-    --primary: #000000;
+    --primary: #18181B;
     --secondary: #F4F4F5;
+    --danger: #FA423C;
+
+    --components-bg: #e0e0e0;
+    --components-disabled: #ccc;
+    --components-border: #ccc;
+    --shadow-color: rgba(204, 204, 204, 0.6); /* Tom de #ccc com opacidade */
+
 
     --background: #FFFFFF;
+    --foreground: 240 10% 3.9%;
+    --black: #000;
+    --white: #fff;
+
+
+    --text-white: #f3f4f6;
+    --text-black: #111827;
+    --subtext-white: #d1d5db;
+    --subtext-black: #4b5563;
+
+
+    --primary-hover: #27272A; /* Levemente mais claro */
+    --secondary-hover: #E4E4E7; /* Levemente mais escuro */
+    --danger-hover: #E53E3E; /* Tom mais intenso */
+    --components-bg-hover: #d6d6d6; /* Um pouco mais escuro */
+    --background-hover: #F5F5F5; /* Um cinza claro sutil */
+
 
     --font-size: 16px;
     --padding: 10px;
 
-    --font-family: "Montserrat", sans-serif;
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     --font-family-variant: "Poppins", sans-serif;
 
 
-    --button-border-radius: .4rem;
+    --border-radius: .4rem;
 }
+
+:root.dark {
+    /* ACCENT COLORS */
+    --blue: #3B82F6; /* Azul mais claro para destacar */
+    --purple: #7C3AED; /* Roxo vibrante */
+    --pink: #EC4899; /* Rosa chamativo */
+    --red: #EF4444; /* Vermelho claro */
+    --warning: #F97316; /* Laranja vivo */
+    --success: #22C55E; /* Verde limpo */
+
+    --primary: #F4F4F5; /* Cor clara para texto em fundo escuro */
+    --secondary: #3F3F46; /* Cor secundária mais escura */
+    --danger: #DC2626; /* Vermelho para estado de alerta */
+
+    --components-bg: #52525B;
+    --components-disabled: #444;
+    --components-border: #444;
+    --shadow-color: rgba(68, 68, 68, 0.5); /* Tom de #444 com opacidade */
+
+    --background: #08080a;
+    --foreground: 0 0% 98%;
+    --white: #09090B; /* Preto puro */
+    --black: #FAFAFA; /* Branco puro */
+
+    --text-black: #f3f4f6;
+    --text-white: #111827;
+    --subtext-black: #d1d5db;
+    --subtext-white: #4b5563;
+
+
+    --primary-hover: #E4E4E7; /* Um pouco mais escuro */
+    --secondary-hover: #52525B; /* Levemente mais claro */
+    --danger-hover: #B91C1C; /* Vermelho mais intenso e escuro */
+    --components-bg-hover: #52525B; /* Um pouco mais claro */
+    --background-hover: #101013; /* Tom levemente mais claro que o fundo */
+
+
+
+    --font-size: 16px;
+    --padding: 10px;
+
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-family-variant: "Poppins", sans-serif;
+
+    --border-radius: .4rem;
+}
+
 /* Reset de estilos */
 * {
     margin: 0;

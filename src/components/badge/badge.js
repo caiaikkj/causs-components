@@ -16,7 +16,7 @@ class Badge extends HTMLElement {
         <style>
           .badge {
             padding: 6px 12px;
-            border-radius: 12px;
+            border-radius: var(--border-radius);
             font-size: 0.675rem;
             display: inline-flex;
             align-items: center;
@@ -25,23 +25,23 @@ class Badge extends HTMLElement {
   
           .badge.primary {
             background-color: var(--primary);
-            color: white;
+            color: var(--text-white);
           }
   
           .badge.secondary {
             background-color: var(--secondary);
-            color: var(--primary);
+            color: var(--text-black);
           }
   
           .badge.destructive {
-            background-color: var(--red);
-            color: white;
+            background-color: var(--danger);
+            color: var(--text-white);
           }
   
           .badge.outline {
             background-color: transparent;
             border: 1px solid #ccc;
-            color: var(--primary);
+            color: var(--text-black);
           }
         </style>
   

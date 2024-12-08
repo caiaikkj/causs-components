@@ -25,7 +25,7 @@ class CaussPopover extends HTMLElement {
           background: var(--popover-bg, white);
           color: var(--popover-color, black);
           border: 1px solid var(--popover-border, #ccc);
-          border-radius: 8px;
+          border-radius: var(--border-radius);
           box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
           padding: 1rem;
           z-index: 10;

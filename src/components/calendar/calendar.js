@@ -32,10 +32,10 @@ class Calendar extends HTMLElement {
         <style>
   :host {
     display: block;
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family);
     width: 300px;
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     overflow: hidden;
     user-select: none;
     border: 1px solid #e5e7eb;
@@ -48,7 +48,7 @@ class Calendar extends HTMLElement {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    color: var(--secondary);
+    color: var(--text-white);
   }
 
   .calendar-header button {
@@ -59,8 +59,8 @@ class Calendar extends HTMLElement {
     width: 32px;
     height: 32px;
     border: 1px solid #ffffff00;
-    border-radius: var(--button-border-radius);
-    color: var(--secondary);
+    border-radius: var(--border-radius);
+    color: var(--text-white);
     font-family: var(--font-family-variant);
     font-size: 1.2rem;
     cursor: pointer;
@@ -87,7 +87,7 @@ class Calendar extends HTMLElement {
     padding: 5px; /* Menor padding interno */
     height: 32px; /* Reduz altura das células */
     width: 100%; /* Automático conforme o grid */
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     box-sizing: border-box;
     font-size: 0.85rem; /* Reduz tamanho do texto */
   }
@@ -95,7 +95,7 @@ class Calendar extends HTMLElement {
   .day {
     cursor: pointer;
     background-color: var(--background);
-    color: var(--primary);
+    color: var(--text-black);
     height: 32px;
     width: 32px;
     transition: all ease 300ms;
@@ -108,7 +108,7 @@ class Calendar extends HTMLElement {
 
   .day.active {
     background-color: var(--primary);
-    color: white;
+    color: var(--text-white);
   }
 
   .days-of-week div {

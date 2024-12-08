@@ -83,11 +83,11 @@ class BreadcrumbLink extends HTMLElement {
           font-family: var(--font-family, Arial, sans-serif);
           font-weight: 500;
           text-decoration: none;
-          color: #ccc;
+          color: var(--subtext-black);
           transition: 300ms ease all;
         }
         .breadcrumb-link:hover {
-          color: var(--primary, #007bff);
+          color: var(--primary);
         }
       </style>
       <a class="breadcrumb-link" href="${this.getAttribute('href')}">
@@ -112,7 +112,7 @@ class BreadcrumbSeparator extends HTMLElement {
           font-size: 1rem;
           font-family: var(--font-family-variant, Arial, sans-serif);
           margin: 0 8px;
-          color: #ccc;
+          color: var(--subtext-black);
         }
       </style>
       <span class="breadcrumb-separator">></span>
@@ -133,7 +133,7 @@ class BreadcrumbPage extends HTMLElement {
         .breadcrumb-page {
           font-family: var(--font-family, Arial, sans-serif);
           font-weight: 500;
-          color: var(--primary, #007bff);
+          color: var(--primary);
         }
       </style>
       <span class="breadcrumb-page">
