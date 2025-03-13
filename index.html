@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Causs UI Components</title>
+    <link
+        rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>
+            <path d='M12 2 L2 7 L12 12 L22 7 L12 2 Z'></path>
+            <path d='M2 17 L12 22 L22 17'></path>
+            <path d='M2 12 L12 17 L22 12'></path>
+        </svg>"
+    >
+
     <link rel="stylesheet" href="./dist/index.css">
     <link href="https://cdn.jsdelivr.net/gh/prismjs/prism-themes@HEAD/themes/prism-ghcolors.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
@@ -15,6 +24,8 @@
             --text-primary: #18181b;
             --sidebar-width: 250px;
         }
+
+        
 
         * {
             box-sizing: border-box;
@@ -139,6 +150,8 @@
             Causs UI
         </h1>
         <nav class="sidebar-nav">
+            <h4>Getting Started</h4>
+            <a target="_blank" href="theme.html">Theming</a>
             <h4>Components</h4>
             <a data-section="accordion" class="nav-link">Accordion</a>
             <a data-section="alert" class="nav-link">Alert</a>
@@ -160,11 +173,13 @@
             <a data-section="select" class="nav-link">Select</a>
             <a data-section="separator" class="nav-link">Separator</a>
             <a data-section="sheet" class="nav-link">Sheet</a>
+            <a data-section="sidebar" class="nav-link">Sidebar</a>
             <a data-section="skeleton" class="nav-link">Skeleton</a>
             <a data-section="slider" class="nav-link">Slider</a>
             <a data-section="spinner" class="nav-link">Spinner</a>
             <a data-section="switch" class="nav-link">Switch</a>
             <a data-section="tabs" class="nav-link">Tabs</a>
+            <a data-section="theme" class="nav-link">Theme Toggle</a>
             <a data-section="toast" class="nav-link">Toast</a>
             <a data-section="tooltip" class="nav-link">Tooltip</a>
 
@@ -233,6 +248,58 @@
     &lt;div slot="content"&gt;Content here&lt;/div&gt;
     &lt;div slot="footer"&gt;Footer actions&lt;/div&gt;
 &lt;/causs-card&gt;</code></pre>
+        </section>
+
+        <section id="sidebar" class="component-section">
+            <div class="component-header">
+                <h2>Sidebar</h2>
+                <p>Flexible sidebar component with customizable slots</p>
+            </div>
+            <div class="component-example">
+                <div style="width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--components-border); border-radius: 1rem;">
+                    <causs-interactive-sidebar>
+                        <div slot="header">
+                            <!-- Your header content, like a logo or branding -->
+                            <h1>My App</h1>
+                        </div>
+                    
+                        <div slot="content">
+                            <!-- Sidebar navigation groups -->
+                            <div class="sidebar-group">
+                                <div class="sidebar-group-label">Getting Started</div>
+                                <div class="sidebar-menu-item">
+                                    <a href="#" class="sidebar-menu-button">Installation</a>
+                                </div>
+                                <div class="sidebar-menu-item">
+                                    <a href="#" class="sidebar-menu-button active">Project Structure</a>
+                                </div>
+                            </div>
+                    
+                            <div class="sidebar-group">
+                                <div class="sidebar-group-label">Building Your Application</div>
+                                <div class="sidebar-menu-item">
+                                    <a href="#" class="sidebar-menu-button">Routing</a>
+                                </div>
+                                <div class="sidebar-menu-item">
+                                    <a href="#" class="sidebar-menu-button">Data Fetching</a>
+                                </div>
+                                <!-- Add more menu items as needed -->
+                            </div>
+                        </div>
+                    
+                        <div slot="footer">
+                            <!-- Optional footer content -->
+                            <p>&copy; 2024 My Company</p>
+                        </div>
+                    
+                        <div slot="main-content">
+                            <!-- Your main content goes here -->
+                            <h2>Welcome to My App</h2>
+                            <p>This is the main content area.</p>
+                        </div>
+                    </causs-interactive-sidebar>
+                </div>
+            </div>
         </section>
 
         <section id="avatar" class="component-section">
@@ -477,13 +544,6 @@ const interval = setInterval(() => {
                 <h2>Accordion</h2>
                 <p>Accordion component</p>
             </div>
-            <causs-theme></causs-theme>
-            <script>
-                window.addEventListener('load', () => {
-  console.log(document.querySelector('causs-theme').shadowRoot.innerHTML);
-});
-
-            </script>
             <div class="component-example">
                 <causs-accordion>
                     <causs-accordion-item>
@@ -782,6 +842,16 @@ document.querySelector('#switch-listener').addEventListener('switch-change', (ev
     &lt;/causs-tab&gt;
 &lt;/causs-tabs&gt;
 </code></pre>                    
+        </section>
+
+        <section id="theme" class="component-section">
+            <div class="component-header">
+                <h2>Theme</h2>
+                <p>Theme Toggle component</p>
+            </div>
+            <div class="component-example">
+                <causs-theme></causs-theme>
+            </div>          
         </section>
 
         <!--  -->

@@ -27,6 +27,7 @@ import './components/toast/toast.js'
 import './components/tabs/tabs.js'
 import './components/theme-toggle/theme-toggle.js'
 import './components/drawer/drawer.js'
+import './components/sidebar/sidebar.js'
 
 
 

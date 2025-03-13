@@ -45,7 +45,7 @@ class Input extends HTMLElement {
         .input:disabled {
           border: none;
           background-color: var(--components-disabled);
-          color: var(--components-border);
+          color: var(--subtext-black);
           cursor: not-allowed;
         }
 
