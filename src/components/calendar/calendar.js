@@ -38,7 +38,7 @@ class Calendar extends HTMLElement {
     border-radius: var(--border-radius);
     overflow: hidden;
     user-select: none;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--components-border);
   }
 
   .calendar-header {
@@ -68,7 +68,7 @@ class Calendar extends HTMLElement {
   }
 
   .calendar-header button:hover {
-    border-color: #2F2F31;
+    border-color: var(--components-border);
   }
 
   .days-of-week,
@@ -113,7 +113,7 @@ class Calendar extends HTMLElement {
 
   .days-of-week div {
     font-weight: bold;
-    color: #666;
+    color: var(--subtext-black);
   }
 </style>
 

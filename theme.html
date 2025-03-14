@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component Library Themes</title>
+    <link rel="stylesheet" href="./dist/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-black);
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        .themes-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .color-theme-button {
+            display: flex;
+            align-items: center;
+            background-color: var(--secondary);
+            border: 2px solid var(--components-border);
+            border-radius: 6px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            gap: 10px;
+            width: 100%;
+            justify-content: flex-start;
+        }
+
+        .color-theme-button:hover {
+            background-color: var(--secondary-hover);
+            border-color: var(--primary);
+        }
+
+        .color-theme-button.selected {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--primary);
+        }
+
+        .color-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .color-theme-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .color-option {
+            display: flex;
+            align-items: center;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .color-option::after {
+            content: attr(data-theme);
+            color: var(--text-black);
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            white-space: nowrap;
+        }
+
+        .color-option.selected {
+            border-color: black;
+            box-shadow: 0 0 0 2px white, 0 0 0 4px black;
+        }
+
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .component-card {
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .button-group {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .border-radius-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            width: 100%; /* Ensure full container width */
+        }
+
+        .border-radius-button {
+            background-color: var(--secondary);
+            border: 2px solid var(--components-border);
+            border-radius: 6px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-grow: 1; /* Distribute buttons equally */
+            width: 100%; /* Ensure each button takes full available width */
+        }
+
+        .border-radius-button:hover {
+            background-color: var(--secondary-hover);
+            border-color: var(--primary);
+        }
+
+        .border-radius-button.selected {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--primary);
+        }
+
+        #cssOutput {
+            display: none;
+            background-color: var(--components-bg);
+            padding: 15px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            margin-top: 20px;
+            font-family: monospace;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="themes-container">
+        <div class="button-group"><causs-popover>
+            <causs-button slot="trigger" id="customizeBtn">Customize</causs-button>
+            <div slot="content">
+                <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;" class="popover-inside">
+                    <h3>Customize Theme</h3>
+                    <causs-label>Color</causs-label>
+                    <div class="color-palette">
+                        <div class="color-theme-button" data-theme="Cobble">
+                            <div class="color-indicator" style="background-color: #18181B;"></div>
+                            <span class="color-theme-name">Cobble</span>
+                        </div>
+                        <div class="color-theme-button" data-theme="Orange">
+                            <div class="color-indicator" style="background-color: #FF801F;"></div>
+                            <span class="color-theme-name">Orange</span>
+                        </div>
+                        <div class="color-theme-button" data-theme="Blue">
+                            <div class="color-indicator" style="background-color: #0E76FD;"></div>
+                            <span class="color-theme-name">Blue</span>
+                        </div>
+                        <div class="color-theme-button" data-theme="Green">
+                            <div class="color-indicator" style="background-color: #1DB847;"></div>
+                            <span class="color-theme-name">Green</span>
+                        </div>
+                        <div class="color-theme-button" data-theme="Red">
+                            <div class="color-indicator" style="background-color: #FA423C;"></div>
+                            <span class="color-theme-name">Red</span>
+                        </div>
+                        <div class="color-theme-button" data-theme="Yellow">
+                            <div class="color-indicator" style="background-color: #F59E0B;"></div>
+                            <span class="color-theme-name">Yellow</span>
+                        </div>
+                        <div class="color-theme-button" data-theme="Violet">
+                            <div class="color-indicator" style="background-color: #8B5CF6;"></div>
+                            <span class="color-theme-name">Violet</span>
+                        </div>
+                        <div class="color-theme-button" data-theme="Rose">
+                            <div class="color-indicator" style="background-color: #F43F5E;"></div>
+                            <span class="color-theme-name">Rose</span>
+                        </div>
+                        <div class="color-theme-button" data-theme="Cyan">
+                            <div class="color-indicator" style="background-color: #06B6D4;"></div>
+                            <span class="color-theme-name">Cyan</span>
+                        </div>
+                    </div>
+                    <causs-label>Border Radius</causs-label>
+                        <div class="border-radius-group">
+                            <button class="border-radius-button" data-radius="0">0</button>
+                            <button class="border-radius-button" data-radius="0.25rem">0.25</button>
+                            <button class="border-radius-button selected" data-radius="0.5rem">0.5</button>
+                            <button class="border-radius-button" data-radius="1rem">1</button>
+                            <button class="border-radius-button" data-radius="1.5rem">1.5</button>
+                        </div>
+                    <causs-label>Change Mode</causs-label>
+                    <causs-theme></causs-theme>
+                </div>
+            </div>
+        </causs-popover>        
+            <causs-button variant="outline" id="copyCodeBtn">Copy Theme</causs-button>
+        </div>
+
+        <div class="themes-grid">
+            <causs-card>
+                <div slot="header">
+                    <h3>Buttons</h3>
+                </div>
+                <div class="component-card" slot="content">
+                    <div>
+                        <causs-button>Primary</causs-button>
+                        <causs-button variant="secondary">Secondary</causs-button>
+                        <causs-button variant="destructive">Destructive</causs-button>
+                    </div>
+                    <div>
+                        <causs-button variant="outline" >Outline</causs-button>
+                        <causs-button variant="ghost">Ghost</causs-button>
+                        <causs-button disabled>Disabled</causs-button>
+                    </div>
+                </div>
+            </causs-card>
+
+            <causs-card>
+                <div slot="header">
+                    <h3>Input Fields</h3>
+                </div>
+                <div slot="content">
+                    <div class="component-card">
+                        <div class="input-group">
+                            <causs-label>Default Input</causs-label>
+                            <causs-input type="text" class="input" placeholder="Enter text"></causs-input>
+                        </div>
+                        <div class="input-group">
+                            <causs-label>Disabled Input</causs-label>
+                            <causs-input placeholder="Email" disabled></causs-input>
+                        </div>
+                    </div>
+                </div>
+            </causs-card>
+
+            <causs-slider min="0" max="100" value="50" step="1"></causs-slider>
+
+            <div class="component-card">
+                <causs-calendar></causs-calendar>
+            </div>
+
+            <causs-rating
+                max-rating="5"
+                interactive
+                show-value>
+            </causs-rating>
+        </div>
+
+        <pre id="cssOutput"></pre>
+    </div>
+
+    <script src="./dist/index.js"></script>
+
+    <script>
+        const themes = {
+    'Cobble': {
+        // Modo claro
+        light: {
+            'primary': '#18181B',
+            'primary-hover': '#27272A',
+            'secondary': '#F4F4F5',
+            'secondary-hover': '#E4E4E7',
+            'danger': '#FA423C',
+            'danger-hover': '#E53E3E',
+            'warning': '#FF801F',
+            'success': '#1DB847',
+            'background': '#FFFFFF',
+            'background-hover': '#F5F5F5',
+            'components-bg': '#e0e0e0',
+            'components-bg-hover': '#d6d6d6',
+            'components-disabled': '#ccc',
+            'components-border': '#ccc',
+            'shadow-color': 'rgba(204, 204, 204, 0.6)',
+            'text-black': '#111827',
+            'text-white': '#f3f4f6',
+        },
+        // Modo escuro
+        dark: {
+            'primary': '#F4F4F5',
+            'primary-hover': '#E4E4E7',
+            'secondary': '#3F3F46',
+            'secondary-hover': '#52525B',
+            'danger': '#DC2626',
+            'danger-hover': '#B91C1C',
+            'warning': '#F97316',
+            'success': '#22C55E',
+            'background': '#08080a',
+            'background-hover': '#101013',
+            'components-bg': '#52525B',
+            'components-bg-hover': '#52525B',
+            'components-disabled': '#444',
+            'components-border': '#444',
+            'shadow-color': 'rgba(68, 68, 68, 0.5)',
+            'text-black': '#f3f4f6',
+            'text-white': '#111827',
+        }
+    },
+    'Orange': {
+        // Modo claro
+        light: {
+            'primary': '#FF801F',
+            'primary-hover': '#FF9251',
+            'secondary': '#FFE5D0',
+            'secondary-hover': '#FFD4B8',
+            'background': '#FFFFFF',
+            'background-hover': '#FFEDE5',
+            'components-bg': '#FFD4B8',
+            'components-bg-hover': '#FFA08A',
+            'components-disabled': '#FFE5D0',
+            'components-border': '#ccc',
+            'shadow-color': 'rgba(204, 204, 204, 0.6)',
+            'text-black': '#111827',
+            'text-white': '#f3f4f6',
+        },
+        // Modo escuro
+        dark: {
+            'primary': '#FF801F',
+            'primary-hover': '#E6751C',
+            'secondary': '#262626',
+            'secondary-hover': '#27272A',
+            'background': '#0A0A0A',
+            'background-hover': '#262626',
+            'components-bg': '#27272A',
+            'components-bg-hover': '#FFA08A',
+            'components-disabled': '#262626',
+            'components-border': '#444',
+            'shadow-color': 'rgba(68, 68, 68, 0.5)',
+            'text-black': '#f3f4f6',
+            'text-white': '#111827',
+        },
+    },
+    'Blue': {
+        // Modo claro
+        light: {
+            'primary': '#0E76FD',
+            'primary-hover': '#0A5BD9',
+            'secondary': '#E6F2FF',
+            'secondary-hover': '#D9ECFF',
+            'background': '#FFFFFF',
+            'background-hover': '#E6F7FF',
+            'components-bg': '#CCE7FF',
+            'components-bg-hover': '#99D3FF',
+            'components-disabled': '#CCE7FF',
+            'components-border': '#ccc',
+            'shadow-color': 'rgba(204, 204, 204, 0.6)',
+            'text-black': '#111827',
+            'text-white': '#f3f4f6',
+        },
+        // Modo escuro
+        dark: {
+            'primary': '#0E76FD',
+            'primary-hover': '#0A5BD9',
+            'secondary': '#262626',
+            'secondary-hover': '#27272A',
+            'background': '#0A0A0A',
+            'background-hover': '#262626',
+            'components-bg': '#27272A',
+            'components-bg-hover': '#99D3FF',
+            'components-disabled': '#262626',
+            'components-border': '#444',
+            'shadow-color': 'rgba(68, 68, 68, 0.5)',
+            'text-black': '#f3f4f6',
+            'text-white': '#111827',
+        },
+    },
+    'Green': {
+        // Modo claro
+        light: {
+            'primary': '#1DB847',
+            'primary-hover': '#22C65E',
+            'secondary': '#E6F4E6',
+            'secondary-hover': '#D1E9D1',
+            'background': '#FFFFFF',
+            'background-hover': '#E6FFE6',
+            'components-bg': '#CFF3CF',
+            'components-bg-hover': '#99E399',
+            'components-disabled': '#CFF3CF',
+            'components-border': '#ccc',
+            'shadow-color': 'rgba(204, 204, 204, 0.6)',
+            'text-black': '#111827',
+            'text-white': '#f3f4f6',
+        },
+        // Modo escuro
+        dark: {
+            'primary': '#1DB847',
+            'primary-hover': '#169E3A',
+            'secondary': '#262626',
+            'secondary-hover': '#27272A',
+            'background': '#0A0A0A',
+            'background-hover': '#262626',
+            'components-bg': '#27272A',
+            'components-bg-hover': '#99E399',
+            'components-disabled': '#262626',
+            'components-border': '#444',
+            'shadow-color': 'rgba(68, 68, 68, 0.5)',
+            'text-black': '#f3f4f6',
+            'text-white': '#111827',
+        },
+    },
+    'Red': {
+        // Modo claro
+        light: {
+            'primary': '#DC2626',
+            'primary-hover': '#DF3B3B',
+            'secondary': '#f5f5f5',
+            'secondary-hover': '#FFD4D1',
+            'background': '#FFFFFF',
+            'background-hover': '#FFE6E6',
+            'components-bg': '#FFC2C1',
+            'components-bg-hover': '#FFA0A0',
+            'components-disabled': '#f5f5f5',
+            'components-border': '#ccc',
+            'shadow-color': 'rgba(204, 204, 204, 0.6)',
+            'text-black': '#111827',
+            'text-white': '#f3f4f6',
+        },
+        // Modo escuro
+        dark: {
+            'primary': '#DC2626',
+            'primary-hover': '#C72323',
+            'secondary': '#262626',
+            'secondary-hover': '#27272A',
+            'background': '#0A0A0A',
+            'background-hover': '#262626',
+            'components-bg': '#27272A',
+            'components-bg-hover': '#FFA0A0',
+            'components-disabled': '	#262626',
+            'components-border': '#444',
+            'shadow-color': 'rgba(68, 68, 68, 0.5)',
+            'text-black': '#f3f4f6',
+            'text-white': '#111827',
+        },
+    },
+    'Yellow': {
+        light: {
+            'primary': '#F59E0B',
+            'primary-hover': '#F4B732',
+            'secondary': '#FFFBEA',
+            'secondary-hover': '#FFF4C2',
+            'background': '#FFFFFF',
+            'background-hover': '#FFFAE5',
+            'components-bg': '#FFE9A8',
+            'components-bg-hover': '#FFD97D',
+            'components-disabled': '#FFF3C4',
+            'components-border': '#ccc',
+            'shadow-color': 'rgba(204, 204, 204, 0.6)',
+            'text-black': '#111827',
+            'text-white': '#f3f4f6',
+        },
+        dark: {
+            'primary': '#FBBF24',
+            'primary-hover': '#F59E0B',
+            'secondary': '#3A3A3A',
+            'secondary-hover': '#444444',
+            'background': '#0A0A0A',
+            'background-hover': '#1A1A1A',
+            'components-bg': '#5A5A5A',
+            'components-bg-hover': '#FFD97D',
+            'components-disabled': '#444444',
+            'components-border': '#444',
+            'shadow-color': 'rgba(68, 68, 68, 0.5)',
+            'text-black': '#f3f4f6',
+            'text-white': '#111827',
+        },
+    },
+    'Violet': {
+        light: {
+            'primary': '#8B5CF6',
+            'primary-hover': '#9B70F9',
+            'secondary': '#F5F3FF',
+            'secondary-hover': '#EDE9FE',
+            'background': '#FFFFFF',
+            'background-hover': '#F3E8FF',
+            'components-bg': '#D8B4FE',
+            'components-bg-hover': '#C084FC',
+            'components-disabled': '#E9D5FF',
+            'components-border': '#ccc',
+            'shadow-color': 'rgba(204, 204, 204, 0.6)',
+            'text-black': '#111827',
+            'text-white': '#f3f4f6',
+        },
+        dark: {
+            'primary': '#A78BFA',
+            'primary-hover': '#8B5CF6',
+            'secondary': '#282828',
+            'secondary-hover': '#333333',
+            'background': '#0A0A0A',
+            'background-hover': '#1A1A1A',
+            'components-bg': '#3D3D3D',
+            'components-bg-hover': '#C084FC',
+            'components-disabled': '#555555',
+            'components-border': '#444',
+            'shadow-color': 'rgba(68, 68, 68, 0.5)',
+            'text-black': '#f3f4f6',
+            'text-white': '#111827',
+        },
+    },
+    'Rose': {
+        light: {
+            'primary': '#F43F5E',
+            'primary-hover': '#FB7185',
+            'secondary': '#FFF1F2',
+            'secondary-hover': '#FFE4E6',
+            'background': '#FFFFFF',
+            'background-hover': '#FFEAF0',
+            'components-bg': '#FFCBD5',
+            'components-bg-hover': '#FDA4AF',
+            'components-disabled': '#FFE4E6',
+            'components-border': '#ccc',
+            'shadow-color': 'rgba(204, 204, 204, 0.6)',
+            'text-black': '#111827',
+            'text-white': '#f3f4f6',
+        },
+        dark: {
+            'primary': '#FB7185',
+            'primary-hover': '#F43F5E',
+            'secondary': '#292929',
+            'secondary-hover': '#333333',
+            'background': '#0A0A0A',
+            'background-hover': '#1A1A1A',
+            'components-bg': '#3E3E3E',
+            'components-bg-hover': '#FDA4AF',
+            'components-disabled': '#444444',
+            'components-border': '#444',
+            'shadow-color': 'rgba(68, 68, 68, 0.5)',
+            'text-black': '#f3f4f6',
+            'text-white': '#111827',
+        },
+    },
+    'Cyan': {
+        light: {
+            'primary': '#06B6D4',
+            'primary-hover': '#22D3EE',
+            'secondary': '#ECFEFF',
+            'secondary-hover': '#CFFAFE',
+            'background': '#FFFFFF',
+            'background-hover': '#DFF8FF',
+            'components-bg': '#BAE6FD',
+            'components-bg-hover': '#7DD3FC',
+            'components-disabled': '#D1F5FF',
+            'components-border': '#ccc',
+            'shadow-color': 'rgba(204, 204, 204, 0.6)',
+            'text-black': '#111827',
+            'text-white': '#f3f4f6',
+        },
+        dark: {
+            'primary': '#22D3EE',
+            'primary-hover': '#06B6D4',
+            'secondary': '#292929',
+            'secondary-hover': '#333333',
+            'background': '#0A0A0A',
+            'background-hover': '#1A1A1A',
+            'components-bg': '#444444',
+            'components-bg-hover': '#7DD3FC',
+            'components-disabled': '#555555',
+            'components-border': '#444',
+            'shadow-color': 'rgba(68, 68, 68, 0.5)',
+            'text-black': '#f3f4f6',
+            'text-white': '#111827',
+        },
+    },
+    // Outros temas podem ser adicionados seguindo este padrão
+};
+
+
+        const customizeBtn = document.getElementById('customizeBtn');
+        const colorPalette = document.getElementById('colorPalette');
+        const colorOptions = document.querySelectorAll('.color-theme-button');
+        const copyCodeBtn = document.getElementById('copyCodeBtn');
+        const cssOutput = document.getElementById('cssOutput');
+
+        customizeBtn.addEventListener('click', () => {
+            colorPalette.style.display = 
+                colorPalette.style.display === 'none' ? 'flex' : 'none';
+        });
+
+
+
+        colorOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove a seleção anterior
+                colorOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+            
+                const themeName = option.dataset.theme;
+                const themeColors = themes[themeName];
+            
+                // Detecta se o modo escuro está ativado
+                const isDarkMode = document.documentElement.classList.contains('dark');
+            
+                // Pega as cores do modo correspondente
+                const selectedColors = isDarkMode ? themeColors.dark : themeColors.light;
+            
+                // Atualiza as variáveis CSS
+                Object.entries(selectedColors).forEach(([key, value]) => {
+                    document.documentElement.style.setProperty(`--${key}`, value);
+                });
+            
+                // Gera a saída CSS para exibição
+                const cssVariables = Object.entries(selectedColors)
+                    .map(([key, value]) => `    --${key}: ${value};`)
+                    .join('\n');
+            
+                cssOutput.textContent = `:root${isDarkMode ? '.dark' : ''} {\n${cssVariables}\n}`;
+                cssOutput.style.display = 'block';
+            });
+        });
+        
+        // Add a function to update theme colors
+function updateThemeColors(themeName) {
+    const themeColors = themes[themeName];
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    const selectedColors = isDarkMode ? themeColors.dark : themeColors.light;
+
+    // Update CSS variables
+    Object.entries(selectedColors).forEach(([key, value]) => {
+        document.documentElement.style.setProperty(`--${key}`, value);
+    });
+
+    // Update CSS output
+    const cssVariables = Object.entries(selectedColors)
+        .map(([key, value]) => `    --${key}: ${value};`)
+        .join('\n');
+
+    cssOutput.textContent = `:root${isDarkMode ? '.dark' : ''} {\n${cssVariables}\n}`;
+    cssOutput.style.display = 'block';
+}
+
+// Modify existing color theme click listener
+colorOptions.forEach(option => {
+    option.addEventListener('click', () => {
+        // Remove previous selection
+        colorOptions.forEach(opt => opt.classList.remove('selected'));
+        option.classList.add('selected');
+        
+        const themeName = option.dataset.theme;
+        updateThemeColors(themeName);
+    });
+});
+
+// Add a MutationObserver to detect dark mode class changes
+const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+            // Find the currently selected theme and update it
+            const selectedTheme = document.querySelector('.color-theme-button.selected');
+            if (selectedTheme) {
+                updateThemeColors(selectedTheme.dataset.theme);
+            }
+        }
+    });
+});
+
+// Start observing the document with the configured parameters
+observer.observe(document.documentElement, { attributes: true });
+        // Function to generate full CSS variables for both light and dark modes
+function generateFullThemeCss(themeName) {
+    const themeColors = themes[themeName];
+    const lightModeVariables = Object.entries(themeColors.light)
+        .map(([key, value]) => `    --${key}: ${value};`)
+        .join('\n');
+    
+    const darkModeVariables = Object.entries(themeColors.dark)
+        .map(([key, value]) => `    --${key}: ${value};`)
+        .join('\n');
+    
+    return `:root {\n${lightModeVariables}\n}\n\n:root.dark {\n${darkModeVariables}\n}`;
+}
+
+// Modify the copy button event listener
+copyCodeBtn.addEventListener('click', () => {
+    // Find the currently selected theme
+    const selectedTheme = document.querySelector('.color-theme-button.selected');
+    
+    if (selectedTheme) {
+        const themeName = selectedTheme.dataset.theme;
+        const fullThemeCss = generateFullThemeCss(themeName);
+        
+        // Get the current border radius if it's set
+        const borderRadiusButton = document.querySelector('.border-radius-button.selected');
+        const borderRadius = borderRadiusButton ? `    --border-radius: ${borderRadiusButton.dataset.radius};` : '';
+        
+        // If border radius exists, add it to both light and dark mode
+        const completeThemeCss = borderRadius 
+            ? `${fullThemeCss}\n\n:root, :root.dark {\n${borderRadius}\n}`
+            : fullThemeCss;
+        
+        navigator.clipboard.writeText(completeThemeCss).then(() => {
+            alert('Full Theme CSS Variables copied to clipboard!');
+        });
+    } else {
+        alert('Please select a theme first.');
+    }
+});
+
+
+        // Function to update border radius
+        function updateBorderRadius(radius) {
+            document.documentElement.style.setProperty('--border-radius', radius);
+            
+            // Update CSS output for border radius
+            const currentCssOutput = cssOutput.textContent;
+            const borderRadiusLine = `    --border-radius: ${radius};`;
+            
+            // If border radius line already exists, replace it
+            if (currentCssOutput.includes('--border-radius:')) {
+                cssOutput.textContent = currentCssOutput.replace(/    --border-radius:.*/, borderRadiusLine);
+            } else {
+                // If no border radius line, add it before the last closing brace
+                const outputLines = currentCssOutput.split('\n');
+                outputLines.splice(-1, 0, borderRadiusLine);
+                cssOutput.textContent = outputLines.join('\n');
+            }
+            
+            cssOutput.style.display = 'block';
+        }
+
+        // Add event listeners to border radius buttons
+        const borderRadiusButtons = document.querySelectorAll('.border-radius-button');
+        borderRadiusButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove previous selection
+                borderRadiusButtons.forEach(btn => btn.classList.remove('selected'));
+                button.classList.add('selected');
+                
+                const radius = button.dataset.radius;
+                updateBorderRadius(radius);
+            });
+        });
+    </script>
+</body>
+</html>

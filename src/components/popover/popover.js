@@ -14,31 +14,36 @@ class CaussPopover extends HTMLElement {
 
         .popover-trigger {
           cursor: pointer;
+          user-select: none;
         }
 
         .popover-content {
           position: absolute;
-          top: 100%;
+          top: calc(100% + 10px);
           left: 50%;
-          transform: translateX(-50%) scaleY(0); /* Começa escondido e com escala 0 */
+          transform: translateX(-50%) translateY(-20px);
           min-width: 200px;
-          background: var(--popover-bg, white);
-          color: var(--popover-color, black);
-          border: 1px solid var(--popover-border, #ccc);
-          border-radius: var(--border-radius);
-          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+          background: var(--background, white);
+          color: var(--text-black, black);
+          border: 1px solid var(--components-border, #e0e0e0);
+          border-radius: var(--border-radius, 8px);
+          box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
           padding: 1rem;
           z-index: 10;
-          display: block;
-          opacity: 0; /* Começa invisível */
-          pointer-events: none; /* Não interage enquanto não visível */
-          transition: transform 0.3s ease, opacity 0.3s ease; /* Transições suaves */
+          opacity: 0;
+          pointer-events: none;
+          transition: 
+            transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+            opacity 0.3s ease,
+            visibility 0.3s;
+          visibility: hidden;
         }
 
         .popover-content.open {
-          transform: translateX(-50%) scaleY(1); /* Quando visível, expande */
-          opacity: 1; /* Fica visível */
-          pointer-events: auto; /* Pode interagir quando visível */
+          transform: translateX(-50%) translateY(0);
+          opacity: 1;
+          pointer-events: auto;
+          visibility: visible;
         }
 
         .arrow {
@@ -49,12 +54,34 @@ class CaussPopover extends HTMLElement {
           width: 12px;
           height: 12px;
           background: inherit;
+          border-top: 1px solid var(--components-border, #e0e0e0);
+          border-left: 1px solid var(--components-border, #e0e0e0);
           clip-path: polygon(50% 0, 100% 100%, 0 100%);
-          transition: transform 0.3s ease; /* Animação suave para a seta */
+          transition: 
+            transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+            opacity 0.3s ease;
+          opacity: 0;
         }
 
         .popover-content.open .arrow {
-          transform: translateX(-50%) rotate(180deg); /* Seta vira quando o popover está aberto */
+          transform: translateX(-50%) rotate(180deg);
+          opacity: 1;
+        }
+
+        /* Subtle scale and fade animation */
+        @keyframes popoverEntrance {
+          from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(-20px) scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0) scale(1);
+          }
+        }
+
+        .popover-content.open {
+          animation: popoverEntrance 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
         }
       </style>
       <div class="popover-trigger">
@@ -70,6 +97,7 @@ class CaussPopover extends HTMLElement {
   connectedCallback() {
     this.trigger = this.shadowRoot.querySelector('.popover-trigger');
     this.content = this.shadowRoot.querySelector('.popover-content');
+    this.arrow = this.shadowRoot.querySelector('.arrow');
 
     // Add event listeners
     this.trigger.addEventListener('click', this.togglePopover.bind(this));

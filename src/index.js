@@ -27,11 +27,12 @@ import './components/toast/toast.js'
 import './components/tabs/tabs.js'
 import './components/theme-toggle/theme-toggle.js'
 import './components/drawer/drawer.js'
-
-
-
-
-
-
+import './components/sidebar/sidebar.js'
+import './components/dropzone/dropzone.js'
+import './components/tree-view/tree-view.js'
+import './components/carousel/carousel.js'
+import './components/combobox/combobox.js'
+import './components/table/table.js'
+import './components/timeline/timeline.js'
 
 import '../styles/library.css'    // Estilo global
