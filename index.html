@@ -161,8 +161,11 @@
             <a data-section="buttons" class="nav-link">Buttons</a>
             <a data-section="calendar" class="nav-link">Calendar</a>
             <a data-section="card" class="nav-link">Card</a>
+            <a data-section="carousel" class="nav-link">Carousel</a>
+            <a data-section="combobox" class="nav-link">Combobox</a>
             <a data-section="checkbox" class="nav-link">Checkbox</a>
             <a data-section="drawer" class="nav-link">Drawer</a>
+            <a data-section="dropzone" class="nav-link">Dropzone</a>
             <a data-section="input" class="nav-link">Input</a>
             <a data-section="otp" class="nav-link">Input OTP</a>
             <a data-section="menubar" class="nav-link">Menubar</a>
@@ -178,11 +181,13 @@
             <a data-section="slider" class="nav-link">Slider</a>
             <a data-section="spinner" class="nav-link">Spinner</a>
             <a data-section="switch" class="nav-link">Switch</a>
+            <a data-section="table" class="nav-link">Table</a>
             <a data-section="tabs" class="nav-link">Tabs</a>
             <a data-section="theme" class="nav-link">Theme Toggle</a>
+            <a data-section="timeline" class="nav-link">Timeline</a>
             <a data-section="toast" class="nav-link">Toast</a>
             <a data-section="tooltip" class="nav-link">Tooltip</a>
-
+            <a data-section="tree-view" class="nav-link">Tree View</a>
         </nav>
         <a href="https://github.com/caiaikkj" class="github-link" target="_blank">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -222,6 +227,105 @@
                 <causs-button disabled>Disabled</causs-button>
                 <pre><code class="language-html">&lt;causs-button disabled&gt;Destructive&lt;/causs-button&gt;</code></pre>
             </div>
+        </section>
+
+        <section id="carousel" class="component-section">
+            <div class="component-header">
+                <h2>Carousel</h2>
+                <p>Carousel component with customizable slots</p>
+            </div>
+            <div class="component-example">
+                <causs-carousel autoplay interval="3000">
+                    <div class="slide"><img src="https://placehold.co/600x400?text=1" alt=""></div>
+                    <div class="slide"><img src="https://placehold.co/600x400?text=2" alt=""></div>
+                    <div class="slide"><img src="https://placehold.co/600x400?text=3" alt=""></div>
+                </causs-carousel>
+            </div>
+            <pre><code class="language-html">&lt;causs-carousel autoplay interval="3000"&gt;
+    &lt;div class="slide"&gt;Slide 1&lt;/div&gt;
+    &lt;div class="slide"&gt;Slide 2&lt;/div&gt;
+    &lt;div class="slide"&gt;Slide 3&lt;/div&gt;
+&lt;/causs-carousel&gt;</code></pre>
+        </section>
+
+        <section id="combobox" class="component-section">
+            <div class="component-header">
+                <h2>Combobox</h2>
+                <p>Combobox component with customizable slots</p>
+            </div>
+            <div class="component-example">
+                <!-- Basic usage -->
+                <causs-combobox items='[
+                {"value": "1", "label": "Option 1"},
+                {"value": "2", "label": "Option 2"},
+                {"value": "3", "label": "Option 3"}
+                ]'></causs-combobox>
+
+                <!-- Multiple selection -->
+                <causs-combobox multiple items='[
+                {"value": "1", "label": "Option 1"},
+                {"value": "2", "label": "Option 2"},
+                {"value": "3", "label": "Option 3"}
+                ]'></causs-combobox>
+
+                <!-- With slot -->
+                <causs-combobox>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+                </causs-combobox>
+            </div>
+            <pre><code class="language-html">&lt;causs-combobox items='[
+                {"value": "1", "label": "Option 1"},
+                {"value": "2", "label": "Option 2"},
+                {"value": "3", "label": "Option 3"}
+                ]'&gt;
+&lt;/causs-combobox&gt;
+
+                <!-- Multiple selection -->
+&lt;causs-combobox multiple items='[
+    &lt;div class="slide"&gt;Slide 1&lt;/div&gt;
+    &lt;div class="slide"&gt;Slide 2&lt;/div&gt;
+    &lt;div class="slide"&gt;Slide 3&lt;/div&gt;&gt;
+&lt;/causs-carousel&gt;</code></pre>
+        </section>
+
+        <section id="table" class="component-section">
+            <div class="component-header">
+                <h2>Table</h2>
+                <p>Table component with customizable slots</p>
+            </div>
+            <div class="component-example">
+                <causs-table 
+    columns='[
+        {"field": "id", "label": "ID"},
+        {"field": "name", "label": "Name"},
+        {"field": "email", "label": "Email"},
+        {"field": "status", "label": "Status"}
+    ]'
+    data='[
+        {"id": 1, "name": "John Doe", "email": "john@example.com", "status": "Active"},
+        {"id": 2, "name": "Jane Smith", "email": "jane@example.com", "status": "Inactive"}
+    ]'
+    items-per-page="1"
+></causs-table>
+            </div>
+            <div class="component-example">
+                <pre><code class="language-html">&lt;causs-table 
+    columns='[
+        {"field": "id", "label": "ID"},
+        {"field": "name", "label": "Name"},
+        {"field": "email", "label": "Email"},
+        {"field": "status", "label": "Status"}
+    ]'
+    data='[
+        {"id": 1, "name": "John Doe", "email": "john@example.com", "status": "Active"},
+        {"id": 2, "name": "Jane Smith", "email": "jane@example.com", "status": "Inactive"}
+    ]'
+    items-per-page="1"
+&gt;&lt;/causs-table&gt;</code></pre>
+            </div>
+            
         </section>
 
         <section id="card" class="component-section">
@@ -830,7 +934,7 @@ document.querySelector('#switch-listener').addEventListener('switch-change', (ev
                     </causs-tab>
                 </causs-tabs>
             </div>
-<pre><code class="language-html">&lt;causs-tabs>
+<pre><code class="language-html">&lt;causs-tabs&gt;
     &lt;causs-tab label="First Tab"&gt;
         Content for the first tab
     &lt;/causs-tab&gt;
@@ -843,6 +947,38 @@ document.querySelector('#switch-listener').addEventListener('switch-change', (ev
 &lt;/causs-tabs&gt;
 </code></pre>                    
         </section>
+        
+        <!-- Dropzone Component -->
+        <section id="dropzone" class="component-section">
+            <div class="component-header">
+                <h2>Dropzone</h2>
+                <p>Dropzone component</p>
+            </div>
+            <div class="component-example">
+                <causs-dropzone>
+                    <span slot="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+        </span>
+        Drop files here or click to upload
+      </causs-dropzone>
+    </div>
+    <div class="component-code">
+      <pre><code class="language-html">&lt;causs-dropzone&gt;
+    &lt;span slot="icon"&gt;
+      &lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;
+        &lt;path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"&gt;&lt;/path&gt;
+        &lt;polyline points="17 8 12 3 7 8"&gt;&lt;/polyline&gt;
+        &lt;line x1="12" y1="3" x2="12" y2="15"&gt;&lt;/line&gt;
+      &lt;/svg&gt;
+    &lt;/span&gt;
+    Drop files here or click to upload
+  &lt;/causs-dropzone&gt;</code></pre>
+    </div>
+  </section>
 
         <section id="theme" class="component-section">
             <div class="component-header">
@@ -852,6 +988,166 @@ document.querySelector('#switch-listener').addEventListener('switch-change', (ev
             <div class="component-example">
                 <causs-theme></causs-theme>
             </div>          
+        </section>
+  
+  <!-- Tree View Component -->
+  <section id="tree-view" class="component-section">
+    <div class="component-header">
+        <h2>Tree View</h2>
+        <p>Tree View component</p>
+    </div>
+    <div class="component-example">
+      <causs-tree-view>
+        <causs-tree-item expanded>
+          <span slot="label">Documents</span>
+          <causs-tree-item>
+            <span slot="label">Work</span>
+            <causs-tree-item>
+              <span slot="label">Project A</span>
+            </causs-tree-item>
+            <causs-tree-item>
+              <span slot="label">Project B</span>
+            </causs-tree-item>
+          </causs-tree-item>
+          <causs-tree-item>
+            <span slot="label">Personal</span>
+            <causs-tree-item>
+              <span slot="label">Vacation</span>
+            </causs-tree-item>
+            <causs-tree-item>
+              <span slot="label">Finances</span>
+            </causs-tree-item>
+          </causs-tree-item>
+        </causs-tree-item>
+        <causs-tree-item>
+          <span slot="label">Pictures</span>
+          <causs-tree-item>
+            <span slot="label">2023</span>
+          </causs-tree-item>
+          <causs-tree-item>
+            <span slot="label">2022</span>
+          </causs-tree-item>
+        </causs-tree-item>
+      </causs-tree-view>
+    </div>
+    <div class="component-code">
+      <pre><code class="language-html">&lt;causs-tree-view&gt;
+    &lt;causs-tree-item expanded&gt;
+      &lt;span slot="label"&gt;Documents&lt;/span&gt;
+      &lt;causs-tree-item&gt;
+        &lt;span slot="label"&gt;Work&lt;/span&gt;
+        &lt;causs-tree-item&gt;
+          &lt;span slot="label"&gt;Project A&lt;/span&gt;
+        &lt;/causs-tree-item&gt;
+        &lt;causs-tree-item&gt;
+          &lt;span slot="label"&gt;Project B&lt;/span&gt;
+        &lt;/causs-tree-item&gt;
+      &lt;/causs-tree-item&gt;
+      &lt;causs-tree-item&gt;
+        &lt;span slot="label"&gt;Personal&lt;/span&gt;
+        &lt;causs-tree-item&gt;
+          &lt;span slot="label"&gt;Vacation&lt;/span&gt;
+        &lt;/causs-tree-item&gt;
+        &lt;causs-tree-item&gt;
+          &lt;span slot="label"&gt;Finances&lt;/span&gt;
+        &lt;/causs-tree-item&gt;
+      &lt;/causs-tree-item&gt;
+    &lt;/causs-tree-item&gt;
+    &lt;causs-tree-item&gt;
+      &lt;span slot="label"&gt;Pictures&lt;/span&gt;
+      &lt;causs-tree-item&gt;
+        &lt;span slot="label"&gt;2023&lt;/span&gt;
+      &lt;/causs-tree-item&gt;
+      &lt;causs-tree-item&gt;
+        &lt;span slot="label"&gt;2022&lt;/span&gt;
+      &lt;/causs-tree-item&gt;
+    &lt;/causs-tree-item&gt;
+  &lt;/causs-tree-view&gt;</code></pre>
+    </div>
+  </section>
+
+        <section id="timeline" class="component-section">
+            <div class="component-header">
+                <h2>Timeline</h2>
+                <p>Timeline component for displaying chronological events</p>
+            </div>
+            <div class="component-example">
+                <causs-timeline items='[
+                    {
+                        "title": "Project Started",
+                        "date": "March 1, 2024",
+                        "content": "Initial project setup and planning phase",
+                        "status": "completed"
+                    },
+                    {
+                        "title": "Development Phase",
+                        "date": "March 15, 2024",
+                        "content": "Core features implementation",
+                        "status": "active"
+                    },
+                    {
+                        "title": "Testing Phase",
+                        "date": "March 30, 2024",
+                        "content": "Quality assurance and bug fixes"
+                    }
+                ]'></causs-timeline>
+            </div>
+            <pre><code class="language-html">&lt;causs-timeline items='[
+    {
+        "title": "Project Started",
+        "date": "March 1, 2024",
+        "content": "Initial project setup and planning phase",
+        "status": "completed"
+    },
+    {
+        "title": "Development Phase",
+        "date": "March 15, 2024",
+        "content": "Core features implementation",
+        "status": "active"
+    },
+    {
+        "title": "Testing Phase",
+        "date": "March 30, 2024",
+        "content": "Quality assurance and bug fixes"
+    }
+]'&gt;&lt;/causs-timeline&gt;</code></pre>
+
+            <div class="component-example">
+                <causs-timeline>
+                    <div class="timeline-item completed">
+                        <h3>Project Started</h3>
+                        <time>March 1, 2024</time>
+                        <p>Initial project setup and planning phase</p>
+                    </div>
+                    <div class="timeline-item active">
+                        <h3>Development Phase</h3>
+                        <time>March 15, 2024</time>
+                        <p>Core features implementation</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Testing Phase</h3>
+                        <time>March 30, 2024</time>
+                        <p>Quality assurance and bug fixes</p>
+                    </div>
+                </causs-timeline>
+            </div>
+            <pre><code class="language-html">&lt;causs-timeline&gt;
+    &lt;div class="timeline-item completed"&gt;
+        &lt;h3&gt;Project Started&lt;/h3&gt;
+        &lt;time&gt;March 1, 2024&lt;/time&gt;
+        &lt;p&gt;Initial project setup and planning phase&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="timeline-item active"&gt;
+        &lt;h3&gt;Development Phase&lt;/h3&gt;
+        &lt;time&gt;March 15, 2024&lt;/time&gt;
+        &lt;p&gt;Core features implementation&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="timeline-item"&gt;
+        &lt;h3&gt;Testing Phase&lt;/h3&gt;
+        &lt;time&gt;March 30, 2024&lt;/time&gt;
+        &lt;p&gt;Quality assurance and bug fixes&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/causs-timeline&gt;</code></pre>
         </section>
 
         <!--  -->

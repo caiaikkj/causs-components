@@ -2,7 +2,7 @@
         <button class="btn">
           <slot></slot>
         </button>
-      `;e.innerHTML=t;let s=document.createElement("style");s.textContent=`
+      `;e.innerHTML=t;let o=document.createElement("style");o.textContent=`
         .btn {
           background-color: var(--primary);
           cursor: pointer;
@@ -67,7 +67,7 @@
           display: block; /* Garante que o bot\xE3o seja tratado como bloco */
           width: 100%;    /* Ocupa toda a largura do container */
         }
-      `,e.appendChild(s)}connectedCallback(){let e=this.shadowRoot.querySelector(".btn"),t=this.getAttribute("variant");t&&e.classList.add(t),this.hasAttribute("disabled")&&e.setAttribute("disabled","true"),this.hasAttribute("full-width")&&e.classList.add("full-width")}};customElements.define("causs-button",l);var c=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"}),t=`
+      `,e.appendChild(o)}connectedCallback(){let e=this.shadowRoot.querySelector(".btn"),t=this.getAttribute("variant");t&&e.classList.add(t),this.hasAttribute("disabled")&&e.setAttribute("disabled","true"),this.hasAttribute("full-width")&&e.classList.add("full-width")}};customElements.define("causs-button",l);var c=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"}),t=`
         <div class="card">
           <div class="card-header">
             <slot name="header"></slot>
@@ -79,7 +79,7 @@
             <slot name="footer"></slot>
           </div>
         </div>
-      `;e.innerHTML=t;let s=document.createElement("style");s.textContent=`
+      `;e.innerHTML=t;let o=document.createElement("style");o.textContent=`
         .card {
             font-family: var(--font-family);
             width: fit-content;
@@ -108,11 +108,11 @@
         .card-footer {
             text-align: right;
         }
-      `,e.appendChild(s)}};customElements.define("causs-card",c);var h=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"}),t=`
+      `,e.appendChild(o)}};customElements.define("causs-card",c);var h=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"}),t=`
         <div class="avatar">
           <img class="avatar-img" src="" alt="Avatar" />
         </div>
-      `;e.innerHTML=t;let s=document.createElement("style");s.textContent=`
+      `;e.innerHTML=t;let o=document.createElement("style");o.textContent=`
         .avatar {
           width: var(--avatar-size, 48px);
           height: var(--avatar-size, 48px);
@@ -134,7 +134,7 @@
         .avatar.square .avatar-img {
           border-radius: 8px; /* Avatar quadrado com bordas levemente arredondadas */
         }
-      `,e.appendChild(s)}connectedCallback(){let e=this.shadowRoot.querySelector(".avatar"),t=this.shadowRoot.querySelector(".avatar-img"),s=this.getAttribute("src");s&&t.setAttribute("src",s);let o=this.getAttribute("variant")||"round";e.classList.add(o);let r=this.getAttribute("size");r&&e.style.setProperty("--avatar-size",`${r}px`)}};customElements.define("causs-avatar",h);var p=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let e=`
+      `,e.appendChild(o)}connectedCallback(){let e=this.shadowRoot.querySelector(".avatar"),t=this.shadowRoot.querySelector(".avatar-img"),o=this.getAttribute("src");o&&t.setAttribute("src",o);let s=this.getAttribute("variant")||"round";e.classList.add(s);let i=this.getAttribute("size");i&&e.style.setProperty("--avatar-size",`${i}px`)}};customElements.define("causs-avatar",h);var p=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let e=`
       <style>
         :host {
           font-family: var(--font-family, Arial, sans-serif);
@@ -170,7 +170,7 @@
       <li class="breadcrumb-item">
         <slot></slot>
       </li>
-    `;this.shadowRoot.innerHTML=e}},m=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let e=`
+    `;this.shadowRoot.innerHTML=e}},v=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let e=`
       <style>
         .breadcrumb-link {
           font-family: var(--font-family, Arial, sans-serif);
@@ -186,7 +186,7 @@
       <a class="breadcrumb-link" href="${this.getAttribute("href")}">
         <slot></slot>
       </a>
-    `;this.shadowRoot.innerHTML=e}},v=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let e=`
+    `;this.shadowRoot.innerHTML=e}},m=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){let e=`
       <style>
         .breadcrumb-separator {
           user-select: none;
@@ -208,7 +208,7 @@
       <span class="breadcrumb-page">
         <slot></slot>
       </span>
-    `;this.shadowRoot.innerHTML=e}};customElements.define("causs-breadcrumb",p);customElements.define("causs-breadcrumb-list",u);customElements.define("causs-breadcrumb-item",b);customElements.define("causs-breadcrumb-link",m);customElements.define("causs-breadcrumb-separator",v);customElements.define("causs-breadcrumb-page",g);var x=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render(),this.setupFileInput()}render(){let e=this.getAttribute("variant")||"default",t=this.getAttribute("label"),s=this.hasAttribute("disabled"),o=this.getAttribute("type")||"text",r=this.getAttribute("placeholder")||"",i=o==="file",n=this.getAttribute("button-text")||"Choose File",d=`
+    `;this.shadowRoot.innerHTML=e}};customElements.define("causs-breadcrumb",p);customElements.define("causs-breadcrumb-list",u);customElements.define("causs-breadcrumb-item",b);customElements.define("causs-breadcrumb-link",v);customElements.define("causs-breadcrumb-separator",m);customElements.define("causs-breadcrumb-page",g);var x=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render(),this.setupFileInput()}render(){let e=this.getAttribute("variant")||"default",t=this.getAttribute("label"),o=this.hasAttribute("disabled"),s=this.getAttribute("type")||"text",i=this.getAttribute("placeholder")||"",a=s==="file",n=this.getAttribute("button-text")||"Choose File",d=`
       <style>
         .input-wrapper {
           display: flex;
@@ -261,19 +261,19 @@
       <div class="input-wrapper">
         ${t?`<label class="label">${t}</label>`:""}
 
-        ${i?`
+        ${a?`
             <input type="file" class="file-input" />
             <causs-button class="custom-file-button" variant="ghost">${n}</causs-button>
           `:`
             <input
-              type="${o}"
+              type="${s}"
               class="input ${e}"
-              ${s?"disabled":""}
-              placeholder="${r}"
+              ${o?"disabled":""}
+              placeholder="${i}"
             />
           `}
       </div>
-    `;this.shadowRoot.innerHTML=d}setupFileInput(){let e=this.shadowRoot.querySelector(".file-input"),t=this.shadowRoot.querySelector(".custom-file-button");t&&e&&t.addEventListener("click",()=>{e.click()})}};customElements.define("causs-input",x);var f=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render()}render(){let e=this.getAttribute("variant")||"primary",t=this.textContent.trim()||"Badge",s=`
+    `;this.shadowRoot.innerHTML=d}setupFileInput(){let e=this.shadowRoot.querySelector(".file-input"),t=this.shadowRoot.querySelector(".custom-file-button");t&&e&&t.addEventListener("click",()=>{e.click()})}};customElements.define("causs-input",x);var f=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render()}render(){let e=this.getAttribute("variant")||"primary",t=this.textContent.trim()||"Badge",o=`
         <style>
           .badge {
             padding: 6px 12px;
@@ -309,7 +309,7 @@
         <span class="badge ${e}">
           ${t}
         </span>
-      `;this.shadowRoot.innerHTML=s}};customElements.define("causs-badge",f);var y=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.date=new Date}connectedCallback(){this.render()}render(){let e=this.date.getMonth(),t=this.date.getFullYear(),s=new Date(t,e+1,0).getDate(),o=new Date(t,e,1).getDay(),r="";for(let n=0;n<o;n++)r+='<div class="day empty"></div>';for(let n=1;n<=s;n++)r+=`<div class="day" data-day="${n}">${n}</div>`;let i=`
+      `;this.shadowRoot.innerHTML=o}};customElements.define("causs-badge",f);var y=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.date=new Date}connectedCallback(){this.render()}render(){let e=this.date.getMonth(),t=this.date.getFullYear(),o=new Date(t,e+1,0).getDate(),s=new Date(t,e,1).getDay(),i="";for(let n=0;n<s;n++)i+='<div class="day empty"></div>';for(let n=1;n<=o;n++)i+=`<div class="day" data-day="${n}">${n}</div>`;let a=`
         <style>
   :host {
     display: block;
@@ -415,10 +415,10 @@
             <div>Sa</div>
           </div>
           <div class="calendar-grid">
-            ${r}
+            ${i}
           </div>
         </div>
-      `;this.shadowRoot.innerHTML=i,this.shadowRoot.querySelector(".prev-month").addEventListener("click",()=>this.changeMonth(-1)),this.shadowRoot.querySelector(".next-month").addEventListener("click",()=>this.changeMonth(1)),this.shadowRoot.querySelectorAll(".day").forEach(n=>{n.addEventListener("click",d=>this.onDayClick(d))})}changeMonth(e){this.date.setMonth(this.date.getMonth()+e),this.render()}getMonthName(e){return["January","February","March","April","May","June","July","August","September","October","November","December"][e]}onDayClick(e){let t=e.target.getAttribute("data-day");this.shadowRoot.querySelectorAll(".day").forEach(o=>o.classList.remove("active")),e.target.classList.add("active");let s=new Date(this.date.getFullYear(),this.date.getMonth(),t);this.dispatchEvent(new CustomEvent("day-selected",{detail:{date:s},bubbles:!0,composed:!0}))}};customElements.define("causs-calendar",y);var w=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"}),t=`
+      `;this.shadowRoot.innerHTML=a,this.shadowRoot.querySelector(".prev-month").addEventListener("click",()=>this.changeMonth(-1)),this.shadowRoot.querySelector(".next-month").addEventListener("click",()=>this.changeMonth(1)),this.shadowRoot.querySelectorAll(".day").forEach(n=>{n.addEventListener("click",d=>this.onDayClick(d))})}changeMonth(e){this.date.setMonth(this.date.getMonth()+e),this.render()}getMonthName(e){return["January","February","March","April","May","June","July","August","September","October","November","December"][e]}onDayClick(e){let t=e.target.getAttribute("data-day");this.shadowRoot.querySelectorAll(".day").forEach(s=>s.classList.remove("active")),e.target.classList.add("active");let o=new Date(this.date.getFullYear(),this.date.getMonth(),t);this.dispatchEvent(new CustomEvent("day-selected",{detail:{date:o},bubbles:!0,composed:!0}))}};customElements.define("causs-calendar",y);var w=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"}),t=`
         <div class="alert">
           <div class="icon">
             <slot name="icon"></slot>
@@ -432,7 +432,7 @@
             </div>
           </div>
         </div>
-      `;e.innerHTML=t;let s=document.createElement("style");s.textContent=`
+      `;e.innerHTML=t;let o=document.createElement("style");o.textContent=`
         .alert {
           display: flex;
           align-items: flex-start;
@@ -470,7 +470,7 @@
           border-color: var(--danger);
           color: var(--danger);
         }
-      `,e.appendChild(s)}connectedCallback(){let e=this.shadowRoot.querySelector(".alert"),t=this.getAttribute("variant");t&&e.classList.add(t)}};customElements.define("causs-alert",w);var k=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.isOpen=!1;let e=`
+      `,e.appendChild(o)}connectedCallback(){let e=this.shadowRoot.querySelector(".alert"),t=this.getAttribute("variant");t&&e.classList.add(t)}};customElements.define("causs-alert",w);var k=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.isOpen=!1;let e=`
       <style>
         :host {
           position: relative;
@@ -615,7 +615,7 @@
                 <input type="text" class="otp-input" maxlength="1" />
                 <input type="text" class="otp-input" maxlength="1" />
             </div>
-        `;e.innerHTML=t;let s=document.createElement("style");s.textContent=`
+        `;e.innerHTML=t;let o=document.createElement("style");o.textContent=`
             .otp-container {
                 display: flex;
                 justify-content: space-between;
@@ -645,11 +645,11 @@
                 border-color: var(--primary);
                 outline: none;
             }
-        `,e.appendChild(s),this.autoFocus()}connectedCallback(){let e=this.shadowRoot.querySelectorAll(".otp-input");e.forEach((t,s)=>{t.addEventListener("input",o=>{o.target.value.length===1&&s<e.length-1&&e[s+1].focus(),o.target.value.length===0&&s>0&&e[s-1].focus(),this.emitOTPValue()})})}emitOTPValue(){let e=Array.from(this.shadowRoot.querySelectorAll(".otp-input")).map(s=>s.value).join(""),t=new CustomEvent("otp-change",{detail:e,bubbles:!0,composed:!0});this.dispatchEvent(t)}autoFocus(){this.shadowRoot.querySelectorAll(".otp-input")[0].focus()}};customElements.define("causs-otp",E);var C=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"}),t=`
+        `,e.appendChild(o),this.autoFocus()}connectedCallback(){let e=this.shadowRoot.querySelectorAll(".otp-input");e.forEach((t,o)=>{t.addEventListener("input",s=>{s.target.value.length===1&&o<e.length-1&&e[o+1].focus(),s.target.value.length===0&&o>0&&e[o-1].focus(),this.emitOTPValue()})})}emitOTPValue(){let e=Array.from(this.shadowRoot.querySelectorAll(".otp-input")).map(o=>o.value).join(""),t=new CustomEvent("otp-change",{detail:e,bubbles:!0,composed:!0});this.dispatchEvent(t)}autoFocus(){this.shadowRoot.querySelectorAll(".otp-input")[0].focus()}};customElements.define("causs-otp",E);var S=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"}),t=`
             <div class="progress-container">
                 <div class="progress-bar"></div>
             </div>
-        `;e.innerHTML=t;let s=document.createElement("style");s.textContent=`
+        `;e.innerHTML=t;let o=document.createElement("style");o.textContent=`
             .progress-container {
                 width: 100%;
                 min-width: 400px;
@@ -667,7 +667,7 @@
                 background-color: var(--primary);
                 transition: width 0.5s ease;
             }
-        `,e.appendChild(s)}set progress(e){let t=this.shadowRoot.querySelector(".progress-bar"),s=Math.min(Math.max(e,0),100);t.style.width=`${s}%`}get progress(){let e=this.shadowRoot.querySelector(".progress-bar");return parseFloat(e.style.width)}connectedCallback(){let e=this.getAttribute("value")||0;this.progress=e}};customElements.define("causs-progress",C);var S=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this._min=0,this._max=100,this._step=1,this._value=50;let e=`
+        `,e.appendChild(o)}set progress(e){let t=this.shadowRoot.querySelector(".progress-bar"),o=Math.min(Math.max(e,0),100);t.style.width=`${o}%`}get progress(){let e=this.shadowRoot.querySelector(".progress-bar");return parseFloat(e.style.width)}connectedCallback(){let e=this.getAttribute("value")||0;this.progress=e}};customElements.define("causs-progress",S);var C=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this._min=0,this._max=100,this._step=1,this._value=50;let e=`
         <style>
           :host {
             display: inline-block;
@@ -728,7 +728,7 @@
             <span id="value-display">${this._value}</span>
           </div>
         </div>
-      `;this.shadowRoot.innerHTML=e}static get observedAttributes(){return["min","max","value","step"]}connectedCallback(){this.slider=this.shadowRoot.querySelector(".slider"),this.valueDisplay=this.shadowRoot.querySelector("#value-display"),this.slider.min=this._min,this.slider.max=this._max,this.slider.step=this._step,this.slider.value=this._value,this.updateSliderBackground(),this.slider.addEventListener("input",this.updateValue.bind(this))}attributeChangedCallback(e,t,s){t!==s&&(e==="min"&&(this._min=s,this.slider.min=this._min),e==="max"&&(this._max=s,this.slider.max=this._max),e==="value"&&(this._value=s,this.slider.value=this._value,this.valueDisplay.textContent=this._value,this.updateSliderBackground()),e==="step"&&(this._step=s,this.slider.step=this._step))}updateValue(){this._value=this.slider.value,this.valueDisplay.textContent=this._value,this.updateSliderBackground()}updateSliderBackground(){let e=(this._value-this._min)/(this._max-this._min)*100;this.slider.style.background=`linear-gradient(to right, var(--primary) ${e}%, var(--components-bg) ${e}%)`}get value(){return this._value}set value(e){this._value=e,this.slider.value=e,this.valueDisplay.textContent=e,this.updateSliderBackground()}get min(){return this._min}set min(e){this._min=e,this.slider.min=e,this.updateSliderBackground()}get max(){return this._max}set max(e){this._max=e,this.slider.max=e,this.updateSliderBackground()}get step(){return this._step}set step(e){this._step=e,this.slider.step=e}};customElements.define("causs-slider",S);var M=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"});let e=`
+      `;this.shadowRoot.innerHTML=e}static get observedAttributes(){return["min","max","value","step"]}connectedCallback(){this.slider=this.shadowRoot.querySelector(".slider"),this.valueDisplay=this.shadowRoot.querySelector("#value-display"),this.slider.min=this._min,this.slider.max=this._max,this.slider.step=this._step,this.slider.value=this._value,this.updateSliderBackground(),this.slider.addEventListener("input",this.updateValue.bind(this))}attributeChangedCallback(e,t,o){t!==o&&(e==="min"&&(this._min=o,this.slider.min=this._min),e==="max"&&(this._max=o,this.slider.max=this._max),e==="value"&&(this._value=o,this.slider.value=this._value,this.valueDisplay.textContent=this._value,this.updateSliderBackground()),e==="step"&&(this._step=o,this.slider.step=this._step))}updateValue(){this._value=this.slider.value,this.valueDisplay.textContent=this._value,this.updateSliderBackground()}updateSliderBackground(){let e=(this._value-this._min)/(this._max-this._min)*100;this.slider.style.background=`linear-gradient(to right, var(--primary) ${e}%, var(--components-bg) ${e}%)`}get value(){return this._value}set value(e){this._value=e,this.slider.value=e,this.valueDisplay.textContent=e,this.updateSliderBackground()}get min(){return this._min}set min(e){this._min=e,this.slider.min=e,this.updateSliderBackground()}get max(){return this._max}set max(e){this._max=e,this.slider.max=e,this.updateSliderBackground()}get step(){return this._step}set step(e){this._step=e,this.slider.step=e}};customElements.define("causs-slider",C);var A=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"});let e=`
         <style>
           :host {
             display: block;
@@ -751,7 +751,7 @@
           }
         </style>
         <div class="separator"></div>
-      `;this.shadowRoot.innerHTML=e}static get observedAttributes(){return["orientation","thickness","color","margin"]}connectedCallback(){this.separator=this.shadowRoot.querySelector(".separator"),this.updateStyles()}attributeChangedCallback(e,t,s){t!==s&&this.updateStyles()}updateStyles(){let e=this.getAttribute("orientation")||"horizontal",t=this.getAttribute("thickness")||"1px",s=this.getAttribute("color")||"#ccc",o=this.getAttribute("margin")||"8px 0";this.separator.className=`separator ${e}`,this.separator.style.setProperty("--separator-thickness",t),this.separator.style.setProperty("--separator-color",s),this.separator.style.setProperty("--separator-margin",o)}};customElements.define("causs-separator",M);var A=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=`
+      `;this.shadowRoot.innerHTML=e}static get observedAttributes(){return["orientation","thickness","color","margin"]}connectedCallback(){this.separator=this.shadowRoot.querySelector(".separator"),this.updateStyles()}attributeChangedCallback(e,t,o){t!==o&&this.updateStyles()}updateStyles(){let e=this.getAttribute("orientation")||"horizontal",t=this.getAttribute("thickness")||"1px",o=this.getAttribute("color")||"#ccc",s=this.getAttribute("margin")||"8px 0";this.separator.className=`separator ${e}`,this.separator.style.setProperty("--separator-thickness",t),this.separator.style.setProperty("--separator-color",o),this.separator.style.setProperty("--separator-margin",s)}};customElements.define("causs-separator",A);var M=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=`
         <style>
           :host {
             display: inline-block;
@@ -778,7 +778,7 @@
           }
         </style>
         <div class="spinner"></div>
-      `}};customElements.define("causs-spinner",A);var T=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=`
+      `}};customElements.define("causs-spinner",M);var _=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=`
         <style>
           :host {
             display: inline-block;
@@ -864,13 +864,13 @@
             <!-- Items ser\xE3o adicionados dinamicamente -->
           </div>
         </div>
-      `}connectedCallback(){this.trigger=this.shadowRoot.querySelector(".select-trigger"),this.content=this.shadowRoot.querySelector(".select-content"),this.valueDisplay=this.shadowRoot.querySelector("#select-value"),this.trigger.addEventListener("click",()=>{this.content.classList.toggle("open")}),document.addEventListener("click",e=>{this.contains(e.target)||this.content.classList.remove("open")}),this.hasAttribute("items")&&this.addItems(JSON.parse(this.getAttribute("items")))}addItems(e){let t=this.shadowRoot.querySelector(".select-content");e.forEach(s=>{let o=document.createElement("div");o.classList.add("select-item"),o.textContent=s.label||s,o.dataset.value=s.value||s,t.appendChild(o),o.addEventListener("click",()=>{this.value=s.value||s,this.valueDisplay.textContent=s.label||s,this.content.classList.remove("open"),this.dispatchEvent(new Event("change"))})})}get value(){return this._value||""}set value(e){this._value=e}};customElements.define("causs-select",T);var H=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"}),t=`
+      `}connectedCallback(){this.trigger=this.shadowRoot.querySelector(".select-trigger"),this.content=this.shadowRoot.querySelector(".select-content"),this.valueDisplay=this.shadowRoot.querySelector("#select-value"),this.trigger.addEventListener("click",()=>{this.content.classList.toggle("open")}),document.addEventListener("click",e=>{this.contains(e.target)||this.content.classList.remove("open")}),this.hasAttribute("items")&&this.addItems(JSON.parse(this.getAttribute("items")))}addItems(e){let t=this.shadowRoot.querySelector(".select-content");e.forEach(o=>{let s=document.createElement("div");s.classList.add("select-item"),s.textContent=o.label||o,s.dataset.value=o.value||o,t.appendChild(s),s.addEventListener("click",()=>{this.value=o.value||o,this.valueDisplay.textContent=o.label||o,this.content.classList.remove("open"),this.dispatchEvent(new Event("change"))})})}get value(){return this._value||""}set value(e){this._value=e}};customElements.define("causs-select",_);var R=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"}),t=`
         <div class="pagination">
           <button class="btn prev" disabled><svg width="14px" height="14px" viewBox="0 0 24 24" id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:var(--subtext-black);}</style></defs><title>chevron-left</title><g id="chevron-left-Filled"><path id="chevron-left-Filled-2" data-name="chevron-left-Filled" class="cls-1" d="M16.707,20.293a1,1,0,1,1-1.414,1.414l-9-9a1,1,0,0,1,0-1.414l9-9a1,1,0,1,1,1.414,1.414L8.414,12Z"/></g></svg> Previous</button>
           <div class="pages"></div>
           <button class="btn next">Next <svg width="14px" height="14px" viewBox="0 0 24 24" id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:var(--subtext-black);}</style></defs><title>chevron-right</title><g id="chevron-right-Filled"><path id="chevron-right-Filled-2" data-name="chevron-right-Filled" class="cls-1" d="M17.707,12.707l-9,9a1,1,0,1,1-1.414-1.414L15.586,12,7.293,3.707A1,1,0,1,1,8.707,2.293l9,9A1,1,0,0,1,17.707,12.707Z"/></g></svg></button>
         </div>
-      `;e.innerHTML=t;let s=document.createElement("style");s.textContent=`
+      `;e.innerHTML=t;let o=document.createElement("style");o.textContent=`
         .pagination {
           display: flex;
           align-items: center;
@@ -925,12 +925,12 @@
         .page-number:hover {
           background-color: var(--foreground);
         }
-      `,e.appendChild(s)}connectedCallback(){this.currentPage=Number(this.getAttribute("current"))||1,this.totalPages=Number(this.getAttribute("total"))||1,this.updatePagination(),this.shadowRoot.querySelector(".prev").addEventListener("click",()=>this.changePage(this.currentPage-1)),this.shadowRoot.querySelector(".next").addEventListener("click",()=>this.changePage(this.currentPage+1))}updatePagination(){let e=this.shadowRoot.querySelector(".pages"),t=this.shadowRoot.querySelector(".prev"),s=this.shadowRoot.querySelector(".next");e.innerHTML="";for(let o=1;o<=this.totalPages;o++){let r=document.createElement("div");r.classList.add("page-number"),o===this.currentPage&&r.classList.add("active"),r.textContent=o,r.addEventListener("click",()=>this.changePage(o)),e.appendChild(r)}t.disabled=this.currentPage===1,s.disabled=this.currentPage===this.totalPages}changePage(e){e<1||e>this.totalPages||(this.currentPage=e,this.updatePagination(),this.dispatchEvent(new CustomEvent("page-change",{detail:{page:e}})))}static get observedAttributes(){return["current","total"]}attributeChangedCallback(e,t,s){e==="current"&&(this.currentPage=Number(s)),e==="total"&&(this.totalPages=Number(s)),this.updatePagination()}};customElements.define("causs-pagination",H);var R=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"}),t=`
+      `,e.appendChild(o)}connectedCallback(){this.currentPage=Number(this.getAttribute("current"))||1,this.totalPages=Number(this.getAttribute("total"))||1,this.updatePagination(),this.shadowRoot.querySelector(".prev").addEventListener("click",()=>this.changePage(this.currentPage-1)),this.shadowRoot.querySelector(".next").addEventListener("click",()=>this.changePage(this.currentPage+1))}updatePagination(){let e=this.shadowRoot.querySelector(".pages"),t=this.shadowRoot.querySelector(".prev"),o=this.shadowRoot.querySelector(".next");e.innerHTML="";for(let s=1;s<=this.totalPages;s++){let i=document.createElement("div");i.classList.add("page-number"),s===this.currentPage&&i.classList.add("active"),i.textContent=s,i.addEventListener("click",()=>this.changePage(s)),e.appendChild(i)}t.disabled=this.currentPage===1,o.disabled=this.currentPage===this.totalPages}changePage(e){e<1||e>this.totalPages||(this.currentPage=e,this.updatePagination(),this.dispatchEvent(new CustomEvent("page-change",{detail:{page:e}})))}static get observedAttributes(){return["current","total"]}attributeChangedCallback(e,t,o){e==="current"&&(this.currentPage=Number(o)),e==="total"&&(this.totalPages=Number(o)),this.updatePagination()}};customElements.define("causs-pagination",R);var H=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"}),t=`
         <label class="switch">
           <input type="checkbox" class="toggle">
           <span class="slider"></span>
         </label>
-      `;e.innerHTML=t;let s=document.createElement("style");s.textContent=`
+      `;e.innerHTML=t;let o=document.createElement("style");o.textContent=`
         :host {
           display: inline-block;
         }
@@ -984,7 +984,7 @@
           background-color: var(--components-disabled);
           cursor: not-allowed;
         }
-      `,e.appendChild(s)}connectedCallback(){let e=this.shadowRoot.querySelector(".toggle");e.checked=this.hasAttribute("checked"),e.disabled=this.hasAttribute("disabled"),e.addEventListener("change",()=>{this.dispatchEvent(new CustomEvent("switch-change",{detail:{checked:e.checked}}))})}static get observedAttributes(){return["checked","disabled"]}attributeChangedCallback(e,t,s){let o=this.shadowRoot.querySelector(".toggle");e==="checked"&&(o.checked=this.hasAttribute("checked")),e==="disabled"&&(o.disabled=this.hasAttribute("disabled"))}};customElements.define("causs-switch",R);var q=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"});e.innerHTML=`
+      `,e.appendChild(o)}connectedCallback(){let e=this.shadowRoot.querySelector(".toggle");e.checked=this.hasAttribute("checked"),e.disabled=this.hasAttribute("disabled"),e.addEventListener("change",()=>{this.dispatchEvent(new CustomEvent("switch-change",{detail:{checked:e.checked}}))})}static get observedAttributes(){return["checked","disabled"]}attributeChangedCallback(e,t,o){let s=this.shadowRoot.querySelector(".toggle");e==="checked"&&(s.checked=this.hasAttribute("checked")),e==="disabled"&&(s.disabled=this.hasAttribute("disabled"))}};customElements.define("causs-switch",H);var T=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"});e.innerHTML=`
         <style>
           :host {
             display: inline-block;
@@ -998,7 +998,7 @@
           }
         </style>
         <slot></slot>
-      `}connectedCallback(){this.addEventListener("click",this.handleLabelClick.bind(this))}handleLabelClick(){let e=this.getAttribute("htmlFor");if(e){let t=document.getElementById(e);if(t&&t.shadowRoot){let s=t.shadowRoot.querySelector("input");s&&!s.disabled&&s.click()}}}};customElements.define("causs-label",q);var F=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render()}render(){let e=this.getAttribute("class")||"",t=this.hasAttribute("shimmer")?"shimmer":"",s=this.getAttribute("width")||"100%",o=this.getAttribute("height")||"100%",r=this.getAttribute("border-radius")||"4px",i=this.getAttribute("circle")!==null,n=`
+      `}connectedCallback(){this.addEventListener("click",this.handleLabelClick.bind(this))}handleLabelClick(){let e=this.getAttribute("htmlFor");if(e){let t=document.getElementById(e);if(t&&t.shadowRoot){let o=t.shadowRoot.querySelector("input");o&&!o.disabled&&o.click()}}}};customElements.define("causs-label",T);var q=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render()}render(){let e=this.getAttribute("class")||"",t=this.hasAttribute("shimmer")?"shimmer":"",o=this.getAttribute("width")||"100%",s=this.getAttribute("height")||"100%",i=this.getAttribute("border-radius")||"4px",a=this.getAttribute("circle")!==null,n=`
         <style>
           :host {
             display: block;
@@ -1006,13 +1006,13 @@
   
           .skeleton {
             background-color: #e0e0e0;
-            border-radius: ${r};
-            width: ${s};
-            height: ${o};
+            border-radius: ${i};
+            width: ${o};
+            height: ${s};
             display: inline-block;
             position: relative;
             overflow: hidden;
-            ${i?"border-radius: 50%;":""}
+            ${a?"border-radius: 50%;":""}
           }
   
           /* Shimmer Effect */
@@ -1085,7 +1085,7 @@
         </style>
   
         <div class="skeleton ${t} ${e}"></div>
-      `;this.shadowRoot.innerHTML=n}};customElements.define("causs-skeleton",F);var z=class extends HTMLElement{constructor(){super(),this._shadowRoot=this.attachShadow({mode:"open"}),this._isChecked=!1,this._isDisabled=!1}connectedCallback(){this.render(),this.setupEventListeners()}static get observedAttributes(){return["checked","disabled"]}attributeChangedCallback(e,t,s){e==="checked"&&(this._isChecked=s!==null,this.render()),e==="disabled"&&(this._isDisabled=s!==null,this.render())}setupEventListeners(){this.addEventListener("click",this.handleClick.bind(this))}handleClick(e){if(e.preventDefault(),e.stopPropagation(),this._isDisabled)return;this._isChecked=!this._isChecked,this._isChecked?this.setAttribute("checked",""):this.removeAttribute("checked");let t=new CustomEvent("change",{detail:{checked:this._isChecked},bubbles:!0,composed:!0});this.dispatchEvent(t),this.render()}render(){this._shadowRoot.innerHTML=`
+      `;this.shadowRoot.innerHTML=n}};customElements.define("causs-skeleton",q);var F=class extends HTMLElement{constructor(){super(),this._shadowRoot=this.attachShadow({mode:"open"}),this._isChecked=!1,this._isDisabled=!1}connectedCallback(){this.render(),this.setupEventListeners()}static get observedAttributes(){return["checked","disabled"]}attributeChangedCallback(e,t,o){e==="checked"&&(this._isChecked=o!==null,this.render()),e==="disabled"&&(this._isDisabled=o!==null,this.render())}setupEventListeners(){this.addEventListener("click",this.handleClick.bind(this))}handleClick(e){if(e.preventDefault(),e.stopPropagation(),this._isDisabled)return;this._isChecked=!this._isChecked,this._isChecked?this.setAttribute("checked",""):this.removeAttribute("checked");let t=new CustomEvent("change",{detail:{checked:this._isChecked},bubbles:!0,composed:!0});this.dispatchEvent(t),this.render()}render(){this._shadowRoot.innerHTML=`
             <style>
                 :host {
                     display: inline-block;
@@ -1114,7 +1114,7 @@
                 }
             </style>
             <div class="checkbox"></div>
-        `}};customElements.define("causs-checkbox",z);var _=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.tooltipText=this.getAttribute("data-tooltip")||"Tooltip"}connectedCallback(){this.render(),this.addEventListeners()}addEventListeners(){let e=this.shadowRoot.querySelector(".tooltip"),t=this.shadowRoot.querySelector(".tooltip-container");t.addEventListener("mouseenter",()=>e.classList.add("visible")),t.addEventListener("mouseleave",()=>e.classList.remove("visible")),t.addEventListener("focus",()=>e.classList.add("visible")),t.addEventListener("blur",()=>e.classList.remove("visible"))}render(){this.shadowRoot.innerHTML=`
+        `}};customElements.define("causs-checkbox",F);var z=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.tooltipText=this.getAttribute("data-tooltip")||"Tooltip"}connectedCallback(){this.render(),this.addEventListeners()}addEventListeners(){let e=this.shadowRoot.querySelector(".tooltip"),t=this.shadowRoot.querySelector(".tooltip-container");t.addEventListener("mouseenter",()=>e.classList.add("visible")),t.addEventListener("mouseleave",()=>e.classList.remove("visible")),t.addEventListener("focus",()=>e.classList.add("visible")),t.addEventListener("blur",()=>e.classList.remove("visible"))}render(){this.shadowRoot.innerHTML=`
         <style>
           :host {
             position: relative;
@@ -1151,7 +1151,7 @@
           <slot></slot>
           <div class="tooltip">${this.tooltipText}</div>
         </div>
-      `}};customElements.define("causs-tooltip",_);var O=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"});this.container=document.createElement("div"),this.container.classList.add("rating-container");let t=document.createElement("style");t.textContent=`
+      `}};customElements.define("causs-tooltip",z);var P=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"});this.container=document.createElement("div"),this.container.classList.add("rating-container");let t=document.createElement("style");t.textContent=`
             .rating-container {
                 display: inline-flex;
                 align-items: center;
@@ -1189,7 +1189,7 @@
                 font-family: var(--font-family, sans-serif);
                 font-size: var(--font-size, 16px);
             }
-        `,e.appendChild(t),e.appendChild(this.container),this.handleStarClick=this.handleStarClick.bind(this),this.handleStarHover=this.handleStarHover.bind(this),this.handleStarLeave=this.handleStarLeave.bind(this)}connectedCallback(){let e=parseInt(this.getAttribute("max-rating")||"5"),t=parseFloat(this.getAttribute("initial-rating")||"0"),s=this.hasAttribute("interactive"),o=this.hasAttribute("show-value");this.renderStars(e,t,s,o)}renderStars(e,t,s,o){this.container.innerHTML="",this.starElements=[],this.currentRating=t;for(let r=1;r<=e;r++){let i=document.createElement("span");i.classList.add("star"),i.innerHTML='<svg width="24px" height="24px" viewBox="0 0 24 24" id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1</style></defs><title>star</title><g id="star-Filled"><path id="star-Filled-2" data-name="star-Filled" class="cls-1" d="M20.934,12.13,17.82,15.122l.735,4.221a1.824,1.824,0,0,1-.726,1.792,1.872,1.872,0,0,1-1.973.152L12,19.29l-3.856,2a1.869,1.869,0,0,1-1.973-.152,1.824,1.824,0,0,1-.726-1.792l.735-4.221L3.066,12.13a1.82,1.82,0,0,1-.477-1.881A1.845,1.845,0,0,1,4.1,8.986l4.309-.617,1.926-3.845a1.871,1.871,0,0,1,3.336,0l1.926,3.845,4.309.617a1.845,1.845,0,0,1,1.508,1.263A1.82,1.82,0,0,1,20.934,12.13Z"/></g></svg>',i.dataset.rating=r,r<=t&&i.classList.add("filled"),s&&(i.classList.add("interactive"),i.addEventListener("click",this.handleStarClick),i.addEventListener("mouseover",this.handleStarHover),i.addEventListener("mouseleave",this.handleStarLeave)),this.container.appendChild(i),this.starElements.push(i)}if(o){let r=document.createElement("span");r.classList.add("rating-value"),r.textContent=`${t.toFixed(1)}`,this.container.appendChild(r)}}handleStarHover(e){if(!this.hasAttribute("interactive"))return;let t=parseInt(e.target.closest(".star").dataset.rating);this.starElements.forEach(s=>s.classList.remove("hover-preview")),this.starElements.forEach(s=>{parseInt(s.dataset.rating)<=t&&s.classList.add("hover-preview")})}handleStarLeave(){this.hasAttribute("interactive")&&this.starElements.forEach(e=>{e.classList.remove("hover-preview")})}handleStarClick(e){if(!this.hasAttribute("interactive"))return;let t=parseInt(e.target.closest(".star").dataset.rating);this.currentRating=t,this.starElements.forEach(r=>{let i=parseInt(r.dataset.rating);r.classList.toggle("filled",i<=t)});let s=new CustomEvent("rating-change",{detail:{rating:t},bubbles:!0,composed:!0});this.dispatchEvent(s);let o=this.shadowRoot.querySelector(".rating-value");o&&(o.textContent=`${t.toFixed(1)}`)}};customElements.define("causs-rating",O);var P=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.isOpen=!1}connectedCallback(){this.render(),this.addEventListeners()}addEventListeners(){let e=this.shadowRoot.querySelector(".sheet-trigger"),t=this.shadowRoot.querySelector(".sheet-close"),s=this.shadowRoot.querySelector(".sheet-content"),o=this.shadowRoot.querySelector(".sheet-overlay");e?.addEventListener("click",()=>{this.isOpen=!0,s.classList.add("open"),o.classList.add("visible")}),t?.addEventListener("click",()=>{this.isOpen=!1,s.classList.remove("open"),o.classList.remove("visible")}),o?.addEventListener("click",()=>{this.isOpen=!1,s.classList.remove("open"),o.classList.remove("visible")})}render(){this.shadowRoot.innerHTML=`
+        `,e.appendChild(t),e.appendChild(this.container),this.handleStarClick=this.handleStarClick.bind(this),this.handleStarHover=this.handleStarHover.bind(this),this.handleStarLeave=this.handleStarLeave.bind(this)}connectedCallback(){let e=parseInt(this.getAttribute("max-rating")||"5"),t=parseFloat(this.getAttribute("initial-rating")||"0"),o=this.hasAttribute("interactive"),s=this.hasAttribute("show-value");this.renderStars(e,t,o,s)}renderStars(e,t,o,s){this.container.innerHTML="",this.starElements=[],this.currentRating=t;for(let i=1;i<=e;i++){let a=document.createElement("span");a.classList.add("star"),a.innerHTML='<svg width="24px" height="24px" viewBox="0 0 24 24" id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1</style></defs><title>star</title><g id="star-Filled"><path id="star-Filled-2" data-name="star-Filled" class="cls-1" d="M20.934,12.13,17.82,15.122l.735,4.221a1.824,1.824,0,0,1-.726,1.792,1.872,1.872,0,0,1-1.973.152L12,19.29l-3.856,2a1.869,1.869,0,0,1-1.973-.152,1.824,1.824,0,0,1-.726-1.792l.735-4.221L3.066,12.13a1.82,1.82,0,0,1-.477-1.881A1.845,1.845,0,0,1,4.1,8.986l4.309-.617,1.926-3.845a1.871,1.871,0,0,1,3.336,0l1.926,3.845,4.309.617a1.845,1.845,0,0,1,1.508,1.263A1.82,1.82,0,0,1,20.934,12.13Z"/></g></svg>',a.dataset.rating=i,i<=t&&a.classList.add("filled"),o&&(a.classList.add("interactive"),a.addEventListener("click",this.handleStarClick),a.addEventListener("mouseover",this.handleStarHover),a.addEventListener("mouseleave",this.handleStarLeave)),this.container.appendChild(a),this.starElements.push(a)}if(s){let i=document.createElement("span");i.classList.add("rating-value"),i.textContent=`${t.toFixed(1)}`,this.container.appendChild(i)}}handleStarHover(e){if(!this.hasAttribute("interactive"))return;let t=parseInt(e.target.closest(".star").dataset.rating);this.starElements.forEach(o=>o.classList.remove("hover-preview")),this.starElements.forEach(o=>{parseInt(o.dataset.rating)<=t&&o.classList.add("hover-preview")})}handleStarLeave(){this.hasAttribute("interactive")&&this.starElements.forEach(e=>{e.classList.remove("hover-preview")})}handleStarClick(e){if(!this.hasAttribute("interactive"))return;let t=parseInt(e.target.closest(".star").dataset.rating);this.currentRating=t,this.starElements.forEach(i=>{let a=parseInt(i.dataset.rating);i.classList.toggle("filled",a<=t)});let o=new CustomEvent("rating-change",{detail:{rating:t},bubbles:!0,composed:!0});this.dispatchEvent(o);let s=this.shadowRoot.querySelector(".rating-value");s&&(s.textContent=`${t.toFixed(1)}`)}};customElements.define("causs-rating",P);var I=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.isOpen=!1}connectedCallback(){this.render(),this.addEventListeners()}addEventListeners(){let e=this.shadowRoot.querySelector(".sheet-trigger"),t=this.shadowRoot.querySelector(".sheet-close"),o=this.shadowRoot.querySelector(".sheet-content"),s=this.shadowRoot.querySelector(".sheet-overlay");e?.addEventListener("click",()=>{this.isOpen=!0,o.classList.add("open"),s.classList.add("visible")}),t?.addEventListener("click",()=>{this.isOpen=!1,o.classList.remove("open"),s.classList.remove("visible")}),s?.addEventListener("click",()=>{this.isOpen=!1,o.classList.remove("open"),s.classList.remove("visible")})}render(){this.shadowRoot.innerHTML=`
         <style>
           :host {
             --sheet-width: 400px;
@@ -1292,7 +1292,7 @@
             </div>
           </div>
         </div>
-      `}};customElements.define("causs-sheet",P);var $=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render(),this.addEventListeners()}addEventListeners(){this.shadowRoot.querySelectorAll(".menu-trigger").forEach(t=>{t.addEventListener("click",s=>{s.stopPropagation();let o=t.nextElementSibling,r=o.classList.contains("open");this.shadowRoot.querySelectorAll(".submenu").forEach(i=>{i.classList.remove("open")}),r||o.classList.add("open")})}),document.addEventListener("click",()=>{this.shadowRoot.querySelectorAll(".submenu").forEach(t=>{t.classList.remove("open")})})}render(){this.shadowRoot.innerHTML=`
+      `}};customElements.define("causs-sheet",I);var $=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render(),this.addEventListeners()}addEventListeners(){this.shadowRoot.querySelectorAll(".menu-trigger").forEach(t=>{t.addEventListener("click",o=>{o.stopPropagation();let s=t.nextElementSibling,i=s.classList.contains("open");this.shadowRoot.querySelectorAll(".submenu").forEach(a=>{a.classList.remove("open")}),i||s.classList.add("open")})}),document.addEventListener("click",()=>{this.shadowRoot.querySelectorAll(".submenu").forEach(t=>{t.classList.remove("open")})})}render(){this.shadowRoot.innerHTML=`
         <style>
           .menu {
             display: inline-flex;
@@ -1378,7 +1378,7 @@
             </div>
           </div>
         </div>
-      `}};customElements.define("causs-menubar",$);var D=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"}),t=document.createElement("div");t.classList.add("toast-container");let s=document.createElement("div");s.classList.add("toast");let o=document.createElement("div");o.classList.add("toast-header");let r=document.createElement("div");r.classList.add("toast-title");let i=document.createElement("div");i.classList.add("toast-description");let n=document.createElement("button");n.classList.add("toast-close"),n.innerHTML="\xD7",o.appendChild(r),o.appendChild(n),s.appendChild(o),s.appendChild(i),t.appendChild(s),e.appendChild(t);let d=document.createElement("style");d.textContent=`
+      `}};customElements.define("causs-menubar",$);var D=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"}),t=document.createElement("div");t.classList.add("toast-container");let o=document.createElement("div");o.classList.add("toast");let s=document.createElement("div");s.classList.add("toast-header");let i=document.createElement("div");i.classList.add("toast-title");let a=document.createElement("div");a.classList.add("toast-description");let n=document.createElement("button");n.classList.add("toast-close"),n.innerHTML="\xD7",s.appendChild(i),s.appendChild(n),o.appendChild(s),o.appendChild(a),t.appendChild(o),e.appendChild(t);let d=document.createElement("style");d.textContent=`
           .toast-container {
               position: fixed;
               z-index: 1000;
@@ -1490,7 +1490,7 @@
                   transform: translateX(0);
               }
           }
-      `,e.appendChild(d),n.addEventListener("click",()=>this.hide())}connectedCallback(){let e=this.shadowRoot.querySelector(".toast"),t=this.shadowRoot.querySelector(".toast-container"),s=this.shadowRoot.querySelector(".toast-title"),o=this.shadowRoot.querySelector(".toast-description"),r=this.getAttribute("variant")||"info";e.classList.add(r);let i=this.getAttribute("position")||"top-right";t.classList.add(i),s.textContent=this.getAttribute("title")||"Notification",o.textContent=this.getAttribute("description")||"";let n=parseInt(this.getAttribute("duration")||3e3);n>0&&(this.autoHideTimer=setTimeout(()=>this.hide(),n))}disconnectedCallback(){this.autoHideTimer&&clearTimeout(this.autoHideTimer)}show(){let e=this.shadowRoot.querySelector(".toast-container"),t=this.shadowRoot.querySelector(".toast");e.style.display="block",t.classList.add("show")}hide(){let e=this.shadowRoot.querySelector(".toast-container");this.shadowRoot.querySelector(".toast").classList.remove("show"),e.style.display="none"}};customElements.define("causs-toast",D);window.createToast=function(a){let e=document.createElement("causs-toast");return a.title&&e.setAttribute("title",a.title),a.description&&e.setAttribute("description",a.description),a.variant&&e.setAttribute("variant",a.variant),a.duration&&e.setAttribute("duration",a.duration),a.position&&e.setAttribute("position",a.position),document.body.appendChild(e),e.show(),e};var B=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"}),t=document.createElement("div");t.classList.add("tabs-container");let s=document.createElement("div");s.classList.add("tab-list"),s.setAttribute("role","tablist");let o=document.createElement("div");o.classList.add("tab-content-container");let r=document.createElement("style");r.textContent=`
+      `,e.appendChild(d),n.addEventListener("click",()=>this.hide())}connectedCallback(){let e=this.shadowRoot.querySelector(".toast"),t=this.shadowRoot.querySelector(".toast-container"),o=this.shadowRoot.querySelector(".toast-title"),s=this.shadowRoot.querySelector(".toast-description"),i=this.getAttribute("variant")||"info";e.classList.add(i);let a=this.getAttribute("position")||"top-right";t.classList.add(a),o.textContent=this.getAttribute("title")||"Notification",s.textContent=this.getAttribute("description")||"";let n=parseInt(this.getAttribute("duration")||3e3);n>0&&(this.autoHideTimer=setTimeout(()=>this.hide(),n))}disconnectedCallback(){this.autoHideTimer&&clearTimeout(this.autoHideTimer)}show(){let e=this.shadowRoot.querySelector(".toast-container"),t=this.shadowRoot.querySelector(".toast");e.style.display="block",t.classList.add("show")}hide(){let e=this.shadowRoot.querySelector(".toast-container");this.shadowRoot.querySelector(".toast").classList.remove("show"),e.style.display="none"}};customElements.define("causs-toast",D);window.createToast=function(r){let e=document.createElement("causs-toast");return r.title&&e.setAttribute("title",r.title),r.description&&e.setAttribute("description",r.description),r.variant&&e.setAttribute("variant",r.variant),r.duration&&e.setAttribute("duration",r.duration),r.position&&e.setAttribute("position",r.position),document.body.appendChild(e),e.show(),e};var B=class extends HTMLElement{constructor(){super();let e=this.attachShadow({mode:"open"}),t=document.createElement("div");t.classList.add("tabs-container");let o=document.createElement("div");o.classList.add("tab-list"),o.setAttribute("role","tablist");let s=document.createElement("div");s.classList.add("tab-content-container");let i=document.createElement("style");i.textContent=`
             .tabs-container {
                 width: 100%;
             }
@@ -1534,7 +1534,7 @@
             .tab-panel.active {
                 display: block;
             }
-        `,e.appendChild(r),e.appendChild(t),t.appendChild(s),t.appendChild(o)}connectedCallback(){let e=this.shadowRoot.querySelector(".tab-list"),t=this.shadowRoot.querySelector(".tab-content-container");Array.from(this.querySelectorAll(":scope > causs-tab")).forEach((o,r)=>{let i=document.createElement("button");i.classList.add("tab"),i.setAttribute("role","tab"),i.textContent=o.getAttribute("label")||`Tab ${r+1}`,i.setAttribute("data-index",r),r===0&&(i.classList.add("active"),o.classList.add("active")),i.addEventListener("click",()=>{e.querySelectorAll(".tab").forEach(n=>n.classList.remove("active")),t.querySelectorAll(".tab-panel").forEach(n=>n.classList.remove("active")),i.classList.add("active"),o.classList.add("active")}),o.classList.add("tab-panel"),o.setAttribute("role","tabpanel"),e.appendChild(i),t.appendChild(o)})}},I=class extends HTMLElement{constructor(){super()}};customElements.define("causs-tabs",B);customElements.define("causs-tab",I);var j=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render(),this.addEventListeners(),this.setInitialIcon()}addEventListeners(){let e=this.shadowRoot.querySelector(".theme-toggle");e.addEventListener("click",()=>{let t=document.documentElement;t.classList.contains("dark")?(t.classList.remove("dark"),e.innerHTML=`
+        `,e.appendChild(i),e.appendChild(t),t.appendChild(o),t.appendChild(s)}connectedCallback(){let e=this.shadowRoot.querySelector(".tab-list"),t=this.shadowRoot.querySelector(".tab-content-container");Array.from(this.querySelectorAll(":scope > causs-tab")).forEach((s,i)=>{let a=document.createElement("button");a.classList.add("tab"),a.setAttribute("role","tab"),a.textContent=s.getAttribute("label")||`Tab ${i+1}`,a.setAttribute("data-index",i),i===0&&(a.classList.add("active"),s.classList.add("active")),a.addEventListener("click",()=>{e.querySelectorAll(".tab").forEach(n=>n.classList.remove("active")),t.querySelectorAll(".tab-panel").forEach(n=>n.classList.remove("active")),a.classList.add("active"),s.classList.add("active")}),s.classList.add("tab-panel"),s.setAttribute("role","tabpanel"),e.appendChild(a),t.appendChild(s)})}},O=class extends HTMLElement{constructor(){super()}};customElements.define("causs-tabs",B);customElements.define("causs-tab",O);var j=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render(),this.addEventListeners(),this.setInitialIcon()}addEventListeners(){let e=this.shadowRoot.querySelector(".theme-toggle");e.addEventListener("click",()=>{let t=document.documentElement;t.classList.contains("dark")?(t.classList.remove("dark"),e.innerHTML=`
             <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="5"></circle>
               <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -1596,7 +1596,7 @@
           }
         </style>
         <button class="theme-toggle"></button>
-      `}};customElements.define("causs-theme",j);var N=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.isOpen=!1}connectedCallback(){this.render(),this.addEventListeners()}addEventListeners(){let e=this.shadowRoot.querySelector(".drawer-trigger"),t=this.shadowRoot.querySelector(".drawer-close"),s=this.shadowRoot.querySelector(".drawer-content"),o=this.shadowRoot.querySelector(".drawer-overlay");e?.addEventListener("click",()=>{this.isOpen=!0,s.classList.add("open"),o.classList.add("visible")}),t?.addEventListener("click",()=>{this.isOpen=!1,s.classList.remove("open"),o.classList.remove("visible")}),o?.addEventListener("click",()=>{this.isOpen=!1,s.classList.remove("open"),o.classList.remove("visible")})}render(){this.shadowRoot.innerHTML=`
+      `}};customElements.define("causs-theme",j);var N=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.isOpen=!1}connectedCallback(){this.render(),this.addEventListeners()}addEventListeners(){let e=this.shadowRoot.querySelector(".drawer-trigger"),t=this.shadowRoot.querySelector(".drawer-close"),o=this.shadowRoot.querySelector(".drawer-content"),s=this.shadowRoot.querySelector(".drawer-overlay");e?.addEventListener("click",()=>{this.isOpen=!0,o.classList.add("open"),s.classList.add("visible")}),t?.addEventListener("click",()=>{this.isOpen=!1,o.classList.remove("open"),s.classList.remove("visible")}),s?.addEventListener("click",()=>{this.isOpen=!1,o.classList.remove("open"),s.classList.remove("visible")})}render(){this.shadowRoot.innerHTML=`
         <style>
           :host {
             --drawer-height: 70%;
@@ -1700,7 +1700,7 @@
             </div>
           </div>
         </div>
-      `}};customElements.define("causs-drawer",N);var X=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.isCollapsed=!1,this.activeMenuItem=null}connectedCallback(){this.render(),this.addEventListeners()}addEventListeners(){let e=this.shadowRoot.querySelector(".sidebar-collapse-toggle"),t=this.shadowRoot.querySelectorAll(".sidebar-menu-item");e?.addEventListener("click",()=>{this.isCollapsed=!this.isCollapsed,this.updateSidebarState()}),t.forEach(s=>{s.querySelector(".sidebar-menu-button")?.addEventListener("click",()=>{this.setActiveMenuItem(s)})})}setActiveMenuItem(e){this.activeMenuItem&&this.activeMenuItem.querySelector(".sidebar-menu-button").classList.remove("active"),this.activeMenuItem=e,this.activeMenuItem.querySelector(".sidebar-menu-button").classList.add("active")}updateSidebarState(){let e=this.shadowRoot.querySelector(".sidebar"),t=this.shadowRoot.querySelector(".sidebar-content"),s=this.shadowRoot.querySelector(".main-content"),o=this.shadowRoot.querySelector(".sidebar-header");this.isCollapsed?(e.classList.add("collapsed"),t.classList.add("hidden"),o.querySelector('slot[name="header"]').style.display="none",s.style.marginLeft="var(--sidebar-collapsed-width)"):(e.classList.remove("collapsed"),t.classList.remove("hidden"),o.querySelector('slot[name="header"]').style.display="",s.style.marginLeft="var(--sidebar-width)")}render(){this.shadowRoot.innerHTML=`
+      `}};customElements.define("causs-drawer",N);var X=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.isCollapsed=!1,this.activeMenuItem=null}connectedCallback(){this.render(),this.addEventListeners()}addEventListeners(){let e=this.shadowRoot.querySelector(".sidebar-collapse-toggle"),t=this.shadowRoot.querySelectorAll(".sidebar-menu-item");e?.addEventListener("click",()=>{this.isCollapsed=!this.isCollapsed,this.updateSidebarState()}),t.forEach(o=>{o.querySelector(".sidebar-menu-button")?.addEventListener("click",()=>{this.setActiveMenuItem(o)})})}setActiveMenuItem(e){this.activeMenuItem&&this.activeMenuItem.querySelector(".sidebar-menu-button").classList.remove("active"),this.activeMenuItem=e,this.activeMenuItem.querySelector(".sidebar-menu-button").classList.add("active")}updateSidebarState(){let e=this.shadowRoot.querySelector(".sidebar"),t=this.shadowRoot.querySelector(".sidebar-content"),o=this.shadowRoot.querySelector(".main-content"),s=this.shadowRoot.querySelector(".sidebar-header");this.isCollapsed?(e.classList.add("collapsed"),t.classList.add("hidden"),s.querySelector('slot[name="header"]').style.display="none",o.style.marginLeft="var(--sidebar-collapsed-width)"):(e.classList.remove("collapsed"),t.classList.remove("hidden"),s.querySelector('slot[name="header"]').style.display="",o.style.marginLeft="var(--sidebar-width)")}render(){this.shadowRoot.innerHTML=`
             <style>
                 :host {
                     --sidebar-width: 250px;
@@ -1842,4 +1842,738 @@
                     <slot name="main-content"></slot>
                 </div>
             </div>
-        `}};customElements.define("causs-interactive-sidebar",X);})();
+        `}};customElements.define("causs-interactive-sidebar",X);var U=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"});let e=`
+      <style>
+        :host {
+          display: block;
+        }
+        .dropzone {
+          border: 2px dashed var(--components-border);
+          border-radius: var(--border-radius);
+          padding: 32px;
+          text-align: center;
+          background-color: var(--background);
+          transition: border-color 0.3s ease, background-color 0.3s ease;
+          cursor: pointer;
+        }
+        .dropzone.dragover {
+          border-color: var(--primary);
+          background-color: var(--foreground);
+        }
+        .dropzone p {
+          margin: 16px 0 0;
+          color: var(--text-black);
+          font-size: 14px;
+        }
+        .preview-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+          gap: 16px;
+          margin-top: 16px;
+        }
+        .file-preview {
+          position: relative;
+          padding: 8px;
+          border: 1px solid var(--components-border);
+          border-radius: var(--border-radius);
+          background: var(--background);
+        }
+        .remove-file {
+          position: absolute;
+          top: -8px;
+          right: -8px;
+          width: 20px;
+          height: 20px;
+          border: none;
+          border-radius: 50%;
+          background: var(--danger);
+          color: var(--white);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 14px;
+          transition: background-color 0.3s ease;
+        }
+        .remove-file:hover {
+          background: var(--danger-hover);
+        }
+        .file-name {
+          margin-top: 8px;
+          font-size: 12px;
+          color: var(--subtext-black);
+          word-break: break-all;
+        }
+        input[type="file"] {
+          display: none;
+        }
+      </style>
+      <div class="dropzone">
+        <slot name="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+        </slot>
+        <p><slot>Drag files here or click to upload</slot></p>
+        <input type="file" hidden multiple />
+      </div>
+      <div class="preview-container"></div>
+    `;this.shadowRoot.innerHTML=e,this.files=[]}connectedCallback(){let e=this.shadowRoot.querySelector(".dropzone"),t=this.shadowRoot.querySelector("input");e.addEventListener("click",()=>t.click()),e.addEventListener("dragover",o=>{o.preventDefault(),e.classList.add("dragover")}),e.addEventListener("dragleave",()=>{e.classList.remove("dragover")}),e.addEventListener("drop",o=>{o.preventDefault(),e.classList.remove("dragover"),o.dataTransfer.files.length&&(t.files=o.dataTransfer.files,this.handleFiles(o.dataTransfer.files))}),t.addEventListener("change",()=>{this.handleFiles(t.files)})}handleFiles(e){let t=this.shadowRoot.querySelector(".preview-container"),o=Array.from(e);this.files=[...this.files,...o],o.forEach(s=>{let i=document.createElement("div");if(i.className="file-preview",s.type.startsWith("image/")){let d=document.createElement("img"),K=new FileReader;K.onload=Q=>{d.src=Q.target.result},K.readAsDataURL(s),i.appendChild(d)}else i.textContent=s.name.split(".").pop().toUpperCase();let a=document.createElement("div");a.className="remove-file",a.textContent="\xD7",a.addEventListener("click",d=>{d.stopPropagation(),this.removeFile(s),i.remove()});let n=document.createElement("div");n.className="file-name",n.textContent=s.name,i.appendChild(a),t.appendChild(i),t.appendChild(n)}),this.dispatchEvent(new CustomEvent("files-changed",{detail:{files:this.files}}))}removeFile(e){this.files=this.files.filter(t=>t!==e),this.dispatchEvent(new CustomEvent("files-changed",{detail:{files:this.files}}))}};customElements.define("causs-dropzone",U);var V=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"});let e=`
+      <style>
+        :host {
+          display: block;
+          font-family: var(--font-family, sans-serif);
+        }
+        .tree-view {
+          padding: 10px;
+        }
+        ::slotted(causs-tree-item) {
+          margin-bottom: 5px;
+        }
+      </style>
+      <div class="tree-view">
+        <slot></slot>
+      </div>
+    `;this.shadowRoot.innerHTML=e}},Z=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"});let e=`
+      <style>
+        :host {
+          display: block;
+        }
+        .tree-item {
+          margin-left: 20px;
+        }
+        .tree-item-header {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          padding: 8px;
+          border-radius: var(--border-radius);
+          transition: background-color 0.2s;
+        }
+        .tree-item-header:hover {
+          background-color: var(--background-hover);
+        }
+        .tree-item-header.selected {
+          background-color: var(--components-bg);
+        }
+        .toggle-icon {
+          width: 16px;
+          height: 16px;
+          margin-right: 8px;
+          transition: transform 0.2s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .toggle-icon svg {
+          width: 12px;
+          height: 12px;
+        }
+        .tree-item-content {
+          display: none;
+          padding-left: 24px;
+        }
+        :host([expanded]) .tree-item-content {
+          display: block;
+        }
+        :host([expanded]) .toggle-icon {
+          transform: rotate(90deg);
+        }
+        .tree-item-label {
+          flex: 1;
+        }
+        .tree-item-icon {
+          margin-right: 8px;
+          display: flex;
+          align-items: center;
+        }
+        :host(:not([has-children])) .toggle-icon {
+          visibility: hidden;
+        }
+      </style>
+      <div class="tree-item">
+        <div class="tree-item-header">
+          <div class="toggle-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+          <div class="tree-item-icon">
+            <slot name="icon"></slot>
+          </div>
+          <div class="tree-item-label">
+            <slot name="label">Item</slot>
+          </div>
+        </div>
+        <div class="tree-item-content">
+          <slot></slot>
+        </div>
+      </div>
+    `;this.shadowRoot.innerHTML=e}connectedCallback(){let e=this.querySelector("causs-tree-item")!==null;e&&this.setAttribute("has-children",""),this.shadowRoot.querySelector(".tree-item-header").addEventListener("click",()=>{e&&this.toggleExpanded(),this.dispatchEvent(new CustomEvent("tree-item-select",{bubbles:!0,composed:!0,detail:{item:this}}))}),this.hasAttribute("expanded")&&this.toggleExpanded(!0)}toggleExpanded(e){let t=typeof e<"u"?e:!this.hasAttribute("expanded");t?this.setAttribute("expanded",""):this.removeAttribute("expanded"),this.dispatchEvent(new CustomEvent("tree-item-toggle",{bubbles:!0,composed:!0,detail:{expanded:t}}))}};customElements.define("causs-tree-view",V);customElements.define("causs-tree-item",Z);var Y=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this._currentSlide=0,this._autoplay=!1,this._interval=null,this.shadowRoot.innerHTML=`
+            <style>
+                :host {
+                    display: block;
+                    position: relative;
+                    width: 100%;
+                    overflow: hidden;
+                    padding-top: 16px;
+                }
+
+                .carousel {
+                    position: relative;
+                    width: 100%;
+                }
+
+                .slides-container {
+                    display: flex;
+                    transition: transform 0.3s ease-in-out;
+                    width: 100%;
+                    padding: 16px 0;
+                }
+
+                ::slotted(*) {
+                    flex: 0 0 100%;
+                    width: 100%;
+                    box-sizing: border-box;
+                    padding: 0 16px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .controls {
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    right: 0;
+                    transform: translateY(-50%);
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0 16px;
+                    z-index: 1;
+                }
+
+                .control-button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 32px;
+                    height: 32px;
+                    background: var(--background);
+                    border: 1px solid var(--components-border);
+                    border-radius: var(--border-radius);
+                    padding: 8px;
+                    cursor: pointer;
+                    opacity: 0.8;
+                    transition: all 0.2s ease;
+                    color: var(--subtext-black);
+                }
+
+                .control-button:hover {
+                    opacity: 1;
+                    background: var(--background-hover);
+                }
+
+                .control-button svg {
+                    width: 16px;
+                    height: 16px;
+                }
+
+                .indicators {
+                    position: absolute;
+                    bottom: 16px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    display: flex;
+                    gap: 8px;
+                    padding: 8px;
+                    background: var(--background);
+                    border: 1px solid var(--components-border);
+                    border-radius: var(--border-radius);
+                    z-index: 1;
+                }
+
+                .indicator {
+                    width: 8px;
+                    height: 8px;
+                    min-width: 8px;
+                    min-height: 8px;
+                    border-radius: 50%;
+                    background: var(--background);
+                    border: 1px solid var(--components-border);
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                    padding: 0;
+                    margin: 0;
+                    box-sizing: border-box;
+                }
+
+                .indicator:hover {
+                    background: var(--background-hover);
+                }
+
+                .indicator.active {
+                    background: var(--primary);
+                    border-color: var(--primary);
+                }
+            </style>
+
+            <div class="carousel">
+                <div class="slides-container">
+                    <slot></slot>
+                </div>
+                <div class="controls">
+                    <button class="control-button prev" aria-label="Previous slide">
+                        <svg width="14" height="14" viewBox="0 0 24 24">
+                            <path d="M15 18l-6-6 6-6" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="control-button next" aria-label="Next slide">
+                        <svg width="14" height="14" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="indicators"></div>
+            </div>
+        `}connectedCallback(){this.setupSlides(),this.setupControls(),this.setupAutoplay()}setupSlides(){this.slides=Array.from(this.children),this.totalSlides=this.slides.length;let e=this.shadowRoot.querySelector(".indicators");this.slides.forEach((t,o)=>{let s=document.createElement("div");s.classList.add("indicator"),s.addEventListener("click",()=>this.goToSlide(o)),e.appendChild(s)}),this.updateSlidePosition()}setupControls(){let e=this.shadowRoot.querySelector(".prev"),t=this.shadowRoot.querySelector(".next");e.addEventListener("click",()=>this.previousSlide()),t.addEventListener("click",()=>this.nextSlide()),this.addEventListener("keydown",o=>{o.key==="ArrowLeft"&&this.previousSlide(),o.key==="ArrowRight"&&this.nextSlide()})}setupAutoplay(){if(this.hasAttribute("autoplay")){this._autoplay=!0;let e=this.getAttribute("interval")||5e3;this.startAutoplay(e)}}startAutoplay(e){this._interval=setInterval(()=>this.nextSlide(),e)}stopAutoplay(){this._interval&&(clearInterval(this._interval),this._interval=null)}goToSlide(e){this._currentSlide=e,this.updateSlidePosition()}previousSlide(){this._currentSlide=(this._currentSlide-1+this.totalSlides)%this.totalSlides,this.updateSlidePosition()}nextSlide(){this._currentSlide=(this._currentSlide+1)%this.totalSlides,this.updateSlidePosition()}updateSlidePosition(){let e=this.shadowRoot.querySelector(".slides-container");e.style.transform=`translateX(-${this._currentSlide*100}%)`,this.shadowRoot.querySelectorAll(".indicator").forEach((o,s)=>{o.classList.toggle("active",s===this._currentSlide)}),this.dispatchEvent(new CustomEvent("slide-change",{detail:{currentSlide:this._currentSlide},bubbles:!0}))}disconnectedCallback(){this.stopAutoplay()}};customElements.define("causs-carousel",Y);var J=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this._open=!1,this._selectedIndex=-1,this._items=[];let e=this.getAttribute("label");this.shadowRoot.innerHTML=`
+            <style>
+                :host {
+                    display: inline-block;
+                    position: relative;
+                    width: var(--select-width, 300px);
+                }
+
+                .combobox {
+                    position: relative;
+                }
+
+                .input-wrapper {
+                    display: flex;
+                    align-items: center;
+                    border: 1px solid var(--components-border);
+                    border-radius: var(--border-radius);
+                    background: var(--background);
+                    padding: 10px 12px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+
+                .input-wrapper:hover {
+                    background: var(--background-hover);
+                }
+
+                .input-wrapper:focus-within {
+                    border-color: var(--primary);
+                }
+
+                input {
+                    flex: 1;
+                    border: none;
+                    background: none;
+                    padding: 0;
+                    margin: 0;
+                    outline: none;
+                    font-size: 1rem;
+                    color: var(--text-black);
+                    width: 100%;
+                    cursor: pointer;
+                }
+
+                input::placeholder {
+                    color: var(--subtext-black);
+                    opacity: 1;
+                }
+
+                .arrow {
+                    display: flex;
+                    align-items: center;
+                    margin-left: 8px;
+                    color: var(--subtext-black);
+                    transition: transform 0.2s ease;
+                }
+
+                .arrow svg {
+                    width: 14px;
+                    height: 14px;
+                }
+
+                .arrow.open {
+                    transform: rotate(180deg);
+                }
+
+                .dropdown {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 100%;
+                    margin-top: 4px;
+                    background: var(--background);
+                    border: 1px solid var(--components-border);
+                    border-radius: var(--border-radius);
+                    max-height: 200px;
+                    overflow-y: auto;
+                    z-index: 10;
+                    display: none;
+                    padding: 8px;
+                }
+
+                .dropdown.open {
+                    display: block;
+                }
+
+                .option {
+                    padding: 10px 12px;
+                    cursor: pointer;
+                    transition: background-color 0.2s ease;
+                    border-radius: var(--border-radius);
+                }
+
+                .option:hover {
+                    background-color: var(--background-hover);
+                }
+
+                .option.selected {
+                    background-color: var(--primary);
+                    color: var(--white);
+                }
+
+                .option.highlighted {
+                    background: var(--background-hover);
+                }
+
+                .no-results {
+                    padding: 8px 12px;
+                    color: var(--subtext-black);
+                    font-style: italic;
+                }
+
+                /* For multiple selection */
+                .tags {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 4px;
+                    margin-bottom: 4px;
+                }
+
+                .tag {
+                    display: flex;
+                    align-items: center;
+                    background: var(--background-hover);
+                    border: 1px solid var(--components-border);
+                    border-radius: var(--border-radius);
+                    padding: 2px 8px;
+                    font-size: 12px;
+                }
+
+                .tag-remove {
+                    margin-left: 4px;
+                    cursor: pointer;
+                    opacity: 0.7;
+                }
+
+                .tag-remove:hover {
+                    opacity: 1;
+                }
+
+                /* Add label support */
+                .label {
+                    font-size: 0.875rem;
+                    font-weight: 500;
+                    margin-bottom: 8px;
+                    display: block;
+                }
+            </style>
+
+            <div class="combobox">
+                ${e?`<label class="label">${e}</label>`:""}
+                <div class="input-wrapper">
+                    <div class="tags"></div>
+                    <input type="text" placeholder="${this.getAttribute("placeholder")||"Select or type..."}">
+                    <div class="arrow">
+                        <svg width="14" height="14" viewBox="0 0 24 24" id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg">
+                            <defs><style>.cls-1{fill:var(--subtext-black);}</style></defs>
+                            <title>chevron-down</title>
+                            <g id="chevron-down-Filled">
+                                <path id="chevron-down-Filled-2" data-name="chevron-down-Filled" class="cls-1" d="M21.707,8.707l-9,9a1,1,0,0,1-1.414,0l-9-9A1,1,0,1,1,3.707,7.293L12,15.586l8.293-8.293a1,1,0,1,1,1.414,1.414Z"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div class="dropdown"></div>
+            </div>
+        `,this._input=this.shadowRoot.querySelector("input"),this._dropdown=this.shadowRoot.querySelector(".dropdown"),this._arrow=this.shadowRoot.querySelector(".arrow"),this._tags=this.shadowRoot.querySelector(".tags")}connectedCallback(){this.multiple=this.hasAttribute("multiple"),this.setupEventListeners(),this.loadItems()}setupEventListeners(){this._input.addEventListener("input",()=>this.handleInput()),this.shadowRoot.querySelector(".input-wrapper").addEventListener("click",()=>{this._input.focus(),this.open()}),this._input.addEventListener("keydown",t=>this.handleKeydown(t)),document.addEventListener("click",t=>{this.contains(t.target)||this.close()})}loadItems(){let e=this.getAttribute("items");if(e)this._items=JSON.parse(e);else{let t=this.querySelector("slot");t&&(this._items=Array.from(t.children).map(o=>({value:o.getAttribute("value")||o.textContent,label:o.textContent})))}this.renderDropdown()}handleInput(){let e=this._input.value.toLowerCase();this.filterItems(e),this.open()}filterItems(e){let t=this._items.filter(o=>o.label.toLowerCase().includes(e));this.renderDropdown(t)}renderDropdown(e=this._items){this._dropdown.innerHTML=e.length?e.map((t,o)=>`
+                <div class="option" data-index="${o}">
+                    ${t.label}
+                </div>
+            `).join(""):'<div class="no-results">No results found</div>',this._dropdown.querySelectorAll(".option").forEach(t=>{t.addEventListener("click",()=>{this.selectItem(parseInt(t.dataset.index))})})}selectItem(e){let t=this._items[e];this.multiple?(this.addTag(t),this._input.value="",this._input.placeholder=""):(this._input.value=t.label,this._input.placeholder="",this.close()),this.dispatchEvent(new CustomEvent("change",{detail:{value:t.value,label:t.label},bubbles:!0}))}addTag(e){let t=document.createElement("div");t.className="tag",t.innerHTML=`
+            ${e.label}
+            <span class="tag-remove">\xD7</span>
+        `,t.querySelector(".tag-remove").addEventListener("click",()=>{t.remove(),this.dispatchEvent(new CustomEvent("remove",{detail:{value:e.value,label:e.label},bubbles:!0}))}),this._tags.appendChild(t)}handleKeydown(e){switch(e.key){case"ArrowDown":e.preventDefault(),this.highlightNext();break;case"ArrowUp":e.preventDefault(),this.highlightPrevious();break;case"Enter":e.preventDefault(),this._selectedIndex>=0&&this.selectItem(this._selectedIndex);break;case"Escape":this.close();break}}highlightNext(){let e=this._dropdown.querySelectorAll(".option");this._selectedIndex<e.length-1&&(this._selectedIndex++,this.updateHighlight())}highlightPrevious(){this._selectedIndex>0&&(this._selectedIndex--,this.updateHighlight())}updateHighlight(){this._dropdown.querySelectorAll(".option").forEach((t,o)=>{t.classList.toggle("highlighted",o===this._selectedIndex),o===this._selectedIndex&&t.scrollIntoView({block:"nearest"})})}open(){this._open||(this._open=!0,this._dropdown.classList.add("open"),this._arrow.classList.add("open"))}close(){this._open&&(this._open=!1,this._dropdown.classList.remove("open"),this._arrow.classList.remove("open"),this._selectedIndex=-1)}reset(){this._input.value="",this._input.placeholder=this.getAttribute("placeholder")||"Select or type..."}};customElements.define("causs-combobox",J);var G=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this._sortColumn=null,this._sortDirection="asc",this._currentPage=1,this._itemsPerPage=parseInt(this.getAttribute("items-per-page"))||10,this.shadowRoot.innerHTML=`
+            <style>
+                :host {
+                    display: block;
+                    width: 100%;
+                }
+
+                .table-container {
+                    border: 1px solid var(--components-border);
+                    border-radius: var(--border-radius);
+                    overflow: hidden;
+                }
+
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    background: var(--background);
+                }
+
+                thead {
+                    background: var(--background);
+                    position: sticky;
+                    top: 0;
+                    z-index: 1;
+                }
+
+                th {
+                    padding: 12px 16px;
+                    text-align: left;
+                    font-weight: 500;
+                    color: var(--text-black);
+                    border-bottom: 1px solid var(--components-border);
+                    cursor: pointer;
+                    user-select: none;
+                    white-space: nowrap;
+                }
+
+                th:hover {
+                    background: var(--background-hover);
+                }
+
+                th .sort-icon {
+                    display: inline-block;
+                    width: 14px;
+                    height: 14px;
+                    margin-left: 4px;
+                    opacity: 0.5;
+                }
+
+                th .sort-icon.active {
+                    opacity: 1;
+                }
+
+                td {
+                    padding: 12px 16px;
+                    border-bottom: 1px solid var(--components-border);
+                    color: var(--text-black);
+                }
+
+                tr:last-child td {
+                    border-bottom: none;
+                }
+
+                tr:hover td {
+                    background: var(--background-hover);
+                }
+
+                .pagination {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 12px 16px;
+                    background: var(--background);
+                    border-top: 1px solid var(--components-border);
+                }
+
+                .pagination-info {
+                    color: var(--subtext-black);
+                    font-size: 0.875rem;
+                }
+
+                .pagination-controls {
+                    display: flex;
+                    gap: 8px;
+                }
+
+                .pagination-button {
+                    padding: 6px 12px;
+                    border: 1px solid var(--components-border);
+                    border-radius: var(--border-radius);
+                    background: var(--background);
+                    cursor: pointer;
+                    color: var(--text-black);
+                    transition: all 0.2s ease;
+                }
+
+                .pagination-button:hover:not(:disabled) {
+                    background: var(--background-hover);
+                }
+
+                .pagination-button:disabled {
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                }
+
+                .empty-state {
+                    padding: 32px;
+                    text-align: center;
+                    color: var(--subtext-black);
+                }
+
+                /* Responsive styles */
+                @media (max-width: 768px) {
+                    .table-container {
+                        overflow-x: auto;
+                    }
+                }
+            </style>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div class="pagination">
+                    <div class="pagination-info"></div>
+                    <div class="pagination-controls">
+                        <button class="pagination-button prev" disabled>Previous</button>
+                        <button class="pagination-button next">Next</button>
+                    </div>
+                </div>
+            </div>
+        `,this._thead=this.shadowRoot.querySelector("thead tr"),this._tbody=this.shadowRoot.querySelector("tbody"),this._paginationInfo=this.shadowRoot.querySelector(".pagination-info"),this._prevButton=this.shadowRoot.querySelector(".pagination-button.prev"),this._nextButton=this.shadowRoot.querySelector(".pagination-button.next")}static get observedAttributes(){return["columns","data","items-per-page"]}attributeChangedCallback(e,t,o){t!==o&&(e==="columns"?(this.columns=JSON.parse(o),this.renderHeaders()):e==="data"?(this.data=JSON.parse(o),this.renderData()):e==="items-per-page"&&(this._itemsPerPage=parseInt(o),this.renderData()))}connectedCallback(){this.setupEventListeners()}setupEventListeners(){this._prevButton.addEventListener("click",()=>this.previousPage()),this._nextButton.addEventListener("click",()=>this.nextPage())}renderHeaders(){this._thead.innerHTML=this.columns.map(e=>`
+            <th data-field="${e.field}">
+                ${e.label}
+                <span class="sort-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg">
+                        <defs><style>.cls-1{fill:var(--subtext-black);}</style></defs>
+                        <title>chevron-down</title>
+                        <g id="chevron-down-Filled">
+                            <path id="chevron-down-Filled-2" data-name="chevron-down-Filled" class="cls-1" d="M21.707,8.707l-9,9a1,1,0,0,1-1.414,0l-9-9A1,1,0,1,1,3.707,7.293L12,15.586l8.293-8.293a1,1,0,1,1,1.414,1.414Z"/>
+                        </g>
+                    </svg>
+                </span>
+            </th>
+        `).join(""),this._thead.querySelectorAll("th").forEach(e=>{e.addEventListener("click",()=>this.sortByColumn(e.dataset.field))})}renderData(){if(!this.data||!this.data.length){this._tbody.innerHTML=`
+                <tr>
+                    <td colspan="${this.columns.length}" class="empty-state">
+                        No data available
+                    </td>
+                </tr>
+            `;return}let e=[...this.data];this._sortColumn&&e.sort((s,i)=>{let a=s[this._sortColumn],n=i[this._sortColumn],d=this._sortDirection==="asc"?1:-1;return typeof a=="string"?a.localeCompare(n)*d:(a-n)*d});let t=(this._currentPage-1)*this._itemsPerPage,o=e.slice(t,t+this._itemsPerPage);this._tbody.innerHTML=o.map(s=>`
+            <tr>
+                ${this.columns.map(i=>`
+                    <td>${this.formatCell(s[i.field],i)}</td>
+                `).join("")}
+            </tr>
+        `).join(""),this.updatePagination(e.length)}formatCell(e,t){return t.format?t.format(e):e}sortByColumn(e){this._sortColumn===e?this._sortDirection=this._sortDirection==="asc"?"desc":"asc":(this._sortColumn=e,this._sortDirection="asc"),this._thead.querySelectorAll(".sort-icon").forEach(o=>{o.classList.remove("active")}),this._thead.querySelector(`[data-field="${e}"] .sort-icon`).classList.add("active"),this.renderData()}updatePagination(e){let t=Math.ceil(e/this._itemsPerPage),o=(this._currentPage-1)*this._itemsPerPage+1,s=Math.min(o+this._itemsPerPage-1,e);this._paginationInfo.textContent=`Showing ${o}-${s} of ${e}`,this._prevButton.disabled=this._currentPage===1,this._nextButton.disabled=this._currentPage===t}previousPage(){this._currentPage>1&&(this._currentPage--,this.renderData())}nextPage(){let e=Math.ceil(this.data.length/this._itemsPerPage);this._currentPage<e&&(this._currentPage++,this.renderData())}};customElements.define("causs-table",G);var W=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=`
+            <style>
+                :host {
+                    display: block;
+                    width: 100%;
+                    padding: 16px;
+                }
+
+                .timeline {
+                    position: relative;
+                    padding-left: 32px;
+                }
+
+                .timeline::before {
+                    content: '';
+                    position: absolute;
+                    left: 7px;
+                    top: 0;
+                    bottom: 0;
+                    width: 2px;
+                    background: var(--components-border);
+                }
+
+                .timeline-item {
+                    position: relative;
+                    margin-bottom: 24px;
+                }
+
+                .timeline-item:last-child {
+                    margin-bottom: 0;
+                }
+
+                .timeline-dot {
+                    position: absolute;
+                    left: -32px;
+                    width: 16px;
+                    height: 16px;
+                    background: var(--background);
+                    border: 2px solid var(--components-border);
+                    border-radius: 50%;
+                    z-index: 1;
+                }
+
+                .timeline-item.active .timeline-dot {
+                    background: var(--primary);
+                    border-color: var(--primary);
+                }
+
+                .timeline-item.completed .timeline-dot {
+                    background: var(--success, #10B981);
+                    border-color: var(--success, #10B981);
+                }
+
+                .timeline-content {
+                    background: var(--background);
+                    border: 1px solid var(--components-border);
+                    border-radius: var(--border-radius);
+                    padding: 16px;
+                }
+
+                .timeline-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 8px;
+                }
+
+                .timeline-title {
+                    font-weight: 500;
+                    color: var(--text-black);
+                }
+
+                .timeline-date {
+                    font-size: 0.875rem;
+                    color: var(--subtext-black);
+                }
+
+                .timeline-body {
+                    color: var(--text-black);
+                    font-size: 0.875rem;
+                }
+
+                /* Optional: Hover effect */
+                .timeline-content:hover {
+                    background: var(--background-hover);
+                }
+            </style>
+
+            <div class="timeline">
+                <slot></slot>
+            </div>
+        `}static get observedAttributes(){return["items"]}attributeChangedCallback(e,t,o){e==="items"&&t!==o&&this.renderItems(JSON.parse(o))}renderItems(e){let t=this.shadowRoot.querySelector(".timeline");t.innerHTML=e.map((o,s)=>`
+            <div class="timeline-item ${o.status||""}">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <div class="timeline-title">${o.title}</div>
+                        ${o.date?`<div class="timeline-date">${o.date}</div>`:""}
+                    </div>
+                    <div class="timeline-body">
+                        ${o.content}
+                    </div>
+                </div>
+            </div>
+        `).join("")}};customElements.define("causs-timeline",W);})();
